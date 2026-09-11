@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lime Labs builds thoughtful software — LimeBoard, BigSprout, SafetyTat, and the Lime Digital Command Center.">
-  <title>Lime Labs</title>
+  <meta name="description" content="Lime Labs builds focused consumer apps — Rootline for plant care, Burnline for LLM spend, and SafetyTat in incubation.">
+  <meta name="theme-color" content="#0c120e">
+  <title>Lime Labs — Software studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
@@ -22,7 +23,7 @@
       </a>
       <nav aria-label="Primary">
         <a href="#products">Products</a>
-        <a href="#about">About</a>
+        <a href="#studio">Studio</a>
         <a href="#contact" class="nav-cta">Contact</a>
       </nav>
     </div>
@@ -30,111 +31,162 @@
 
   <main id="main">
     <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-inner">
-        <p class="hero-eyebrow">Software studio</p>
-        <h1>Tools that grow with you</h1>
+        <p class="hero-kicker">Independent software studio</p>
+        <h1 class="hero-brand">Lime Labs</h1>
         <p class="hero-lead">
-          Lime Labs builds focused products for families, teams, and communities.
-          We care about clarity, safety, and software that feels human.
+          We ship focused consumer apps with sharp product craft —
+          hip enough to feel current, technical enough to trust.
         </p>
         <div class="hero-actions">
-          <a href="#products" class="btn btn-primary">See what we're building</a>
-          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          <a href="#products" class="btn btn-primary">See the products</a>
+          <a href="#contact" class="btn btn-ghost">Talk to the studio</a>
         </div>
       </div>
-      <div class="hero-accent" aria-hidden="true"></div>
     </section>
 
     <section id="products" class="products">
-      <div class="section-head">
+      <div class="section-bar">
         <h2>Products</h2>
-        <p>Four projects. One through-line: useful software without the noise.</p>
+        <p>Live apps first. Incubation second. App Store is the finish line.</p>
       </div>
 
-      <div class="product-grid">
-        <article class="product-card" data-product="limeboard">
-          <div class="product-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="10" width="36" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
-              <path d="M14 18h20M14 24h14M14 30h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+      <div class="product-stack">
+        <!-- Rootline -->
+        <article class="product-card product-card--rootline">
+          <a class="product-media" href="https://bigsprout.app" target="_blank" rel="noopener noreferrer">
+            <img
+              src="assets/rootline-cover.jpg"
+              alt="Rootline — household plant care branding with sprout mark and living plants"
+              width="1200"
+              height="630"
+              loading="lazy"
+            />
+            <span class="product-media-badge">Live</span>
+          </a>
+          <div class="product-body">
+            <div class="product-meta">
+              <img class="product-glyph" src="assets/rootline-mark.svg" alt="" width="40" height="40" />
+              <div>
+                <p class="product-eyebrow">Household plant care</p>
+                <h3>Rootline</h3>
+              </div>
+            </div>
+            <p class="product-tagline">Care schedules that stick. Guidance when they don’t.</p>
+            <p class="product-copy">
+              A climate-aware plant journal for your household — identify what you own,
+              follow care reminders, and get treatment plans when pests show up.
+            </p>
+            <ul class="product-feats">
+              <li>Photo identify &amp; auto care setup</li>
+              <li>Schedules for water, feed, mist, rotate</li>
+              <li>Diagnose &amp; staged treatment plans</li>
+              <li>Household sharing for shared gardens</li>
+            </ul>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="https://bigsprout.app" target="_blank" rel="noopener noreferrer">Visit Rootline</a>
+              <a class="btn btn-ghost" href="https://apps.apple.com/app/id6806696633" target="_blank" rel="noopener noreferrer">App Store</a>
+            </div>
           </div>
-          <h3>LimeBoard</h3>
-          <p>
-            A collaborative workspace for planning and staying aligned.
-            Boards, lists, and the context your team actually needs — without the enterprise bloat.
-          </p>
         </article>
 
-        <article class="product-card" data-product="bigsprout">
-          <div class="product-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 42V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M24 22c-8-4-14-2-16 6 6-2 12 0 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M24 22c8-4 14-2 16 6-6-2-12 0-16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="24" cy="14" r="4" stroke="currentColor" stroke-width="2"/>
-            </svg>
+        <!-- Burnline -->
+        <article class="product-card product-card--burnline">
+          <a class="product-media" href="https://burnline.app" target="_blank" rel="noopener noreferrer">
+            <img
+              src="assets/burnline-cover.jpg"
+              alt="Burnline — energy trails and wireframe flame branding"
+              width="1600"
+              height="900"
+              loading="lazy"
+            />
+            <span class="product-media-badge">Live</span>
+          </a>
+          <div class="product-body">
+            <div class="product-meta">
+              <img class="product-glyph product-glyph--round" src="assets/burnline-icon.png" alt="" width="40" height="40" />
+              <div>
+                <p class="product-eyebrow">LLM spend cockpit</p>
+                <h3>Burnline</h3>
+              </div>
+            </div>
+            <p class="product-tagline">Know your burn. Know your runway.</p>
+            <p class="product-copy">
+              Mobile cockpit for LLM API spend — live burn velocity, runway-to-zero,
+              and model breakdown. Starts with OpenRouter.
+            </p>
+            <ul class="product-feats">
+              <li>Burn speedometer &amp; days-to-zero</li>
+              <li>Desk Monitor for ambient spend visibility</li>
+              <li>Platform Pulse rankings (no key required)</li>
+              <li>On-device keys + home-screen widgets</li>
+            </ul>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="https://burnline.app" target="_blank" rel="noopener noreferrer">Visit Burnline</a>
+              <a class="btn btn-ghost" href="https://apps.apple.com/app/id6805714980" target="_blank" rel="noopener noreferrer">App Store</a>
+            </div>
           </div>
-          <h3>BigSprout</h3>
-          <p>
-            Growth tools for people building something new — habits, projects, and momentum
-            tracked in a way that encourages rather than nags.
-          </p>
         </article>
 
-        <article class="product-card" data-product="safetytat">
-          <div class="product-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 8l14 6v10c0 9-6 16-14 18-8-2-14-9-14-18V14l14-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M18 24l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <!-- SafetyTat -->
+        <article class="product-card product-card--incubating" aria-labelledby="safetytat-title">
+          <div class="product-media product-media--static">
+            <div class="incubate-panel" aria-hidden="true">
+              <span class="incubate-mark"></span>
+              <span class="incubate-grid"></span>
+            </div>
+            <span class="product-media-badge product-media-badge--soft">Incubating</span>
           </div>
-          <h3>SafetyTat</h3>
-          <p>
-            A family safety product we're developing with care. Details are intentionally limited
-            while we refine the experience — reach out if you'd like to learn more in private.
-          </p>
-        </article>
-
-        <article class="product-card" data-product="command-center">
-          <div class="product-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="8" width="36" height="24" rx="3" stroke="currentColor" stroke-width="2"/>
-              <path d="M6 32h36" stroke="currentColor" stroke-width="2"/>
-              <circle cx="14" cy="38" r="2" fill="currentColor"/>
-              <circle cx="24" cy="38" r="2" fill="currentColor"/>
-              <circle cx="34" cy="38" r="2" fill="currentColor"/>
-              <rect x="12" y="14" width="8" height="12" rx="1" fill="currentColor" opacity="0.3"/>
-              <rect x="22" y="14" width="8" height="8" rx="1" fill="currentColor" opacity="0.5"/>
-              <rect x="32" y="14" width="6" height="14" rx="1" fill="currentColor" opacity="0.3"/>
-            </svg>
+          <div class="product-body">
+            <div class="product-meta">
+              <div class="product-glyph product-glyph--placeholder" aria-hidden="true">ST</div>
+              <div>
+                <p class="product-eyebrow">Family safety</p>
+                <h3 id="safetytat-title">SafetyTat</h3>
+              </div>
+            </div>
+            <p class="product-tagline">Quietly in the lab.</p>
+            <p class="product-copy">
+              A family safety product we’re developing with care. Details stay limited
+              while we refine the experience — reach out if you want to talk privately.
+            </p>
+            <div class="product-actions">
+              <a class="btn btn-ghost" href="mailto:hello@limelabs.dev?subject=SafetyTat">Ask about SafetyTat</a>
+            </div>
           </div>
-          <h3>Lime Digital Command Center</h3>
-          <p>
-            Your social dashboard — one place to see what matters across channels,
-            respond with context, and keep your presence coherent without living in ten apps.
-          </p>
         </article>
       </div>
     </section>
 
-    <section id="about" class="about">
-      <div class="about-inner">
-        <div class="about-copy">
-          <h2>Small studio, sharp focus</h2>
+    <section id="studio" class="studio">
+      <div class="studio-inner">
+        <div class="studio-copy">
+          <p class="studio-kicker">Studio</p>
+          <h2>Small team. Shipped products.</h2>
           <p>
-            Lime Labs is an independent software studio. We ship products we believe in,
-            iterate in the open when it helps, and keep the rest under wraps until it's ready.
+            Lime Labs is an independent studio building consumer software end to end —
+            brand, product, and App Store delivery. We care about clarity, privacy,
+            and interfaces that earn daily use.
           </p>
           <p>
-            No pitch decks on the homepage. No fake metrics. If you're curious about a product
-            or want to collaborate, we'd rather talk than broadcast.
+            If you’re evaluating partnership, investment, or joining the build,
+            start with the live apps. The work is the pitch.
           </p>
         </div>
-        <ul class="about-principles" aria-label="Principles">
-          <li><span class="principle-num">01</span> Clarity over cleverness</li>
-          <li><span class="principle-num">02</span> Privacy by default</li>
-          <li><span class="principle-num">03</span> Software that respects your time</li>
+        <ul class="studio-principles" aria-label="How we work">
+          <li>
+            <span class="principle-key">01</span>
+            <span>Ship the product, not the deck</span>
+          </li>
+          <li>
+            <span class="principle-key">02</span>
+            <span>Privacy by default</span>
+          </li>
+          <li>
+            <span class="principle-key">03</span>
+            <span>Craft that respects attention</span>
+          </li>
         </ul>
       </div>
     </section>
@@ -142,7 +194,7 @@
     <section id="contact" class="contact">
       <div class="contact-inner">
         <h2>Say hello</h2>
-        <p>Questions, partnerships, or early access — we're listening.</p>
+        <p>Partnerships, hiring, or early access — we’re listening.</p>
         <a href="mailto:hello@limelabs.dev" class="btn btn-primary btn-large">hello@limelabs.dev</a>
       </div>
     </section>
@@ -150,8 +202,11 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-brand">Lime Labs</span>
-      <span class="footer-meta">&copy; 2026 Lime Labs. All rights reserved.</span>
+      <p class="footer-statement">Build sharp. Ship lime.</p>
+      <div class="footer-meta">
+        <span class="footer-brand">Lime Labs</span>
+        <span>&copy; 2026 Lime Labs</span>
+      </div>
     </div>
   </footer>
 </body>
