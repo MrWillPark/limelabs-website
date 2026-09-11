@@ -1,22 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-  <!--
-    Rootline — Option A root-sprout mark
-    Continuous ink line · soil horizon · twin leaves · three-tip root fork
-    Color: currentColor (UI) or #2D754E on #F6F2E7 (icons)
-  -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Rootline">
+  <!-- Rootline root-sprout mark · explicit stroke for <img> use on dark surfaces -->
   <g
-    stroke="currentColor"
+    stroke="#7CB892"
     stroke-width="3.4"
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <!-- soil -->
     <path d="M10 34h44" />
-
-    <!-- stem -->
     <path d="M32 34V20.5" />
-
-    <!-- left leaf -->
     <path
       d="M32 20.5
          C27.5 16.2 19.5 13.8 15.2 18.6
@@ -24,8 +15,6 @@
          C24.2 33.4 29.4 30.8 32 26.2"
     />
     <path d="M32 20.5C27.2 22.2 22.8 25.4 19.8 29.2" stroke-width="2.6" />
-
-    <!-- right leaf -->
     <path
       d="M32 20.5
          C36.5 16.2 44.5 13.8 48.8 18.6
@@ -33,15 +22,9 @@
          C39.8 33.4 34.6 30.8 32 26.2"
     />
     <path d="M32 20.5C36.8 22.2 41.2 25.4 44.2 29.2" stroke-width="2.6" />
-
-    <!-- center root -->
     <path d="M32 34v18" />
-
-    <!-- left root + lateral -->
     <path d="M32 39c-5 2.8-9.2 7.6-10.2 13.8" />
     <path d="M25 46.5c-2.8 1-5.2 1.4-7.4 0.4" stroke-width="2.8" />
-
-    <!-- right root + lateral -->
     <path d="M32 39c5 2.8 9.2 7.6 10.2 13.8" />
     <path d="M39 46.5c2.8 1 5.2 1.4 7.4 0.4" stroke-width="2.8" />
   </g>
