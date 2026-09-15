@@ -218,6 +218,7 @@ function boot() {
   });
   revealSection(".studio-copy", { y: 24 });
   revealSection(".studio-principles li", { y: 16, duration: 0.5 });
+  revealSection(".studio-methods", { y: 22, duration: 0.6 });
   revealSection(".contact-inner", { y: 30, duration: 0.7 });
   revealSection(".footer-statement", { y: 20, duration: 0.6 });
 }

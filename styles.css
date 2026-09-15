@@ -410,7 +410,8 @@ a:focus-visible,
 .product-media {
   position: relative;
   display: block;
-  min-height: 280px;
+  aspect-ratio: 16 / 10;
+  min-height: 240px;
   overflow: hidden;
   text-decoration: none;
   background: var(--color-paper-3);
@@ -420,7 +421,8 @@ a:focus-visible,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  min-height: 280px;
+  object-position: center;
+  display: block;
   transition: transform var(--dur-med) var(--ease-out);
 }
 
@@ -590,62 +592,24 @@ a:focus-visible,
 
 /* Incubating */
 .product-card--incubating {
-  opacity: 0.92;
+  background: linear-gradient(160deg, oklch(0.15 0.025 240) 0%, oklch(0.14 0.02 200) 100%);
 }
 
 .product-card--incubating:hover {
-  border-color: var(--color-rule);
-  transform: none;
+  border-color: oklch(0.55 0.04 230);
+  transform: translateY(-2px);
+}
+
+.product-card--incubating .product-media--static {
+  cursor: default;
 }
 
 .product-media--static {
-  min-height: 220px;
+  min-height: 0;
 }
 
-.incubate-panel {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 220px;
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 10px,
-      oklch(0.22 0.03 145 / 0.5) 10px,
-      oklch(0.22 0.03 145 / 0.5) 12px
-    ),
-    var(--color-paper-3);
-}
-
-.incubate-mark {
-  position: absolute;
-  inset: 28% 30%;
-  border: 2px dashed var(--color-rule);
-  background: oklch(0.18 0.02 145 / 0.6);
-  z-index: 1;
-}
-
-.incubate-mark::after {
-  content: "?";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-ink-3);
-}
-
-.incubate-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(oklch(0.9 0.24 128 / 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.9 0.24 128 / 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
+.product-media--static img {
+  filter: saturate(0.92);
 }
 
 /* Studio */
@@ -706,6 +670,36 @@ a:focus-visible,
   padding: var(--space-sm) 0;
   border-bottom: 1px solid var(--color-rule);
   font-weight: 500;
+}
+
+.studio-methods {
+  max-width: var(--measure);
+  margin: var(--space-xl) auto 0;
+  border: 2px solid var(--color-rule);
+  background:
+    linear-gradient(135deg, oklch(0.9 0.24 128 / 0.06), transparent 42%),
+    var(--color-paper);
+}
+
+.studio-methods-inner {
+  padding: var(--space-lg);
+  max-width: 44rem;
+}
+
+.studio-methods h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-sm);
+  line-height: 1.15;
+}
+
+.studio-methods p {
+  margin: 0;
+  color: var(--color-ink-2);
+  font-size: var(--text-sm);
+  max-width: 40rem;
 }
 
 .principle-key {
@@ -800,6 +794,7 @@ a:focus-visible,
   html.has-js:not(.motion-fallback) .product-feats li,
   html.has-js:not(.motion-fallback) .studio-copy,
   html.has-js:not(.motion-fallback) .studio-principles li,
+  html.has-js:not(.motion-fallback) .studio-methods,
   html.has-js:not(.motion-fallback) .contact-inner,
   html.has-js:not(.motion-fallback) .footer-statement {
     opacity: 0;
@@ -814,6 +809,7 @@ a:focus-visible,
   html.has-js:not(.motion-fallback) .product-feats li.is-visible,
   html.has-js:not(.motion-fallback) .studio-copy.is-visible,
   html.has-js:not(.motion-fallback) .studio-principles li.is-visible,
+  html.has-js:not(.motion-fallback) .studio-methods.is-visible,
   html.has-js:not(.motion-fallback) .contact-inner.is-visible,
   html.has-js:not(.motion-fallback) .footer-statement.is-visible {
     opacity: 1;
@@ -882,6 +878,7 @@ a:focus-visible,
   .product-feats li,
   .studio-copy,
   .studio-principles li,
+  .studio-methods,
   .contact-inner,
   .footer-statement {
     opacity: 1;
@@ -906,14 +903,21 @@ a:focus-visible,
 
   .product-media,
   .product-media img,
-  .product-media--static,
-  .incubate-panel {
-    min-height: 200px;
+  .product-media--static {
+    min-height: 180px;
   }
 
   .studio-inner {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-lg);
+  }
+
+  .studio-methods {
+    margin-top: var(--space-lg);
+  }
+
+  .studio-methods-inner {
+    padding: var(--space-md);
   }
 }
 
