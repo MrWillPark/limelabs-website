@@ -393,6 +393,7 @@ a:focus-visible,
 }
 
 .product-card {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   gap: 0;
@@ -400,6 +401,50 @@ a:focus-visible,
   background: var(--color-paper-2);
   overflow: hidden;
   transition: border-color var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out);
+}
+
+/* Substrate proximity spotlight */
+.has-spotlight {
+  position: relative;
+}
+
+.has-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    oklch(0.9 0.24 128 / 0.07),
+    transparent 65%
+  );
+  opacity: var(--spot-opacity, 0);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.product-card--rootline.has-spotlight::before {
+  background: radial-gradient(
+    520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    oklch(0.65 0.16 145 / 0.09),
+    transparent 65%
+  );
+}
+
+.product-card--burnline.has-spotlight::before {
+  background: radial-gradient(
+    520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    oklch(0.9 0.28 135 / 0.08),
+    transparent 65%
+  );
+}
+
+.product-body,
+.product-media,
+.studio-methods-inner,
+.contact-inner > * {
+  position: relative;
+  z-index: 2;
 }
 
 .product-card:hover {
@@ -833,6 +878,39 @@ a:focus-visible,
 
   .logo-mark {
     animation: stamp-pulse 2.4s var(--ease-out) 0.4s 1 both;
+  }
+
+  .product-card.has-entered {
+    animation: card-reveal-flash 0.9s var(--ease-out) 1;
+  }
+
+  .contact-inner.has-entered {
+    animation: contact-reveal-flash 1.05s var(--ease-out) 1;
+  }
+}
+
+@keyframes card-reveal-flash {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  30% {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 16px oklch(0.9 0.24 128 / 0.14);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes contact-reveal-flash {
+  0% {
+    box-shadow: var(--shadow-hard);
+  }
+  35% {
+    box-shadow: 6px 6px 0 var(--color-accent), 0 0 24px oklch(0.9 0.24 128 / 0.16);
+  }
+  100% {
+    box-shadow: var(--shadow-hard);
   }
 }
 

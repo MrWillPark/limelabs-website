@@ -1,11 +1,12 @@
 /**
  * Lime Labs motion layer
- * Lenis smooth scroll · Motion (motion.dev) reveals · scroll progress · stamp CTAs
+ * Lenis smooth scroll · Motion (motion.dev) reveals · scroll progress · substrate spotlight · magnetic CTAs · mono decoder
  */
 import Lenis from "https://cdn.jsdelivr.net/npm/lenis@1.3.8/+esm";
 import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@12.23.12/+esm";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = window.matchMedia("(pointer: fine)").matches;
 
 /** Motion CDN build omits stagger(); delay-as-function is supported. */
 const staggerDelay = (step, startDelay = 0) => (i) => startDelay + i * step;
@@ -122,17 +123,52 @@ function stampHero() {
   });
 }
 
+/** Monospace index scramble on viewport intersection */
+function scrambleMonoText(el, targetText, duration = 150) {
+  if (reduceMotion) {
+    el.textContent = targetText;
+    return;
+  }
+  const glyphs = "0123456789#/_*";
+  const start = performance.now();
+
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(1, elapsed / duration);
+
+    if (progress >= 1) {
+      el.textContent = targetText;
+      return;
+    }
+
+    let out = "";
+    for (let i = 0; i < targetText.length; i++) {
+      if (Math.random() < progress) {
+        out += targetText[i];
+      } else {
+        out += glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+    }
+    el.textContent = out;
+    requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
 function revealSection(selector, options = {}) {
   const {
     y = 28,
     duration = 0.7,
     staggerChildren = null,
     childSelector = null,
+    onVisible = null,
   } = options;
 
   document.querySelectorAll(selector).forEach((el) => {
     if (reduceMotion) {
       clearMotionStyles(el);
+      if (onVisible) onVisible(el);
       return;
     }
 
@@ -145,7 +181,11 @@ function revealSection(selector, options = {}) {
           el,
           { opacity: [0, 1], y: [y, 0] },
           { duration, easing: [0.22, 1, 0.36, 1] }
-        ).finished.then(() => clearMotionStyles(el));
+        ).finished.then(() => {
+          clearMotionStyles(el);
+          el.classList.add("has-entered");
+          if (onVisible) onVisible(el);
+        });
 
         if (childSelector && staggerChildren != null) {
           const kids = el.querySelectorAll(childSelector);
@@ -165,23 +205,104 @@ function revealSection(selector, options = {}) {
           }
         }
       },
-      { margin: "0px 0px -12% 0px", amount: 0.25 }
+      { margin: "0px 0px -10% 0px", amount: 0.2 }
     );
   });
 }
 
-function initMagneticButtons() {
-  if (reduceMotion || window.matchMedia("(pointer: coarse)").matches) return;
+/**
+ * Substrate proximity spotlight tracking
+ * Renders ambient lime substrate luminescence tracking pointer coordinates
+ */
+function initSpotlightCards() {
+  if (reduceMotion || !finePointer) return;
 
-  document.querySelectorAll(".btn-primary").forEach((btn) => {
-    btn.addEventListener("pointermove", (e) => {
-      const r = btn.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top - r.height / 2;
-      btn.style.transform = `translate(${x * 0.08}px, ${y * 0.1 - 2}px)`;
+  const targets = document.querySelectorAll(
+    ".product-card, .studio-methods, .contact-inner"
+  );
+
+  targets.forEach((card) => {
+    card.classList.add("has-spotlight");
+
+    const onMove = (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty("--spot-x", `${x}px`);
+      card.style.setProperty("--spot-y", `${y}px`);
+      card.style.setProperty("--spot-opacity", "1");
+    };
+
+    const onLeave = () => {
+      card.style.setProperty("--spot-opacity", "0");
+    };
+
+    card.addEventListener("pointerenter", onMove);
+    card.addEventListener("pointermove", onMove);
+    card.addEventListener("pointerleave", onLeave);
+  });
+}
+
+/**
+ * High-craft magnetic button attraction with RAF lerp
+ * Clamped strictly to ±4px travel to maintain sharp 2px hard shadow alignment
+ */
+function initRefinedMagneticButtons() {
+  if (reduceMotion || !finePointer) return;
+
+  const targets = document.querySelectorAll(
+    ".hero-actions .btn-primary, .contact-inner .btn-primary"
+  );
+
+  targets.forEach((btn) => {
+    let bounds = null;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let isHovered = false;
+    let rafId = null;
+
+    function render() {
+      currentX += (targetX - currentX) * 0.18;
+      currentY += (targetY - currentY) * 0.18;
+
+      btn.style.transform = `translate(${currentX.toFixed(2)}px, ${currentY.toFixed(2)}px)`;
+
+      const deltaX = Math.abs(targetX - currentX);
+      const deltaY = Math.abs(targetY - currentY);
+
+      if (isHovered || deltaX > 0.02 || deltaY > 0.02) {
+        rafId = requestAnimationFrame(render);
+      } else {
+        btn.style.transform = "";
+        btn.style.transition = "";
+        rafId = null;
+      }
+    }
+
+    btn.addEventListener("pointerenter", () => {
+      bounds = btn.getBoundingClientRect();
+      isHovered = true;
+      btn.style.transition = "none";
+      if (!rafId) rafId = requestAnimationFrame(render);
     });
+
+    btn.addEventListener("pointermove", (e) => {
+      if (!bounds) bounds = btn.getBoundingClientRect();
+      const relX = e.clientX - (bounds.left + bounds.width / 2);
+      const relY = e.clientY - (bounds.top + bounds.height / 2);
+
+      targetX = Math.max(-4, Math.min(4, relX * 0.14));
+      targetY = Math.max(-4, Math.min(4, relY * 0.14 - 2));
+    });
+
     btn.addEventListener("pointerleave", () => {
-      btn.style.transform = "";
+      bounds = null;
+      isHovered = false;
+      targetX = 0;
+      targetY = 0;
+      btn.style.transition = "transform var(--dur-fast) var(--ease-out)";
     });
   });
 }
@@ -207,7 +328,8 @@ function boot() {
   initLenis(updateProgress);
   stampHero();
   initGridPulse();
-  initMagneticButtons();
+  initSpotlightCards();
+  initRefinedMagneticButtons();
 
   revealSection(".section-bar", { y: 18, duration: 0.55 });
   revealSection(".product-card", {
@@ -217,7 +339,16 @@ function boot() {
     staggerChildren: 0.06,
   });
   revealSection(".studio-copy", { y: 24 });
-  revealSection(".studio-principles li", { y: 16, duration: 0.5 });
+  revealSection(".studio-principles li", {
+    y: 16,
+    duration: 0.5,
+    onVisible: (li) => {
+      const key = li.querySelector(".principle-key");
+      if (key) {
+        scrambleMonoText(key, key.textContent.trim(), 160);
+      }
+    },
+  });
   revealSection(".studio-methods", { y: 22, duration: 0.6 });
   revealSection(".contact-inner", { y: 30, duration: 0.7 });
   revealSection(".footer-statement", { y: 20, duration: 0.6 });
