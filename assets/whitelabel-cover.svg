@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" fill="none">
+  <rect width="1280" height="720" fill="#101410"/>
+  <rect width="1280" height="720" fill="url(#grid)" opacity="0.55"/>
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(200,255,0,0.08)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <circle cx="980" cy="180" r="280" fill="rgba(200,255,0,0.07)"/>
+  <circle cx="240" cy="560" r="240" fill="rgba(200,255,0,0.04)"/>
+
+  <!-- Phone -->
+  <rect x="780" y="90" width="320" height="560" rx="28" fill="#0c120e" stroke="#c8ff00" stroke-width="3"/>
+  <rect x="798" y="118" width="284" height="504" rx="14" fill="#161c18"/>
+  <rect x="820" y="148" width="80" height="10" fill="#c8ff00"/>
+  <rect x="820" y="178" width="200" height="22" fill="#e8f0e4"/>
+  <rect x="820" y="214" width="160" height="10" fill="#5a6658"/>
+  <rect x="820" y="260" width="240" height="88" fill="#1c241e" stroke="#2a332c" stroke-width="1.5"/>
+  <rect x="820" y="364" width="240" height="88" fill="#1c241e" stroke="#2a332c" stroke-width="1.5"/>
+  <rect x="820" y="468" width="240" height="88" fill="#1c241e" stroke="#2a332c" stroke-width="1.5"/>
+  <rect x="836" y="280" width="48" height="48" fill="#c8ff00"/>
+  <rect x="836" y="384" width="48" height="48" fill="#3d4a3c"/>
+  <rect x="836" y="488" width="48" height="48" fill="#3d4a3c"/>
+
+  <!-- Wordmark block -->
+  <rect x="120" y="220" width="28" height="28" fill="#c8ff00"/>
+  <text x="164" y="242" fill="#c8ff00" font-family="IBM Plex Mono, monospace" font-size="16" font-weight="600" letter-spacing="3">WHITE-LABEL</text>
+  <text x="120" y="310" fill="#f4f7f0" font-family="Syne, sans-serif" font-size="52" font-weight="800">Your brand.</text>
+  <text x="120" y="368" fill="#f4f7f0" font-family="Syne, sans-serif" font-size="52" font-weight="800">Our engine.</text>
+  <text x="120" y="420" fill="#9aa496" font-family="IBM Plex Sans, sans-serif" font-size="20">Shipped apps, custom-skinned for your store.</text>
+</svg>

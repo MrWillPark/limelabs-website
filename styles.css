@@ -657,6 +657,22 @@ a:focus-visible,
   filter: saturate(0.92);
 }
 
+/* Partnerships Section */
+.partnerships {
+  padding: 0 var(--space-md) var(--space-2xl);
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+/* White-label service skin */
+.product-card--whitelabel {
+  background: linear-gradient(160deg, oklch(0.16 0.03 145) 0%, oklch(0.14 0.025 148) 100%);
+}
+
+.product-card--whitelabel:hover {
+  border-color: var(--color-accent);
+}
+
 /* Studio */
 .studio {
   padding: var(--space-2xl) var(--space-md);
