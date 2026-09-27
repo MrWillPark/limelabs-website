@@ -28,6 +28,10 @@
   --color-burn-lime: oklch(0.9 0.28 135);
   --color-burn-panel: oklch(0.16 0.02 160);
 
+  --color-spark-paper: oklch(0.18 0.018 260);
+  --color-spark-amber: oklch(0.76 0.16 80);
+  --color-spark-panel: oklch(0.22 0.02 255);
+
   --font-display: "Syne", "Arial Narrow", sans-serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -439,6 +443,14 @@ a:focus-visible,
   );
 }
 
+.product-card--sparkwatch.has-spotlight::before {
+  background: radial-gradient(
+    520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    oklch(0.76 0.16 80 / 0.1),
+    transparent 65%
+  );
+}
+
 .product-body,
 .product-media,
 .studio-methods-inner,
@@ -496,6 +508,12 @@ a:focus-visible,
   border-color: var(--color-rule);
 }
 
+.product-media-badge--cook {
+  background: var(--color-spark-amber);
+  color: var(--color-accent-ink);
+  border-color: oklch(0.08 0.02 145);
+}
+
 .product-body {
   display: flex;
   flex-direction: column;
@@ -519,6 +537,10 @@ a:focus-visible,
 
 .product-glyph--round {
   border-radius: 50%;
+}
+
+.product-glyph--rounded {
+  border-radius: 10px;
 }
 
 .product-glyph--placeholder {
@@ -632,6 +654,25 @@ a:focus-visible,
 .product-card--burnline .btn-primary {
   background: var(--color-burn-lime);
   border-color: var(--color-burn-lime);
+  color: var(--color-accent-ink);
+}
+
+/* Sparkwatch skin */
+.product-card--sparkwatch {
+  background: linear-gradient(160deg, var(--color-spark-paper) 0%, var(--color-spark-panel) 100%);
+}
+
+.product-card--sparkwatch .product-feats li::before {
+  background: var(--color-spark-amber);
+}
+
+.product-card--sparkwatch:hover {
+  border-color: var(--color-spark-amber);
+}
+
+.product-card--sparkwatch .btn-primary {
+  background: var(--color-spark-amber);
+  border-color: var(--color-spark-amber);
   color: var(--color-accent-ink);
 }
 

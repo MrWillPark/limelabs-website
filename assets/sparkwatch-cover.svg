@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" fill="none">
+  <rect width="1280" height="720" fill="#10141C"/>
+  <rect width="1280" height="720" fill="url(#sw-grid)" opacity="0.5"/>
+  <defs>
+    <pattern id="sw-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(229,160,15,0.08)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="sw-curve-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E5A00F" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#E5A00F" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="sw-curve-stroke" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#E5A00F" stop-opacity="0.2"/>
+      <stop offset="45%" stop-color="#E5A00F"/>
+      <stop offset="100%" stop-color="#F3C14B"/>
+    </linearGradient>
+    <radialGradient id="sw-glow" cx="62%" cy="38%" r="46%">
+      <stop offset="0%" stop-color="#E5A00F" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#E5A00F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="820" cy="250" r="320" fill="url(#sw-glow)"/>
+  <circle cx="180" cy="620" r="200" fill="rgba(229,160,15,0.04)"/>
+
+  <circle cx="780" cy="290" r="90" stroke="rgba(229,160,15,0.22)" stroke-width="1.5"/>
+  <circle cx="780" cy="290" r="160" stroke="rgba(229,160,15,0.14)" stroke-width="1.25"/>
+  <circle cx="780" cy="290" r="236" stroke="rgba(229,160,15,0.08)" stroke-width="1"/>
+
+  <line x1="90" y1="500" x2="1190" y2="500" stroke="#8A8580" stroke-width="3.5" stroke-linecap="round" opacity="0.6"/>
+
+  <path
+    d="M90,488 C250,480 340,455 470,400 C600,338 680,250 820,198 C940,156 1040,128 1190,108"
+    fill="none"
+    stroke="url(#sw-curve-stroke)"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+  <path
+    d="M90,488 C250,480 340,455 470,400 C600,338 680,250 820,198 C940,156 1040,128 1190,108 L1190,500 L90,500 Z"
+    fill="url(#sw-curve-fill)"
+  />
+
+  <rect x="868" y="86" width="32" height="186" rx="16" fill="#E5A00F"/>
+</svg>
