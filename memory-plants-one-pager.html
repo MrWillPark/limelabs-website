@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Moss and Spade × Rootline — Partnership Brief</title>
-  <meta name="description" content="A turnkey co-branded digital plant companion & retail commerce engine for Moss and Spade (4139 Piedmont Ave, Oakland).">
+  <title>Memory Plants × Lime Labs — Partnership Brief</title>
+  <meta name="description" content="A Memory Plants–branded care companion and online store, stood up and run by Lime Labs — pickup at 335 15th Street, Oakland.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     try {
-      var storedTheme = localStorage.getItem("moss-spade-brief-theme");
+      var storedTheme = localStorage.getItem("memory-plants-brief-theme");
       if (storedTheme === "light" || storedTheme === "dark") {
         document.documentElement.setAttribute("data-theme", storedTheme);
       } else {
@@ -22,46 +22,54 @@
     }
   </script>
   <style>
-    /* Moss & Spade brand tokens — porcelain, blush, terracotta, dusty rose */
+    /* Memory Plants — Sign Co–adjacent: cool navy, cool daylight, gold sparingly */
     :root,
     [data-theme="light"] {
-      --page-bg: #e8ddd6;
-      --page-bg-2: #f3d7d4;
-      --sheet-bg: #fffcfb;
-      --sheet-card: #f3d7d4;
-      --ink: #2a1a18;
-      --ink-muted: #6b524e;
-      --ink-faint: #8a726c;
-      --gold: #be3519;
-      --gold-light: #c76868;
-      --rule: #e8d4d0;
-      --leaf: #5e7d6a;
-      --bar-bg: rgba(255, 252, 251, 0.94);
-      --sheet-shadow: 0 16px 40px rgba(82, 42, 37, 0.12);
-      --on-gold: #fffcfb;
-      --toggle-idle: #2a1a18;
-      --device-bezel: #2a1a18;
+      --page-bg: #d8dde4;
+      --page-bg-2: #c5ced9;
+      --sheet-bg: #f3f5f7;
+      --sheet-card: #e8ecf0;
+      --ink: #121820;
+      --ink-muted: #4a5360;
+      --ink-faint: #6b7380;
+      --gold: #1a2b48;
+      --gold-light: #2a4068;
+      --accent: #c9a227;
+      --rule: #d5dae0;
+      --leaf: #3d6b52;
+      --bar-bg: rgba(243, 245, 247, 0.94);
+      --sheet-shadow: 0 16px 40px rgba(18, 24, 32, 0.12);
+      --on-gold: #f3f5f7;
+      --toggle-idle: #121820;
+      --device-bezel: #121820;
+      --phone-bg: #1a2b48;
+      --phone-fg: #f3f5f7;
+      --phone-muted: #a8b0bc;
       --font-display: "Fraunces", "Times New Roman", serif;
       --font-body: "Karla", "Helvetica Neue", sans-serif;
     }
 
     [data-theme="dark"] {
-      --page-bg: #1a1210;
-      --page-bg-2: #2a1a18;
-      --sheet-bg: #241814;
-      --sheet-card: #3a2824;
-      --ink: #fffcfb;
-      --ink-muted: #d4bbb5;
-      --ink-faint: #a8908a;
-      --gold: #ffa4a4;
-      --gold-light: #c76868;
-      --rule: #4a342f;
-      --leaf: #7a9a86;
-      --bar-bg: rgba(36, 24, 20, 0.95);
+      --page-bg: #0c1016;
+      --page-bg-2: #1a2b48;
+      --sheet-bg: #121820;
+      --sheet-card: #1a2434;
+      --ink: #f3f5f7;
+      --ink-muted: #b8c0cc;
+      --ink-faint: #8a93a0;
+      --gold: #c9a227;
+      --gold-light: #dfc056;
+      --accent: #c9a227;
+      --rule: #2a3444;
+      --leaf: #6a9a7a;
+      --bar-bg: rgba(18, 24, 32, 0.95);
       --sheet-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
-      --on-gold: #2a1a18;
-      --toggle-idle: #fffcfb;
-      --device-bezel: #1a1210;
+      --on-gold: #121820;
+      --toggle-idle: #f3f5f7;
+      --device-bezel: #0a0e14;
+      --phone-bg: #0e1624;
+      --phone-fg: #f3f5f7;
+      --phone-muted: #8a93a0;
     }
 
     * {
@@ -90,7 +98,7 @@
       z-index: 100;
       background: var(--bar-bg);
       backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--gold);
+      border-bottom: 2px solid var(--accent);
       padding: 12px 24px;
       display: flex;
       justify-content: space-between;
@@ -137,7 +145,7 @@
     }
 
     .theme-toggle button:hover:not([aria-pressed="true"]) {
-      color: var(--gold);
+      color: var(--accent);
     }
 
     .btn-print {
@@ -159,24 +167,6 @@
       border-color: var(--gold-light);
     }
 
-    .btn-back {
-      background: transparent;
-      color: var(--ink);
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 12px;
-      padding: 7px 14px;
-      border: 1.5px solid var(--rule);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .btn-back:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
     .sheet {
       width: 8.5in;
       max-width: 8.5in;
@@ -184,7 +174,6 @@
       margin: 0 auto;
       background: var(--sheet-bg);
       border: 1.5px solid var(--rule);
-      /* Generous inset so type never sits flush against the sheet edge. */
       padding: 0.62in 0.7in 0.58in;
       box-shadow: var(--sheet-shadow);
       transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
@@ -192,7 +181,6 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 4px;
-      border-radius: 2px;
     }
 
     .header {
@@ -200,7 +188,19 @@
       justify-content: space-between;
       align-items: flex-end;
       padding-bottom: 14px;
-      border-bottom: 2px solid var(--gold-light);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .brand-lock {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
     }
 
     .brand-title {
@@ -251,7 +251,7 @@
       line-height: 1.2;
       letter-spacing: -0.02em;
       color: var(--ink);
-      max-width: 20ch;
+      max-width: 22ch;
     }
 
     .hero-lead {
@@ -259,48 +259,97 @@
       color: var(--ink-muted);
       line-height: 1.5;
       margin-top: 8px;
-      max-width: 38ch;
+      max-width: 40ch;
     }
 
     .device-pair {
       display: flex;
-      gap: 8px;
+      gap: 12px;
       align-items: flex-end;
     }
 
     .device {
       margin: 0;
-      width: 104px;
+      width: 126px;
     }
 
     .device-frame {
       background: var(--device-bezel);
-      border: 2px solid var(--gold);
-      border-radius: 14px;
-      padding: 5px 4px 6px;
-      box-shadow: 0 10px 24px rgba(42, 26, 24, 0.18);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 6px 5px 8px;
     }
 
-    /* Clip via overflow instead of object-fit — Chrome PDF mishandles object-fit
-       and leaves the image background showing as an offset bezel gap. */
     .device-screen {
       display: block;
-      height: 210px;
+      height: 236px;
       overflow: hidden;
-      border-radius: 8px;
-      background: #fffcfb;
+      border-radius: 9px;
+      background: var(--phone-bg);
+      color: var(--phone-fg);
+      padding: 14px 12px;
+      font-family: var(--font-body);
     }
 
-    .device-screen img {
+    .mock-eyebrow {
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .mock-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .mock-line {
+      font-size: 9.5px;
+      color: var(--phone-muted);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .mock-card {
+      background: rgba(243, 245, 247, 0.08);
+      border: 1px solid rgba(201, 162, 39, 0.35);
+      border-radius: 6px;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+
+    .mock-card strong {
       display: block;
-      width: 100%;
-      height: auto;
+      font-size: 10px;
+      margin-bottom: 2px;
+    }
+
+    .mock-card span {
+      font-size: 8.5px;
+      color: var(--phone-muted);
+    }
+
+    .mock-cta {
+      margin-top: 10px;
+      background: var(--accent);
+      color: #121820;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-align: center;
+      padding: 7px 6px;
+      border-radius: 4px;
     }
 
     .device-caption {
-      margin-top: 5px;
+      margin-top: 6px;
       font-family: var(--font-body);
-      font-size: 8.5px;
+      font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -352,7 +401,7 @@
       font-family: var(--font-body);
       font-size: 11px;
       font-weight: 600;
-      color: var(--gold);
+      color: var(--accent);
       padding-top: 2px;
     }
 
@@ -392,6 +441,7 @@
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 3px;
+      gap: 8px;
     }
 
     .model-title {
@@ -403,9 +453,10 @@
 
     .model-split {
       font-family: var(--font-body);
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
       color: var(--gold-light);
+      white-space: nowrap;
     }
 
     .model-desc {
@@ -418,15 +469,14 @@
       margin: 16px 0 14px;
       padding: 12px 16px;
       background: var(--sheet-card);
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid var(--leaf);
       border-top: 1px solid var(--rule);
       border-right: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
       display: grid;
-      grid-template-columns: 140px 1fr;
+      grid-template-columns: 150px 1fr;
       gap: 18px;
       align-items: center;
-      border-radius: 0 10px 10px 0;
     }
 
     .guarantee-label {
@@ -441,7 +491,7 @@
       display: block;
       font-family: var(--font-body);
       font-size: 9.5px;
-      color: var(--gold);
+      color: var(--leaf);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-top: 3px;
@@ -500,13 +550,10 @@
     }
 
     .contact-block a {
-      color: var(--gold);
+      color: var(--accent);
       text-decoration: none;
     }
 
-    /* Print inherits the live Dark / Paper theme.
-       @page margin is 0 so the sheet background fills the PDF edge-to-edge;
-       breathing room comes from .sheet padding, not a white paper frame. */
     @media print {
       * {
         -webkit-print-color-adjust: exact !important;
@@ -537,11 +584,6 @@
         margin: 0 !important;
         padding: 0.62in 0.7in 0.55in !important;
       }
-
-      /* Chrome rasterizes box-shadow as an opaque gray slab in PDFs. */
-      .device-frame {
-        box-shadow: none !important;
-      }
     }
 
     @page {
@@ -554,11 +596,11 @@
 
   <aside class="screen-bar" aria-label="Page controls">
     <div class="screen-bar-title">
-      Moss and Spade × Rootline · Partnership Brief
+      Memory Plants × Lime Labs · Partnership Brief
     </div>
     <div class="screen-actions">
       <div class="theme-toggle" role="group" aria-label="Sheet theme">
-        <button type="button" data-theme-set="light" aria-pressed="true">Blush</button>
+        <button type="button" data-theme-set="light" aria-pressed="true">Daylight</button>
         <button type="button" data-theme-set="dark" aria-pressed="false">Ink</button>
       </div>
       <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
@@ -567,129 +609,130 @@
 
   <main class="sheet">
     <header class="header">
-      <div>
-        <h1 class="brand-title">Moss and Spade</h1>
-        <p class="brand-subtitle">Where the plant happens · Co-branded care companion</p>
+      <div class="brand-lock">
+        <img class="brand-mark" src="assets/memory-plants-mark.svg" alt="" width="40" height="40" />
+        <div>
+          <h1 class="brand-title">Memory Plants</h1>
+          <p class="brand-subtitle">Care companion + online store we run for you</p>
+        </div>
       </div>
       <div class="header-location">
-        <strong>4139 Piedmont Avenue</strong><br>
+        <strong>335 15th Street</strong><br>
         Oakland, California
       </div>
     </header>
 
     <section class="hero">
       <div>
-        <h2 class="hero-h1">Turn your plant community into recurring monthly revenue and repeat store visits — 100% free of charge.</h2>
+        <h2 class="hero-h1">The plant leaves 15th Street. The relationship shouldn’t.</h2>
         <p class="hero-lead">
-          We build a custom plant-care app under the Moss and Spade brand. Anyone who downloads the app and subscribes generates ongoing monthly revenue for the shop — while driving local plant parents straight to 4139 Piedmont Ave for soil and supplies.
+          Lime Labs stands up and runs a Memory Plants–branded app: care after the sale, a pocket online store you don’t have today, and pickup at 335 15th — without Shopify, a web team, or a photo shoot on day one.
         </p>
       </div>
       <div class="device-pair">
         <figure class="device">
           <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="assets/moss-garden-home.png"
-                alt="Moss and Spade companion — Garden home with today's care at 4139 Piedmont"
-                width="472"
-                height="1024"
-              />
+            <div class="device-screen" aria-hidden="true">
+              <div class="mock-eyebrow">335 15th · Oakland</div>
+              <div class="mock-title">Memory Plants</div>
+              <p class="mock-line">Water, light, and pests for what you took home — without the guesswork.</p>
+              <div class="mock-card">
+                <strong>Water in 2 days</strong>
+                <span>Monstera · bright indirect</span>
+              </div>
+              <div class="mock-card">
+                <strong>Check leaves</strong>
+                <span>Snap a photo if something’s off</span>
+              </div>
             </div>
           </div>
-          <figcaption class="device-caption">Garden</figcaption>
+          <figcaption class="device-caption">Care</figcaption>
         </figure>
         <figure class="device">
           <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="assets/moss-shop.jpg"
-                alt="Moss and Spade companion — Shop with plants, pottery, and supplies"
-                width="472"
-                height="1024"
-              />
+            <div class="device-screen" aria-hidden="true">
+              <div class="mock-eyebrow">Memory Plants Shop</div>
+              <div class="mock-title">Soil &amp; supplies</div>
+              <p class="mock-line">Browse in the app. Pick up on 15th — or we ship from the catalog we run.</p>
+              <div class="mock-card">
+                <strong>Aroid mix · $28</strong>
+                <span>Pickup at 335 15th</span>
+              </div>
+              <div class="mock-card">
+                <strong>Neem oil · $18</strong>
+                <span>Ships from catalog</span>
+              </div>
+              <div class="mock-cta">Pick up at the shop</div>
             </div>
           </div>
-          <figcaption class="device-caption">Shop</figcaption>
-        </figure>
-        <figure class="device">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img
-                src="assets/moss-plants.jpg"
-                alt="Moss and Spade companion — Your plants grid with care due dates"
-                width="472"
-                height="1024"
-              />
-            </div>
-          </div>
-          <figcaption class="device-caption">Plants</figcaption>
+          <figcaption class="device-caption">Store</figcaption>
         </figure>
       </div>
     </section>
 
     <div class="main-grid">
       <section>
-        <div class="section-eyebrow">How It Works for Customers</div>
+        <div class="section-eyebrow">How It Works</div>
         <ol class="journey-list">
           <li class="journey-item">
             <span class="journey-num">01</span>
             <div>
-              <div class="journey-title">AI Photo Identification</div>
-              <p class="journey-text">Users snap a photo of any plant in their home to instantly identify the species and get Oakland-calibrated care schedules.</p>
+              <div class="journey-title">QR on the pot</div>
+              <p class="journey-text">Customer leaves with a plant and a Memory Plants care companion — not a random blog bookmark.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">02</span>
             <div>
-              <div class="journey-title">Smart Care Reminders</div>
-              <p class="journey-text">The app sends gentle notifications when it’s time to water, mist, or fertilize so plants stay thriving in East Bay microclimates.</p>
+              <div class="journey-title">Your online store, already open</div>
+              <p class="journey-text">We stand up a branded catalog inside the app (platform soil &amp; treatments to start). No Shopify build required.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">03</span>
             <div>
-              <div class="journey-title">AI-assisted Photo Diagnosis</div>
-              <p class="journey-text">Yellow leaf or pests? One photo diagnoses the issue (spider mites, root rot) and gives an instant step-by-step treatment plan.</p>
+              <div class="journey-title">Pickup on 15th</div>
+              <p class="journey-text">Locals reorder and walk back to the shop. Same address. Same neighborhood trust.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">04</span>
             <div>
-              <div class="journey-title">Direct In-Store Pickup</div>
-              <p class="journey-text">The diagnosis tells customers the exact remedy they need (neem oil, aroid soil, pots) with 1-tap pickup at 4139 Piedmont Avenue.</p>
+              <div class="journey-title">When a leaf goes wrong</div>
+              <p class="journey-text">One photo → a simple plan → the exact supply, with pickup or ship handled for you.</p>
             </div>
           </li>
         </ol>
       </section>
 
       <section>
-        <div class="section-eyebrow">The Partnership Model</div>
+        <div class="section-eyebrow">Brand Operator Split · $0 to launch</div>
         <div class="model-ledger">
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">Digital Subscriptions</span>
-              <span class="model-split">10% to Moss &amp; Spade</span>
+              <span class="model-title">App memberships</span>
+              <span class="model-split">15% to you</span>
             </div>
             <p class="model-desc">
-              Every subscriber ($4.99/mo) earns Moss and Spade 10% monthly recurring software revenue — whether they adopted in-store, clicked a bio link, or found the app online.
+              Every paid subscriber on the Memory Plants app earns you a monthly cut. We cover App Store, AI, and support.
             </p>
           </div>
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">Soil, Neem &amp; Pot Sales</span>
-              <span class="model-split">90% to Moss &amp; Spade</span>
+              <span class="model-title">Online orders we fulfill</span>
+              <span class="model-split">22% of each sale</span>
             </div>
             <p class="model-desc">
-              When the app recommends remedies and supplies, local users buy directly from your shop. Moss and Spade keeps 90% of the retail price.
+              New money from a channel you don’t operate today. We stock, pack, ship, and handle returns — you earn a brand royalty on attributed storefront sales.
             </p>
           </div>
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">Web App or Native iOS</span>
-              <span class="model-split">Flexible Reach</span>
+              <span class="model-title">Your merch for pickup</span>
+              <span class="model-split">85% to you</span>
             </div>
             <p class="model-desc">
-              Shareable everywhere: a link on @mossandspade, mossandspade.com, or a dedicated App Store download.
+              When customers buy <em>your</em> plants or shelf goods for pickup at 335 15th, you keep the lion’s share. We take 15% for checkout and attribution.
             </p>
           </div>
         </div>
@@ -698,26 +741,27 @@
 
     <section class="guarantee-strip">
       <div class="guarantee-label">
-        Zero Tech Costs
-        <span>Lime Labs Backing</span>
+        We run the rails
+        <span>You keep the shop</span>
       </div>
       <p class="guarantee-copy">
-        <strong>$0 setup fee, $0 monthly fee, and $0 ongoing maintenance.</strong> Lime Labs covers 100% of servers, computer vision AI recognition models, App Store approvals, and customer bug support. Moss and Spade never touches code or server bills.
+        <strong>$0 setup, $0 monthly fee, $0 tech maintenance.</strong> Lime Labs covers the App Store listing, branding wrap, catalog ops, shipping, servers, and bug fixes. You keep the name, the floor, and the customer relationship — and a clean exit after month 6 with notice if it isn’t earning its keep.
       </p>
     </section>
 
     <footer class="footer-section">
       <div class="pilot-block">
-        <div class="pilot-title">Proposed 4-Week Pilot</div>
+        <div class="pilot-title">Proposed 3–4 Week Pilot</div>
         <p class="pilot-desc">
-          Share the companion with your community — Instagram, mossandspade.com, or in-store word of mouth. We’ll track subscribers and 4139 Piedmont Ave pickup orders together over 30 days.
+          TestFlight for you + staff, QR on a small first batch of pots, catalog live for pickup at 335 15th. Mid-pilot check-in at day 10–14; decide together at the end — no automatic long contract from the handshake.
         </p>
       </div>
       <div class="contact-block">
         <strong>Will Park</strong>
         Founder &amp; Product Lead, Lime Labs<br>
         <a href="tel:+13108930931">(310) 893-0931</a> · <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a><br>
-        <a href="https://bigsprout.app" target="_blank">bigsprout.app</a>
+        <a href="https://bigsprout.app" target="_blank" rel="noopener">bigsprout.app</a>
+        · @memoryplants.store
       </div>
     </footer>
   </main>
@@ -728,7 +772,7 @@
       var buttons = document.querySelectorAll("[data-theme-set]");
       var stored = null;
       try {
-        stored = localStorage.getItem("moss-spade-brief-theme");
+        stored = localStorage.getItem("memory-plants-brief-theme");
       } catch (e) {}
 
       function applyTheme(theme) {
@@ -738,7 +782,7 @@
           button.setAttribute("aria-pressed", button.getAttribute("data-theme-set") === next ? "true" : "false");
         });
         try {
-          localStorage.setItem("moss-spade-brief-theme", next);
+          localStorage.setItem("memory-plants-brief-theme", next);
         } catch (e) {}
       }
 
