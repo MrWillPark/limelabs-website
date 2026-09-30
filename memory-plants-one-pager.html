@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Memory Plants × Lime Labs — Partnership Brief (Brand Workshop)</title>
+  <meta name="description" content="Memory Plants–branded care companion and managed online store — workshop leave-behind. Screenshots swap after UI rehaul.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Sign Co–adjacent: slab display + workhorse sans. Fraunces spa deliberately avoided. -->
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
+    try {
+      var storedTheme = localStorage.getItem("memory-plants-brief-theme");
+      if (storedTheme === "light" || storedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", storedTheme);
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  </script>
+  <style>
+    :root,
+    [data-theme="light"] {
+      --page-bg: #d8dde4;
+      --page-bg-2: #c5ced9;
+      --sheet-bg: #f3f5f7;
+      --sheet-card: #e8ecf0;
+      --ink: #121820;
+      --ink-muted: #4a5360;
+      --ink-faint: #6b7380;
+      --navy: #1a2b48;
+      --navy-light: #2a4068;
+      --accent: #c9a227;
+      --rule: #d5dae0;
+      --leaf: #3d5c45;
+      --bar-bg: rgba(243, 245, 247, 0.94);
+      --sheet-shadow: 0 16px 40px rgba(18, 24, 32, 0.12);
+      --on-navy: #f3f5f7;
+      --toggle-idle: #121820;
+      --device-bezel: #121820;
+      --placeholder-bg: #1a2b48;
+      --placeholder-fg: #f3f5f7;
+      --placeholder-muted: #8a93a0;
+      --font-display: "Zilla Slab", "Times New Roman", serif;
+      --font-body: "Karla", "Helvetica Neue", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --page-bg: #0c1016;
+      --page-bg-2: #1a2b48;
+      --sheet-bg: #121820;
+      --sheet-card: #1a2434;
+      --ink: #f3f5f7;
+      --ink-muted: #b8c0cc;
+      --ink-faint: #8a93a0;
+      --navy: #c9a227;
+      --navy-light: #dfc056;
+      --accent: #c9a227;
+      --rule: #2a3444;
+      --leaf: #6a9a7a;
+      --bar-bg: rgba(18, 24, 32, 0.95);
+      --sheet-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --on-navy: #121820;
+      --toggle-idle: #f3f5f7;
+      --device-bezel: #0a0e14;
+      --placeholder-bg: #0e1624;
+      --placeholder-fg: #f3f5f7;
+      --placeholder-muted: #8a93a0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, var(--page-bg-2) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 45% at 90% 100%, var(--page-bg-2) 0%, transparent 50%),
+        var(--page-bg);
+      color: var(--ink);
+      line-height: 1.45;
+      font-size: 13px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 40px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .screen-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bar-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--accent);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto 24px;
+      gap: 16px;
+    }
+
+    .screen-bar-title {
+      font-size: 11px;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .workshop-pill {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--on-navy);
+      background: var(--navy);
+      padding: 3px 8px;
+      vertical-align: middle;
+    }
+
+    .screen-actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+    .theme-toggle {
+      display: flex;
+      border: 1.5px solid var(--rule);
+    }
+
+    .theme-toggle button {
+      background: transparent;
+      color: var(--toggle-idle);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 11px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .theme-toggle button[aria-pressed="true"] {
+      background: var(--navy);
+      color: var(--on-navy);
+    }
+
+    .theme-toggle button:hover:not([aria-pressed="true"]) {
+      color: var(--accent);
+    }
+
+    .btn-print {
+      background: var(--navy);
+      color: var(--on-navy);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 7px 16px;
+      border: 2px solid var(--navy);
+      cursor: pointer;
+    }
+
+    .btn-print:hover {
+      background: var(--navy-light);
+      border-color: var(--navy-light);
+    }
+
+    .sheet {
+      width: 8.5in;
+      max-width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      background: var(--sheet-bg);
+      border: 1.5px solid var(--rule);
+      padding: 0.62in 0.7in 0.58in;
+      box-shadow: var(--sheet-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 4px;
+      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .brand-lock {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark { width: 40px; height: 40px; flex-shrink: 0; }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+
+    .brand-subtitle {
+      font-size: 10.5px;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .header-location {
+      font-size: 10.5px;
+      color: var(--ink-faint);
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .header-location strong { color: var(--ink); }
+
+    .hero {
+      margin: 14px 0 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 22ch;
+    }
+
+    .hero-lead {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-top: 8px;
+      max-width: 40ch;
+    }
+
+    .device-pair {
+      display: flex;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .device {
+      margin: 0;
+      width: 126px;
+    }
+
+    .device-frame {
+      background: var(--device-bezel);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 6px 5px 8px;
+    }
+
+    /* Placeholder slot — swap img src after UI rehaul locks screenshots */
+    .device-screen {
+      position: relative;
+      display: block;
+      height: 236px;
+      overflow: hidden;
+      border-radius: 9px;
+      background: var(--placeholder-bg);
+      color: var(--placeholder-fg);
+    }
+
+    .device-screen img {
+      display: none; /* show when real screenshots land */
+      width: 100%;
+      height: auto;
+    }
+
+    .device-screen.has-shot img { display: block; }
+    .device-screen.has-shot .shot-placeholder { display: none; }
+
+    .shot-placeholder {
+      height: 100%;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .shot-placeholder-top {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .shot-label {
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .shot-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .shot-note {
+      font-size: 9px;
+      color: var(--placeholder-muted);
+      line-height: 1.4;
+    }
+
+    .shot-footer {
+      border-top: 1px dashed rgba(201, 162, 39, 0.45);
+      padding-top: 8px;
+      font-size: 8.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--placeholder-muted);
+      font-weight: 600;
+    }
+
+    .device-caption {
+      margin-top: 6px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-eyebrow::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .journey-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .journey-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+    }
+
+    .journey-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      padding-top: 2px;
+    }
+
+    .journey-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+
+    .journey-text {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    .model-ledger {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .model-row {
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .model-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .model-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+      gap: 8px;
+    }
+
+    .model-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .model-split {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--navy-light);
+      white-space: nowrap;
+    }
+
+    .model-desc {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    .guarantee-strip {
+      margin: 16px 0 14px;
+      padding: 12px 16px;
+      background: var(--sheet-card);
+      border-left: 3px solid var(--leaf);
+      border-top: 1px solid var(--rule);
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .guarantee-label {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .guarantee-label span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 9.5px;
+      color: var(--leaf);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 3px;
+    }
+
+    .guarantee-copy {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    .guarantee-copy strong { color: var(--ink); }
+
+    .footer-section {
+      border-top: 1.5px solid var(--rule);
+      padding-top: 14px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .pilot-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .pilot-desc {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      margin-top: 3px;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 10.5px;
+      color: var(--ink-faint);
+      line-height: 1.55;
+    }
+
+    .contact-block strong {
+      color: var(--ink);
+      font-size: 13px;
+      display: block;
+    }
+
+    .contact-block a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .screen-bar { display: none !important; }
+      html, body {
+        background: var(--sheet-bg) !important;
+        color: var(--ink) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        height: 100%;
+      }
+      .sheet {
+        background: var(--sheet-bg) !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 100% !important;
+        margin: 0 !important;
+        padding: 0.62in 0.7in 0.55in !important;
+      }
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="screen-bar" aria-label="Page controls">
+    <div class="screen-bar-title">
+      Memory Plants · Brand workshop leave-behind
+      <span class="workshop-pill">UI rehaul · shots pending</span>
+    </div>
+    <div class="screen-actions">
+      <div class="theme-toggle" role="group" aria-label="Sheet theme">
+        <button type="button" data-theme-set="light" aria-pressed="true">Daylight</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">Ink</button>
+      </div>
+      <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </aside>
+
+  <main class="sheet">
+    <header class="header">
+      <div class="brand-lock">
+        <img class="brand-mark" src="assets/memory-plants-mark.svg" alt="" width="40" height="40" />
+        <div>
+          <h1 class="brand-title">Memory Plants</h1>
+          <p class="brand-subtitle">Care companion + online store we run for you</p>
+        </div>
+      </div>
+      <div class="header-location">
+        <strong>335 15th Street</strong><br>
+        Oakland, California
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2 class="hero-h1">The plant leaves 15th Street. The relationship shouldn’t.</h2>
+        <p class="hero-lead">
+          Lime Labs stands up and runs a Memory Plants–branded app: care after the sale, a pocket online store you don’t have today, and pickup at 335 15th — without Shopify, a web team, or a photo shoot on day one.
+        </p>
+      </div>
+      <div class="device-pair">
+        <!--
+          Workshop slots: after UI rehaul, drop PNGs into assets/ and add class "has-shot"
+          on .device-screen, e.g.
+          <div class="device-screen has-shot">
+            <img src="assets/memory-plants-care.png" alt="Memory Plants care home" width="390" height="844" />
+            ...
+        -->
+        <figure class="device">
+          <div class="device-frame">
+            <div class="device-screen" data-shot="care">
+              <img src="assets/memory-plants-care.png" alt="Memory Plants care home — placeholder until UI rehaul" width="390" height="844" />
+              <div class="shot-placeholder">
+                <div class="shot-placeholder-top">
+                  <span class="shot-label">Slot A · Care</span>
+                  <span class="shot-title">Memory Plants</span>
+                  <p class="shot-note">Home / garden after the sale. Swap with TestFlight capture when navy craft UI locks.</p>
+                </div>
+                <div class="shot-footer">Placeholder · UI rehaul</div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="device-caption">Care</figcaption>
+        </figure>
+        <figure class="device">
+          <div class="device-frame">
+            <div class="device-screen" data-shot="shop">
+              <img src="assets/memory-plants-shop.png" alt="Memory Plants shop — placeholder until UI rehaul" width="390" height="844" />
+              <div class="shot-placeholder">
+                <div class="shot-placeholder-top">
+                  <span class="shot-label">Slot B · Store</span>
+                  <span class="shot-title">Shop + pickup</span>
+                  <p class="shot-note">Catalog with pickup at 335 15th. Capture after shop chrome matches Sign Co navy.</p>
+                </div>
+                <div class="shot-footer">Placeholder · UI rehaul</div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="device-caption">Store</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <section>
+        <div class="section-eyebrow">How It Works</div>
+        <ol class="journey-list">
+          <li class="journey-item">
+            <span class="journey-num">01</span>
+            <div>
+              <div class="journey-title">QR on the pot</div>
+              <p class="journey-text">Customer leaves with a plant and a Memory Plants care companion — not a random blog bookmark.</p>
+            </div>
+          </li>
+          <li class="journey-item">
+            <span class="journey-num">02</span>
+            <div>
+              <div class="journey-title">Your online store, already open</div>
+              <p class="journey-text">We stand up a branded catalog inside the app (platform soil &amp; treatments to start). No Shopify build required.</p>
+            </div>
+          </li>
+          <li class="journey-item">
+            <span class="journey-num">03</span>
+            <div>
+              <div class="journey-title">Pickup on 15th</div>
+              <p class="journey-text">Locals reorder and walk back to the shop. Same address. Same neighborhood trust.</p>
+            </div>
+          </li>
+          <li class="journey-item">
+            <span class="journey-num">04</span>
+            <div>
+              <div class="journey-title">When a leaf goes wrong</div>
+              <p class="journey-text">One photo → a simple plan → the exact supply, with pickup or ship handled for you.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <div class="section-eyebrow">Brand Operator Split · $0 to launch</div>
+        <div class="model-ledger">
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">App memberships</span>
+              <span class="model-split">15% to you</span>
+            </div>
+            <p class="model-desc">
+              Every paid subscriber on the Memory Plants app earns you a monthly cut. We cover App Store, AI, and support.
+            </p>
+          </div>
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">Online orders we fulfill</span>
+              <span class="model-split">22% of each sale</span>
+            </div>
+            <p class="model-desc">
+              New money from a channel you don’t operate today. We stock, pack, ship, and handle returns — you earn a brand royalty on attributed storefront sales.
+            </p>
+          </div>
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">Your merch for pickup</span>
+              <span class="model-split">85% to you</span>
+            </div>
+            <p class="model-desc">
+              When customers buy <em>your</em> plants or shelf goods for pickup at 335 15th, you keep the lion’s share. We take 15% for checkout and attribution.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="guarantee-strip">
+      <div class="guarantee-label">
+        We run the rails
+        <span>You keep the shop</span>
+      </div>
+      <p class="guarantee-copy">
+        <strong>$0 setup, $0 monthly fee, $0 tech maintenance.</strong> Lime Labs covers the App Store listing, branding wrap, catalog ops, shipping, servers, and bug fixes. You keep the name, the floor, and the customer relationship — and a clean exit after month 6 with notice if it isn’t earning its keep.
+      </p>
+    </section>
+
+    <footer class="footer-section">
+      <div class="pilot-block">
+        <div class="pilot-title">Proposed 3–4 Week Pilot</div>
+        <p class="pilot-desc">
+          TestFlight for you + staff, QR on a small first batch of pots, catalog live for pickup at 335 15th. Mid-pilot check-in at day 10–14; decide together at the end — no automatic long contract from the handshake.
+        </p>
+      </div>
+      <div class="contact-block">
+        <strong>Will Park</strong>
+        Founder &amp; Product Lead, Lime Labs<br>
+        <a href="tel:+13108930931">(310) 893-0931</a> · <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a><br>
+        <a href="https://bigsprout.app" target="_blank" rel="noopener">bigsprout.app</a>
+        · @memoryplants.store
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll("[data-theme-set]");
+      var stored = null;
+      try {
+        stored = localStorage.getItem("memory-plants-brief-theme");
+      } catch (e) {}
+
+      function applyTheme(theme) {
+        var next = theme === "dark" ? "dark" : "light";
+        root.setAttribute("data-theme", next);
+        buttons.forEach(function (button) {
+          button.setAttribute("aria-pressed", button.getAttribute("data-theme-set") === next ? "true" : "false");
+        });
+        try {
+          localStorage.setItem("memory-plants-brief-theme", next);
+        } catch (e) {}
+      }
+
+      applyTheme(stored || "light");
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyTheme(button.getAttribute("data-theme-set"));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
