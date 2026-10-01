@@ -115,19 +115,32 @@
     <section class="section" id="walkthrough">
       <div class="wrap">
         <h2 class="section-title">App walkthrough</h2>
-        <p class="section-lead">Moss and Spade formula screens — montage lands when Will’s shots are ready.</p>
+        <p class="section-lead">Moss and Spade formula screens — Care through Shop in a short loop.</p>
         <div class="walkthrough">
-          <!--
-            MEDIA DROP when MS shots arrive:
-            assets/partners/moss-and-spade-walkthrough.mp4 (+ .gif fallback)
-          -->
-          <div class="walkthrough-frame" role="img" aria-label="Moss and Spade walkthrough placeholder">
-            <div>
-              <strong>Moss screenshot montage coming soon</strong>
-              Drop media at
-              <code>assets/partners/moss-and-spade-walkthrough.mp4</code>
-            </div>
+          <div class="walkthrough-media-wrap">
+            <video
+              class="walkthrough-media"
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+              poster="../../assets/bggh-sanctuary-home.png"
+              width="360"
+              height="780"
+              aria-label="Moss and Spade formula screens montage"
+            >
+              <source src="../../assets/partners/moss-and-spade-walkthrough.mp4" type="video/mp4">
+              <img
+                class="walkthrough-media"
+                src="../../assets/partners/moss-and-spade-walkthrough.gif"
+                alt="Moss and Spade formula screens montage"
+                width="360"
+                height="780"
+              >
+            </video>
           </div>
+          <p class="walkthrough-credit">Moss and Spade formula screenshot montage · not a live TestFlight recording</p>
         </div>
       </div>
     </section>
