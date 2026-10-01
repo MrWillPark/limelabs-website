@@ -115,28 +115,32 @@
     <section class="section" id="walkthrough">
       <div class="wrap">
         <h2 class="section-title">App walkthrough</h2>
-        <p class="section-lead">Sanctuary → garden → remedy pickup. Placeholder until the walkthrough GIF lands.</p>
+        <p class="section-lead">Sanctuary → garden → remedy pickup. Shared Rootline TestFlight recording for now.</p>
         <div class="walkthrough">
-          <!--
-            MEDIA DROP:
-            Place file at: assets/partners/moss-and-spade-walkthrough.gif
-            (or .mp4) then replace the placeholder below with:
-
-            <video class="walkthrough-media" controls playsinline muted loop poster="../../assets/bggh-sanctuary-home.png">
-              <source src="../../assets/partners/moss-and-spade-walkthrough.mp4" type="video/mp4">
+          <div class="walkthrough-media-wrap">
+            <video
+              class="walkthrough-media"
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+              poster="../../assets/bggh-sanctuary-home.png"
+              width="360"
+              height="780"
+              aria-label="Companion app walkthrough"
+            >
+              <source src="../../assets/partners/app-walkthrough.mp4" type="video/mp4">
+              <img
+                class="walkthrough-media"
+                src="../../assets/partners/app-walkthrough.gif"
+                alt="Companion app walkthrough"
+                width="360"
+                height="780"
+              >
             </video>
-
-            or:
-
-            <img class="walkthrough-media" src="../../assets/partners/moss-and-spade-walkthrough.gif" alt="Moss and Spade app walkthrough" width="1280" height="800">
-          -->
-          <div class="walkthrough-frame" role="img" aria-label="Walkthrough media placeholder">
-            <div>
-              <strong>Walkthrough coming soon</strong>
-              Drop media at
-              <code>assets/partners/moss-and-spade-walkthrough.gif</code>
-            </div>
           </div>
+          <p class="walkthrough-credit">Rootline TestFlight recording · Moss-branded walkthrough TBD</p>
         </div>
       </div>
     </section>
@@ -148,24 +152,55 @@
           <p class="section-lead">
             Early builds stay inside Apple’s private TestFlight — only emails you approve. Secure, invite-only, no public listing.
           </p>
-          <form class="invite-form" action="mailto:hello@limelabs.dev?subject=Moss%20and%20Spade%20TestFlight%20invite" method="post" enctype="text/plain">
-            <label>
-              Apple ID email
-              <input type="email" name="apple_id_email" required placeholder="you@example.com" autocomplete="email">
-            </label>
-            <label>
-              Name / role (optional)
-              <input type="text" name="name" placeholder="Owner · buyer · staff" autocomplete="name">
-            </label>
-            <label>
-              Note (optional)
-              <textarea name="note" rows="3" placeholder="How many staff seats? Prefer week of…"></textarea>
-            </label>
-            <p class="form-note">
-              <strong>Opens your email app</strong> to hello@limelabs.dev with your Apple ID.
-              We’ll enroll you in the private Moss and Spade TestFlight and send redeem instructions.
-            </p>
-            <button class="btn btn-primary" type="submit">Send invite request</button>
+          <form
+            class="invite-form"
+            data-invite-form
+            data-vendor="Moss and Spade"
+            data-subject="Moss and Spade TestFlight invite"
+            action="https://formsubmit.co/hello@limelabs.dev"
+            method="POST"
+          >
+            <div data-form-fields>
+              <input type="hidden" name="_subject" value="Moss and Spade TestFlight invite">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://limelabs.dev/partners/moss-and-spade/?sent=1#invite">
+              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <label>
+                Name <span style="font-weight:500;text-transform:none;letter-spacing:0">(optional)</span>
+                <input type="text" name="name" placeholder="Owner · buyer · staff" autocomplete="name">
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+              </label>
+              <label>
+                Apple ID <span style="font-weight:500;text-transform:none;letter-spacing:0">(if different from email)</span>
+                <input type="email" name="apple_id" placeholder="Same as email if blank" autocomplete="off">
+              </label>
+              <label>
+                Shop
+                <input type="text" name="shop" value="Moss and Spade" readonly>
+              </label>
+              <label>
+                Note <span style="font-weight:500;text-transform:none;letter-spacing:0">(optional)</span>
+                <textarea name="note" rows="3" placeholder="How many staff seats? Prefer week of…"></textarea>
+              </label>
+              <p class="form-note">
+                <strong>Private &amp; secure Apple TestFlight.</strong>
+                Your request goes to Lime Labs at hello@limelabs.dev. We’ll enroll you in the private Moss and Spade group and reply with redeem steps.
+              </p>
+              <p class="form-status" data-form-status hidden></p>
+              <button class="btn btn-primary" type="submit">Request private TestFlight</button>
+            </div>
+            <div class="form-success" data-form-success hidden tabindex="-1">
+              <p class="form-success-title">You’re on the list</p>
+              <p class="form-note">
+                Thanks — we received your <span data-success-vendor>Moss and Spade</span> invite request.
+                Watch your inbox (and spam) for a private TestFlight email from Apple / Lime Labs.
+              </p>
+            </div>
           </form>
         </div>
         <aside class="side-contact" id="chat">
@@ -183,5 +218,18 @@
     <span>Moss and Spade × Lime Labs / Rootline</span>
     <span><a href="https://limelabs.dev">limelabs.dev</a> · <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a></span>
   </footer>
+  <script src="../invite-form.js" defer></script>
+  <script>
+    (function () {
+      if (/[?&]sent=1(?:&|$)/.test(location.search)) {
+        var form = document.querySelector("[data-invite-form]");
+        if (!form) return;
+        var fields = form.querySelector("[data-form-fields]");
+        var success = form.querySelector("[data-form-success]");
+        if (fields) fields.hidden = true;
+        if (success) { success.hidden = false; success.focus(); }
+      }
+    })();
+  </script>
 </body>
 </html>

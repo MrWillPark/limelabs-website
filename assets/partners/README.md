@@ -1,9 +1,8 @@
 # Partner walkthrough media
 
-Drop per-vendor GIF or MP4 here, then wire the path in each partners/*/index.html walkthrough slot:
+Shared Rootline TestFlight recording (until Memory Plants–specific clips exist):
 
-- memory-plants-walkthrough.gif (or .mp4)
-- moss-and-spade-walkthrough.gif (or .mp4)
-- bggh-walkthrough.gif (or .mp4)
+- `app-walkthrough.mp4` — preferred; used in `<video autoplay muted loop playsinline>`
+- `app-walkthrough.gif` — fallback / poster-adjacent still loop
 
-HTML comments in each landing mark the exact <video>/<img> swap.
+All three partner landings (`memory-plants`, `moss-and-spade`, `bggh`) point at these shared files.

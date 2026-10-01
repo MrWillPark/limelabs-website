@@ -304,10 +304,79 @@ a {
   color: var(--accent);
 }
 
-.walkthrough video,
+.walkthrough-media-wrap {
+  display: grid;
+  justify-items: center;
+  background: var(--page-bg);
+  padding: 12px;
+}
+
+.walkthrough video.walkthrough-media,
 .walkthrough img.walkthrough-media {
-  width: 100%;
-  border-radius: 0;
+  width: min(360px, 100%);
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--rule);
+  background: #000;
+}
+
+.walkthrough-credit {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.form-status {
+  font-size: 0.92rem;
+  line-height: 1.4;
+  padding: 10px 12px;
+  border: 1px solid var(--rule);
+}
+
+.form-status--pending {
+  color: var(--ink-muted);
+}
+
+.form-status--ok {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.form-status--error {
+  color: var(--ink);
+  border-color: #b42318;
+}
+
+.form-success {
+  display: grid;
+  gap: 8px;
+  padding: 8px 0 4px;
+}
+
+.form-success[hidden],
+.form-status[hidden],
+[data-form-fields][hidden] {
+  display: none !important;
+}
+
+.form-success-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.invite-form input[readonly] {
+  opacity: 0.85;
+}
+
+.invite-form .hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .cta-panel {
