@@ -1,10 +1,12 @@
 # Partner walkthrough media
 
-One-pager screenshot montage (stills from partnership one-pagers — **not** a TestFlight screen recording).
+Per-vendor screenshot montages (stills — **not** TestFlight recordings).
 
-Shared across all three partner landings:
+| File | Used on |
+|------|---------|
+| `memory-plants-walkthrough.{mp4,gif}` | `/partners/memory-plants` — MP formula (Care→plants→detail→Diagnose→Shop→bag) |
+| `bggh-walkthrough.{mp4,gif}` | `/partners/bggh` |
+| `moss-and-spade-walkthrough.{mp4,gif}` | `/partners/moss-and-spade` — **awaiting Will’s MS shots** (page shows placeholder) |
+| `app-walkthrough.{mp4,gif}` | Shared alias (currently matches MP formula); prefer vendor-specific files on each page |
 
-- `app-walkthrough.mp4` — primary (`<video autoplay muted loop playsinline>`)
-- `app-walkthrough.gif` — fallback inside `<video>`
-
-Source in Project store: `media/app-walkthrough.{mp4,gif}` (montage rebuild).
+Source: Project store `media/` (montage agents).
