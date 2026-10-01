@@ -1,11 +1,10 @@
 # Partner walkthrough media
 
-**Do not** put TestFlight screen recordings here for partner leave-behinds.
+One-pager screenshot montage (stills from partnership one-pagers — **not** a TestFlight screen recording).
 
-Expected drop (one-pager screenshot montages from the montage agent):
+Shared across all three partner landings:
 
-- `memory-plants-montage.mp4` (or `.gif` / `.webp`)
-- `moss-and-spade-montage.mp4` (or `.gif` / `.webp`)
-- `bggh-montage.mp4` (or `.gif` / `.webp`)
+- `app-walkthrough.mp4` — primary (`<video autoplay muted loop playsinline>`)
+- `app-walkthrough.gif` — fallback inside `<video>`
 
-Until those land, each `/partners/*` page shows a placeholder with an HTML comment showing the exact `<video>` swap.
+Source in Project store: `media/app-walkthrough.{mp4,gif}` (montage rebuild).
