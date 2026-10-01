@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Memory Plants × Lime Labs — Partnership Brief (Brand Workshop)</title>
-  <meta name="description" content="Memory Plants–branded care companion and managed online store — workshop leave-behind. Screenshots swap after UI rehaul.">
+  <title>Memory Plants × Lime Labs — Partnership Brief</title>
+  <meta name="description" content="Memory Plants–branded care companion and managed online store — pickup at 335 15th Street, Oakland.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Sign Co–adjacent: slab display + workhorse sans. Fraunces spa deliberately avoided. -->
+  <!-- Match app UI: Zilla Slab display + Karla body, Sign Co navy / gold sparingly -->
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
   <script>
     try {
@@ -42,9 +42,6 @@
       --on-navy: #f3f5f7;
       --toggle-idle: #121820;
       --device-bezel: #121820;
-      --placeholder-bg: #1a2b48;
-      --placeholder-fg: #f3f5f7;
-      --placeholder-muted: #8a93a0;
       --font-display: "Zilla Slab", "Times New Roman", serif;
       --font-body: "Karla", "Helvetica Neue", sans-serif;
     }
@@ -67,9 +64,6 @@
       --on-navy: #121820;
       --toggle-idle: #f3f5f7;
       --device-bezel: #0a0e14;
-      --placeholder-bg: #0e1624;
-      --placeholder-fg: #f3f5f7;
-      --placeholder-muted: #8a93a0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -110,19 +104,6 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-weight: 600;
-    }
-
-    .workshop-pill {
-      display: inline-block;
-      margin-left: 10px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--on-navy);
-      background: var(--navy);
-      padding: 3px 8px;
-      vertical-align: middle;
     }
 
     .screen-actions { display: flex; gap: 12px; flex-shrink: 0; }
@@ -241,10 +222,10 @@
       font-family: var(--font-display);
       font-size: 22px;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.15;
       letter-spacing: -0.02em;
       color: var(--ink);
-      max-width: 22ch;
+      max-width: 18ch;
     }
 
     .hero-lead {
@@ -252,18 +233,112 @@
       color: var(--ink-muted);
       line-height: 1.5;
       margin-top: 8px;
-      max-width: 40ch;
+      max-width: 42ch;
+    }
+
+    .hero-lead em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .value-pop {
+      margin: 0 0 14px;
+      padding: 14px 16px 12px;
+      background: var(--navy);
+      color: var(--on-navy);
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 18px 24px;
+      align-items: center;
+    }
+
+    .value-zero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 4px;
+      padding: 4px 8px;
+    }
+
+    .value-zero-num {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--accent);
+    }
+
+    .value-zero-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(243, 245, 247, 0.72);
+    }
+
+    .value-zero-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(243, 245, 247, 0.88);
+      margin-top: 2px;
+    }
+
+    .value-pitch {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .value-pitch-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: rgba(243, 245, 247, 0.88);
+    }
+
+    .value-pitch-list strong {
+      color: var(--on-navy);
+      font-weight: 700;
+    }
+
+    [data-theme="dark"] .value-pop {
+      background: var(--sheet-card);
+      border: 1px solid var(--accent);
+    }
+
+    [data-theme="dark"] .value-pitch-list {
+      color: var(--ink-muted);
+    }
+
+    [data-theme="dark"] .value-pitch-list strong {
+      color: var(--ink);
+    }
+
+    [data-theme="dark"] .value-zero-label {
+      color: var(--ink-faint);
+    }
+
+    [data-theme="dark"] .value-zero-sub {
+      color: var(--ink-muted);
     }
 
     .device-pair {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       align-items: flex-end;
     }
 
     .device {
       margin: 0;
-      width: 126px;
+      width: 112px;
     }
 
     .device-frame {
@@ -273,69 +348,19 @@
       padding: 6px 5px 8px;
     }
 
-    /* Placeholder slot — swap img src after UI rehaul locks screenshots */
+    /* Clip via overflow — Chrome PDF mishandles object-fit on phone bezels. */
     .device-screen {
-      position: relative;
       display: block;
-      height: 236px;
+      height: 220px;
       overflow: hidden;
       border-radius: 9px;
-      background: var(--placeholder-bg);
-      color: var(--placeholder-fg);
+      background: #f3f5f7;
     }
 
     .device-screen img {
-      display: none; /* show when real screenshots land */
+      display: block;
       width: 100%;
       height: auto;
-    }
-
-    .device-screen.has-shot img { display: block; }
-    .device-screen.has-shot .shot-placeholder { display: none; }
-
-    .shot-placeholder {
-      height: 100%;
-      padding: 14px 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .shot-placeholder-top {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .shot-label {
-      font-size: 8px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .shot-title {
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 1.15;
-    }
-
-    .shot-note {
-      font-size: 9px;
-      color: var(--placeholder-muted);
-      line-height: 1.4;
-    }
-
-    .shot-footer {
-      border-top: 1px dashed rgba(201, 162, 39, 0.45);
-      padding-top: 8px;
-      font-size: 8.5px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--placeholder-muted);
-      font-weight: 600;
     }
 
     .device-caption {
@@ -441,10 +466,16 @@
     }
 
     .model-split {
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--navy-light);
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
       white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    [data-theme="dark"] .model-split {
+      color: var(--accent);
     }
 
     .model-desc {
@@ -453,52 +484,78 @@
       line-height: 1.45;
     }
 
-    .guarantee-strip {
-      margin: 16px 0 14px;
-      padding: 12px 16px;
+    .keep-strip {
+      margin: 14px 0 12px;
+      padding: 10px 14px;
       background: var(--sheet-card);
-      border-left: 3px solid var(--leaf);
       border-top: 1px solid var(--rule);
-      border-right: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
       display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 18px;
+      grid-template-columns: 1.15fr repeat(3, 1fr);
+      gap: 14px;
       align-items: center;
     }
 
-    .guarantee-label {
+    .keep-rails {
       font-family: var(--font-display);
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--ink);
       line-height: 1.25;
+      padding-right: 10px;
+      border-right: 1px solid var(--rule);
     }
 
-    .guarantee-label span {
+    .keep-rails span {
       display: block;
       font-family: var(--font-body);
       font-size: 9.5px;
-      color: var(--leaf);
-      text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--leaf);
       margin-top: 3px;
     }
 
-    .guarantee-copy {
-      font-size: 11.5px;
-      color: var(--ink-muted);
-      line-height: 1.45;
+    .keep-item {
+      text-align: left;
     }
 
-    .guarantee-copy strong { color: var(--ink); }
+    .keep-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .keep-item span {
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      line-height: 1.35;
+    }
+
+    .footer-tag {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink-faint);
+      text-align: center;
+    }
 
     .footer-section {
       border-top: 1.5px solid var(--rule);
-      padding-top: 14px;
+      padding-top: 12px;
       display: grid;
       grid-template-columns: 1.25fr 1fr;
-      gap: 30px;
+      gap: 20px 30px;
       align-items: center;
     }
 
@@ -570,8 +627,7 @@
 
   <aside class="screen-bar" aria-label="Page controls">
     <div class="screen-bar-title">
-      Memory Plants · Brand workshop leave-behind
-      <span class="workshop-pill">UI rehaul · shots pending</span>
+      Memory Plants × Lime Labs · Partnership Brief
     </div>
     <div class="screen-actions">
       <div class="theme-toggle" role="group" aria-label="Sheet theme">
@@ -588,7 +644,7 @@
         <img class="brand-mark" src="assets/memory-plants-mark.svg" alt="" width="40" height="40" />
         <div>
           <h1 class="brand-title">Memory Plants</h1>
-          <p class="brand-subtitle">Care companion + online store we run for you</p>
+          <p class="brand-subtitle">Care companion + online store · Oakland</p>
         </div>
       </div>
       <div class="header-location">
@@ -599,51 +655,66 @@
 
     <section class="hero">
       <div>
-        <h2 class="hero-h1">The plant leaves 15th Street. The relationship shouldn’t.</h2>
+        <h2 class="hero-h1">A new revenue channel we run for you.</h2>
         <p class="hero-lead">
-          Lime Labs stands up and runs a Memory Plants–branded app: care after the sale, a pocket online store you don’t have today, and pickup at 335 15th — without Shopify, a web team, or a photo shoot on day one.
+          Memory Plants–branded care app + online store. You earn on memberships and sales; we cover App Store, catalog, shipping, AI care, and maintenance — <em>no Shopify, no tech burden</em>.
         </p>
       </div>
       <div class="device-pair">
-        <!--
-          Workshop slots: after UI rehaul, drop PNGs into assets/ and add class "has-shot"
-          on .device-screen, e.g.
-          <div class="device-screen has-shot">
-            <img src="assets/memory-plants-care.png" alt="Memory Plants care home" width="390" height="844" />
-            ...
-        -->
         <figure class="device">
           <div class="device-frame">
-            <div class="device-screen" data-shot="care">
-              <img src="assets/memory-plants-care.png" alt="Memory Plants care home — placeholder until UI rehaul" width="390" height="844" />
-              <div class="shot-placeholder">
-                <div class="shot-placeholder-top">
-                  <span class="shot-label">Slot A · Care</span>
-                  <span class="shot-title">Memory Plants</span>
-                  <p class="shot-note">Home / garden after the sale. Swap with TestFlight capture when navy craft UI locks.</p>
-                </div>
-                <div class="shot-footer">Placeholder · UI rehaul</div>
-              </div>
+            <div class="device-screen">
+              <img
+                src="assets/memory-plants-care.jpg"
+                alt="Memory Plants care home — 335 15th Street, Oakland local tip, and today’s care"
+                width="472"
+                height="1024"
+              />
             </div>
           </div>
           <figcaption class="device-caption">Care</figcaption>
         </figure>
         <figure class="device">
           <div class="device-frame">
-            <div class="device-screen" data-shot="shop">
-              <img src="assets/memory-plants-shop.png" alt="Memory Plants shop — placeholder until UI rehaul" width="390" height="844" />
-              <div class="shot-placeholder">
-                <div class="shot-placeholder-top">
-                  <span class="shot-label">Slot B · Store</span>
-                  <span class="shot-title">Shop + pickup</span>
-                  <p class="shot-note">Catalog with pickup at 335 15th. Capture after shop chrome matches Sign Co navy.</p>
-                </div>
-                <div class="shot-footer">Placeholder · UI rehaul</div>
-              </div>
+            <div class="device-screen">
+              <img
+                src="assets/memory-plants-shop.jpg"
+                alt="Memory Plants Shop — soil and supplies with pickup at 335 15th"
+                width="472"
+                height="1024"
+              />
             </div>
           </div>
-          <figcaption class="device-caption">Store</figcaption>
+          <figcaption class="device-caption">Shop</figcaption>
         </figure>
+        <figure class="device">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/memory-plants-plants.jpg"
+                alt="Memory Plants garden — your plants with watering, light, and soil at a glance"
+                width="472"
+                height="1024"
+              />
+            </div>
+          </div>
+          <figcaption class="device-caption">Plants</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="value-pop" aria-label="Cost to you">
+      <div class="value-zero">
+        <span class="value-zero-num">$0</span>
+        <span class="value-zero-label">Setup · monthly · tech</span>
+        <span class="value-zero-sub">Nothing to pay. Revenue to keep.</span>
+      </div>
+      <div class="value-pitch">
+        <ul class="value-pitch-list">
+          <li><strong>New money</strong> — memberships + online sales from a channel you don’t have today</li>
+          <li><strong>We operate</strong> — App Store, catalog, shipping, AI tips &amp; rescue, bug fixes</li>
+          <li><strong>You keep control</strong> — brand, customers, floor; soft exit after month 6</li>
+        </ul>
       </div>
     </section>
 
@@ -654,15 +725,15 @@
           <li class="journey-item">
             <span class="journey-num">01</span>
             <div>
-              <div class="journey-title">QR on the pot</div>
-              <p class="journey-text">Customer leaves with a plant and a Memory Plants care companion — not a random blog bookmark.</p>
+              <div class="journey-title">Quick scan to add plants</div>
+              <p class="journey-text">Snap a photo to add what they took home — then AI-powered tips and rescue when something looks off.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">02</span>
             <div>
-              <div class="journey-title">Your online store, already open</div>
-              <p class="journey-text">We stand up a branded catalog inside the app (platform soil &amp; treatments to start). No Shopify build required.</p>
+              <div class="journey-title">Online store, already open</div>
+              <p class="journey-text">Branded catalog inside the app — soil &amp; treatments to start. No Shopify, no web team, no photo shoot day one.</p>
             </div>
           </li>
           <li class="journey-item">
@@ -676,14 +747,14 @@
             <span class="journey-num">04</span>
             <div>
               <div class="journey-title">When a leaf goes wrong</div>
-              <p class="journey-text">One photo → a simple plan → the exact supply, with pickup or ship handled for you.</p>
+              <p class="journey-text">Rescue points to the exact supply — pickup at 335 15th or ship handled for you.</p>
             </div>
           </li>
         </ol>
       </section>
 
       <section>
-        <div class="section-eyebrow">Brand Operator Split · $0 to launch</div>
+        <div class="section-eyebrow">You earn · we operate</div>
         <div class="model-ledger">
           <div class="model-row">
             <div class="model-header">
@@ -691,7 +762,7 @@
               <span class="model-split">15% to you</span>
             </div>
             <p class="model-desc">
-              Every paid subscriber on the Memory Plants app earns you a monthly cut. We cover App Store, AI, and support.
+              Recurring cut on every paid Memory Plants subscriber. We cover App Store, AI, and support.
             </p>
           </div>
           <div class="model-row">
@@ -700,7 +771,7 @@
               <span class="model-split">22% of each sale</span>
             </div>
             <p class="model-desc">
-              New money from a channel you don’t operate today. We stock, pack, ship, and handle returns — you earn a brand royalty on attributed storefront sales.
+              Brand royalty on a channel that doesn’t exist for you today. We stock, pack, ship, and handle returns.
             </p>
           </div>
           <div class="model-row">
@@ -709,28 +780,37 @@
               <span class="model-split">85% to you</span>
             </div>
             <p class="model-desc">
-              When customers buy <em>your</em> plants or shelf goods for pickup at 335 15th, you keep the lion’s share. We take 15% for checkout and attribution.
+              When they buy <em>your</em> plants or shelf goods for pickup at 335 15th, you keep the lion’s share.
             </p>
           </div>
         </div>
       </section>
     </div>
 
-    <section class="guarantee-strip">
-      <div class="guarantee-label">
+    <section class="keep-strip" aria-label="What you keep">
+      <div class="keep-rails">
         We run the rails
         <span>You keep the shop</span>
       </div>
-      <p class="guarantee-copy">
-        <strong>$0 setup, $0 monthly fee, $0 tech maintenance.</strong> Lime Labs covers the App Store listing, branding wrap, catalog ops, shipping, servers, and bug fixes. You keep the name, the floor, and the customer relationship — and a clean exit after month 6 with notice if it isn’t earning its keep.
-      </p>
+      <div class="keep-item">
+        <strong>Your brand</strong>
+        <span>Memory Plants on every screen</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your customers</strong>
+        <span>Care &amp; reorders end at 15th</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your call</strong>
+        <span>Pilot first · exit after month 6</span>
+      </div>
     </section>
 
     <footer class="footer-section">
       <div class="pilot-block">
         <div class="pilot-title">Proposed 3–4 Week Pilot</div>
         <p class="pilot-desc">
-          TestFlight for you + staff, QR on a small first batch of pots, catalog live for pickup at 335 15th. Mid-pilot check-in at day 10–14; decide together at the end — no automatic long contract from the handshake.
+          TestFlight for you + staff, catalog live for pickup at 335 15th. Mid-pilot check-in at day 10–14; decide together at the end — no automatic long contract from the handshake.
         </p>
       </div>
       <div class="contact-block">
@@ -740,6 +820,7 @@
         <a href="https://bigsprout.app" target="_blank" rel="noopener">bigsprout.app</a>
         · @memoryplants.store
       </div>
+      <p class="footer-tag">The plant leaves 15th Street. The relationship shouldn’t.</p>
     </footer>
   </main>
 
