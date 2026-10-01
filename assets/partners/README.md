@@ -1,8 +1,11 @@
 # Partner walkthrough media
 
-Shared Rootline TestFlight recording (until Memory Plants–specific clips exist):
+**Do not** put TestFlight screen recordings here for partner leave-behinds.
 
-- `app-walkthrough.mp4` — preferred; used in `<video autoplay muted loop playsinline>`
-- `app-walkthrough.gif` — fallback / poster-adjacent still loop
+Expected drop (one-pager screenshot montages from the montage agent):
 
-All three partner landings (`memory-plants`, `moss-and-spade`, `bggh`) point at these shared files.
+- `memory-plants-montage.mp4` (or `.gif` / `.webp`)
+- `moss-and-spade-montage.mp4` (or `.gif` / `.webp`)
+- `bggh-montage.mp4` (or `.gif` / `.webp`)
+
+Until those land, each `/partners/*` page shows a placeholder with an HTML comment showing the exact `<video>` swap.
