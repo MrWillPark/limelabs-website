@@ -189,7 +189,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
+      gap: 20px;
       overflow: hidden;
       transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
     }
@@ -288,7 +288,7 @@
 
     .device-screen {
       display: block;
-      height: 160px;
+      height: 172px;
       overflow: hidden;
       border-radius: 9px;
       background: var(--sheet-bg);
@@ -325,7 +325,7 @@
       justify-content: center;
       text-align: center;
       gap: 6px;
-      padding: 12px 24px;
+      padding: 16px 26px;
       background: var(--band-zero-bg);
       border-right: 1px solid var(--band-line);
     }
@@ -360,7 +360,7 @@
       grid-template-columns: 118px 1fr;
       column-gap: 14px;
       align-items: baseline;
-      padding: 7px 18px 7px 20px;
+      padding: 11px 18px 11px 20px;
     }
 
     .value-pitch-list li + li {
@@ -384,8 +384,8 @@
 
     .main-grid {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 32px;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 24px;
       align-items: start;
     }
 
@@ -412,7 +412,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
     }
 
     .journey-item {
@@ -449,11 +449,11 @@
     }
 
     .model-row {
-      padding: 2px 0 10px;
+      padding: 2px 0 14px;
       border-bottom: 1px solid var(--rule);
     }
 
-    .model-row + .model-row { padding-top: 10px; }
+    .model-row + .model-row { padding-top: 12px; }
 
     .model-row:last-child {
       border-bottom: none;
@@ -484,7 +484,7 @@
     }
 
     .keep-strip {
-      padding: 12px 18px;
+      padding: 18px 18px;
       background: var(--sheet-card);
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
@@ -522,26 +522,28 @@
       font-weight: 700;
       color: var(--ink);
       line-height: 1.2;
-      margin-bottom: 3px;
-    }
-
-    .keep-item span {
-      font-size: 12.5px;
-      color: var(--ink-muted);
-      line-height: 1.4;
-    }
-
-    .exit-phrase {
-      white-space: nowrap;
     }
 
     .footer-section {
       border-top: 1.5px solid var(--rule);
-      padding-top: 14px;
-      display: grid;
-      grid-template-columns: 1.1fr auto 1fr;
-      gap: 12px 22px;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      gap: 18px;
+    }
+
+    .pilot-block {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .qr-cta {
+      flex: 0 0 auto;
+    }
+
+    .contact-block {
+      flex: 0 0 auto;
     }
 
     .pilot-title {
@@ -606,6 +608,7 @@
 
     .contact-block {
       text-align: right;
+      white-space: nowrap;
       font-size: 12px;
       color: var(--ink-faint);
       line-height: 1.55;
@@ -646,7 +649,7 @@
         height: 11in !important;
         margin: 0 !important;
         padding: 0.5in 0.62in !important;
-        gap: 16px !important;
+        gap: 20px !important;
       }
     }
 
@@ -810,15 +813,12 @@
       </div>
       <div class="keep-item">
         <strong>Your brand</strong>
-        <span>Memory Plants on every screen</span>
       </div>
       <div class="keep-item">
         <strong>Your customers</strong>
-        <span>Care &amp; reorders<br>loop back to 15th</span>
       </div>
       <div class="keep-item">
         <strong>Your call</strong>
-        <span>Pilot first<br><span class="exit-phrase">Exit after month&nbsp;6</span></span>
       </div>
     </section>
 
@@ -843,7 +843,6 @@
         Founder &amp; Product Lead, Lime Labs<br>
         <a href="tel:+13108930931">(310) 893-0931</a> · <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a><br>
         <a href="https://bigsprout.app" target="_blank" rel="noopener">bigsprout.app</a>
-        · @memoryplants.store
       </div>
     </footer>
   </main>
