@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Blk Girls Green House × Rootline — Partnership Brief</title>
-  <meta name="description" content="A turnkey co-branded digital plant companion & retail commerce engine for Blk Girls Green House (1700 Center St, Oakland).">
+  <meta name="description" content="BGGH-branded care companion and online store — $0 setup, Lime runs the channel, pickup at 1700 Center St, West Oakland.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -235,10 +235,10 @@
       font-optical-sizing: auto;
       font-size: 22px;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.15;
       letter-spacing: -0.02em;
       color: var(--ink);
-      max-width: 20ch;
+      max-width: 18ch;
     }
 
     .hero-lead {
@@ -246,7 +246,105 @@
       color: var(--ink-muted);
       line-height: 1.5;
       margin-top: 8px;
-      max-width: 38ch;
+      max-width: 42ch;
+    }
+
+    .hero-lead em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .value-pop {
+      margin: 0 0 14px;
+      padding: 14px 16px 12px;
+      background: var(--gold);
+      color: var(--on-gold);
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 18px 24px;
+      align-items: center;
+    }
+
+    .value-zero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 4px;
+      padding: 4px 8px;
+    }
+
+    .value-zero-num {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--on-gold);
+    }
+
+    .value-zero-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(18, 18, 18, 0.62);
+    }
+
+    .value-zero-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(18, 18, 18, 0.82);
+      margin-top: 2px;
+    }
+
+    .value-pitch {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .value-pitch-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: rgba(18, 18, 18, 0.82);
+    }
+
+    .value-pitch-list strong {
+      color: var(--on-gold);
+      font-weight: 700;
+    }
+
+    [data-theme="light"] .value-pop {
+      background: #1a1612;
+      color: #faf7f2;
+    }
+
+    [data-theme="light"] .value-zero-num {
+      color: var(--gold);
+    }
+
+    [data-theme="light"] .value-zero-label {
+      color: rgba(250, 247, 242, 0.62);
+    }
+
+    [data-theme="light"] .value-zero-sub {
+      color: rgba(250, 247, 242, 0.88);
+    }
+
+    [data-theme="light"] .value-pitch-list {
+      color: rgba(250, 247, 242, 0.88);
+    }
+
+    [data-theme="light"] .value-pitch-list strong {
+      color: #faf7f2;
     }
 
     .device-pair {
@@ -384,6 +482,7 @@
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 3px;
+      gap: 8px;
     }
 
     .model-title {
@@ -394,10 +493,12 @@
     }
 
     .model-split {
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 600;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
       color: var(--gold-light);
+      white-space: nowrap;
+      letter-spacing: -0.02em;
     }
 
     .model-desc {
@@ -406,51 +507,62 @@
       line-height: 1.45;
     }
 
-    .guarantee-strip {
-      margin: 16px 0 14px;
-      padding: 12px 16px;
+    .keep-strip {
+      margin: 14px 0 12px;
+      padding: 10px 14px;
       background: var(--sheet-card);
-      border-left: 3px solid var(--leaf);
       border-top: 1px solid var(--rule);
-      border-right: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 18px;
+      grid-template-columns: 1.15fr repeat(3, 1fr);
+      gap: 14px;
       align-items: center;
     }
 
-    .guarantee-label {
+    .keep-rails {
       font-family: var(--font-display);
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 800;
       color: var(--ink);
       line-height: 1.25;
+      padding-right: 10px;
+      border-right: 1px solid var(--rule);
     }
 
-    .guarantee-label span {
+    .keep-rails span {
       display: block;
       font-family: var(--font-body);
       font-size: 9.5px;
-      color: var(--leaf);
-      text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--leaf);
       margin-top: 3px;
     }
 
-    .guarantee-copy {
-      font-size: 11.5px;
-      color: var(--ink-muted);
-      line-height: 1.45;
+    .keep-item {
+      text-align: left;
     }
 
-    .guarantee-copy strong {
+    .keep-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 700;
       color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .keep-item span {
+      font-size: 10.5px;
+      color: var(--ink-muted);
+      line-height: 1.35;
     }
 
     .footer-section {
       border-top: 1.5px solid var(--rule);
-      padding-top: 14px;
+      padding-top: 12px;
       display: grid;
       grid-template-columns: 1.15fr auto 1fr;
       gap: 16px 22px;
@@ -513,6 +625,15 @@
       text-transform: uppercase;
       color: var(--ink-muted);
       margin-bottom: 2px;
+    }
+
+    .qr-hint {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 3px;
     }
 
     .qr-meta a {
@@ -605,7 +726,7 @@
     <header class="header">
       <div>
         <h1 class="brand-title">Blk Girls Green House</h1>
-        <p class="brand-subtitle">Co-Branded Digital Plant Care &amp; Retail Engine</p>
+        <p class="brand-subtitle">Care companion + online store · West Oakland</p>
       </div>
       <div class="header-location">
         <strong>1700 Center Street</strong><br>
@@ -615,9 +736,9 @@
 
     <section class="hero">
       <div>
-        <h2 class="hero-h1">Turn your plant community into recurring monthly revenue and repeat store visits — 100% free of charge.</h2>
+        <h2 class="hero-h1">A new revenue channel we run for you.</h2>
         <p class="hero-lead">
-          We build a custom plant-care app under the BGGH brand. Anyone who downloads the app and subscribes generates ongoing monthly revenue for BGGH — while driving local plant parents straight to 1700 Center St for soil and supplies.
+          BGGH-branded care app + online store. You earn on memberships and sales; we cover App Store, catalog, shipping, AI care, and maintenance — <em>no Shopify, no tech burden</em>.
         </p>
       </div>
       <div class="device-pair">
@@ -650,98 +771,123 @@
       </div>
     </section>
 
+    <section class="value-pop" aria-label="Cost to you">
+      <div class="value-zero">
+        <span class="value-zero-num">$0</span>
+        <span class="value-zero-label">Setup · monthly · tech</span>
+        <span class="value-zero-sub">Nothing to pay. Revenue to keep.</span>
+      </div>
+      <div class="value-pitch">
+        <ul class="value-pitch-list">
+          <li><strong>New money</strong> — memberships + in-app sales from a channel you don’t have today</li>
+          <li><strong>We operate</strong> — App Store, catalog, shipping, AI tips &amp; rescue, bug fixes</li>
+          <li><strong>You keep control</strong> — brand, customers, floor; soft exit after month 6</li>
+        </ul>
+      </div>
+    </section>
+
     <div class="main-grid">
       <section>
-        <div class="section-eyebrow">How It Works for Customers</div>
+        <div class="section-eyebrow">How It Works</div>
         <ol class="journey-list">
           <li class="journey-item">
             <span class="journey-num">01</span>
             <div>
-              <div class="journey-title">AI Photo Identification</div>
-              <p class="journey-text">Users snap a photo of any plant in their home to instantly identify the species and get Oakland-calibrated care schedules.</p>
+              <div class="journey-title">Quick scan to add plants</div>
+              <p class="journey-text">Snap a photo to add what they took home — then AI-powered tips and rescue when something looks off.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">02</span>
             <div>
-              <div class="journey-title">Smart Care Reminders</div>
-              <p class="journey-text">The app sends gentle notifications when it’s time to water, mist, or fertilize so plants stay thriving in East Bay microclimates.</p>
+              <div class="journey-title">Care that brings them back</div>
+              <p class="journey-text">Gentle reminders for water, mist, and feed — tuned for East Bay light and West Oakland microclimates.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">03</span>
             <div>
-              <div class="journey-title">AI-assisted Photo Diagnosis</div>
-              <p class="journey-text">Yellow leaf or pests? One photo diagnoses the issue (spider mites, root rot) and gives an instant step-by-step treatment plan.</p>
+              <div class="journey-title">When a leaf goes wrong</div>
+              <p class="journey-text">One photo diagnoses pests or yellowing — then points to the exact remedy on your shelf.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">04</span>
             <div>
-              <div class="journey-title">Direct In-Store Pickup</div>
-              <p class="journey-text">The diagnosis tells customers the exact remedy they need (neem oil, aroid soil, pots) with 1-tap pickup at 1700 Center Street.</p>
+              <div class="journey-title">Pickup on Center Street</div>
+              <p class="journey-text">Neem, soil, pots — 1-tap pickup at 1700 Center St. Same address. Same neighborhood trust.</p>
             </div>
           </li>
         </ol>
       </section>
 
       <section>
-        <div class="section-eyebrow">The Partnership Model</div>
+        <div class="section-eyebrow">You earn · we operate</div>
         <div class="model-ledger">
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">Digital Subscriptions</span>
+              <span class="model-title">App memberships</span>
               <span class="model-split">10% to BGGH</span>
             </div>
             <p class="model-desc">
-              Every subscriber ($4.99/mo) earns BGGH 10% monthly recurring software revenue — whether they adopted in-store, clicked a bio link, or found the app online.
+              Recurring cut on every paid BGGH subscriber ($4.99/mo). We cover App Store, AI, and support.
             </p>
           </div>
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">Soil, Neem &amp; Pot Sales</span>
+              <span class="model-title">Soil, neem &amp; pot sales</span>
               <span class="model-split">90% to BGGH</span>
             </div>
             <p class="model-desc">
-              When the app recommends remedies and supplies, local users buy directly from your shop. BGGH keeps 90% of the retail price.
+              When the app sends them back for remedies and supplies, you keep the lion’s share of the retail price.
             </p>
           </div>
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">Web App or Native iOS</span>
-              <span class="model-split">Flexible Reach</span>
+              <span class="model-title">Your brand everywhere</span>
+              <span class="model-split">BGGH on every screen</span>
             </div>
             <p class="model-desc">
-              Shareable everywhere: a link on @blkgirls_greenhouse, bggh.shop, or a dedicated App Store download.
+              Shareable on @blkgirls_greenhouse, bggh.shop, or a dedicated App Store download — under your name.
             </p>
           </div>
         </div>
       </section>
     </div>
 
-    <section class="guarantee-strip">
-      <div class="guarantee-label">
-        Zero Tech Costs
-        <span>Lime Labs Backing</span>
+    <section class="keep-strip" aria-label="What you keep">
+      <div class="keep-rails">
+        We run the rails
+        <span>You keep the shop</span>
       </div>
-      <p class="guarantee-copy">
-        <strong>$0 setup fee, $0 monthly fee, and $0 ongoing maintenance.</strong> Lime Labs covers 100% of servers, computer vision AI recognition models, App Store approvals, and customer bug support. BGGH never touches code or server bills.
-      </p>
+      <div class="keep-item">
+        <strong>Your brand</strong>
+        <span>BGGH on every screen</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your customers</strong>
+        <span>Care &amp; reorders end at Center St</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your call</strong>
+        <span>Pilot first · exit after month 6</span>
+      </div>
     </section>
 
     <footer class="footer-section">
       <div class="pilot-block">
-        <div class="pilot-title">Proposed 4-Week Pilot</div>
+        <div class="pilot-title">Proposed 3–4 Week Pilot</div>
         <p class="pilot-desc">
-          Share the companion with your community — Instagram, bggh.shop, or in-store word of mouth. We’ll track subscribers and 1700 Center St pickup orders together over 30 days.
+          TestFlight for you + staff, catalog live for pickup at 1700 Center St. Mid-pilot check-in at day 10–14; decide together at the end — no automatic long contract from the handshake.
         </p>
       </div>
       <div class="qr-block">
         <a class="qr-link" href="https://limelabs.dev/partners/bggh/" target="_blank" rel="noopener">
-          <img class="qr-img" src="assets/partners/qr-bggh.png" width="768" height="768" alt="QR code to BGGH partner lander">
+          <img class="qr-img" src="assets/partners/qr-bggh.png" width="768" height="768" alt="QR code — privately try the BGGH app via TestFlight">
         </a>
         <div class="qr-meta">
-          <span class="qr-label">Scan for the live page</span>
+          <span class="qr-label">Scan · private TestFlight</span>
+          <span class="qr-hint">Privately play with BGGH — your branded app</span>
           <a href="https://limelabs.dev/partners/bggh/" target="_blank" rel="noopener">limelabs.dev/partners/bggh</a>
         </div>
       </div>
