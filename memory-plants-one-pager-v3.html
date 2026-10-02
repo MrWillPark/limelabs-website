@@ -45,6 +45,9 @@
       --band-ink: #f7f4ea;
       --band-soft: #f0ead8;
       --band-num: #c9a227;
+      --band-zero-bg: rgba(255, 255, 255, 0.07);
+      --band-line: rgba(247, 244, 234, 0.22);
+      --band-tail: #f0ead8;
       --split: #1a2b48;
       --eyebrow: #1a2b48;
       --pilot: #1a2b48;
@@ -76,6 +79,9 @@
       --band-ink: #f7f4ea;
       --band-soft: #f0ead8;
       --band-num: #c9a227;
+      --band-zero-bg: rgba(255, 255, 255, 0.05);
+      --band-line: rgba(247, 244, 234, 0.18);
+      --band-tail: #f0ead8;
       --split: #c9a227;
       --eyebrow: #c9a227;
       --pilot: #c9a227;
@@ -270,7 +276,7 @@
 
     .device {
       margin: 0;
-      width: 90px;
+      width: 96px;
     }
 
     .device-frame {
@@ -282,7 +288,7 @@
 
     .device-screen {
       display: block;
-      height: 152px;
+      height: 160px;
       overflow: hidden;
       border-radius: 9px;
       background: var(--sheet-bg);
@@ -305,13 +311,11 @@
     }
 
     .value-pop {
-      padding: 14px 20px;
       background: var(--band-bg);
       color: var(--band-ink);
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 16px 34px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .value-zero {
@@ -320,8 +324,10 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 7px;
-      padding: 0 6px;
+      gap: 6px;
+      padding: 12px 24px;
+      background: var(--band-zero-bg);
+      border-right: 1px solid var(--band-line);
     }
 
     .value-zero-num {
@@ -345,29 +351,35 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 9px;
       width: 100%;
-      font-size: 14px;
-      line-height: 1.3;
-      color: var(--band-soft);
+      padding: 3px 0;
     }
 
     .value-pitch-list li {
       display: grid;
-      grid-template-columns: max-content 1fr;
-      column-gap: 18px;
+      grid-template-columns: 118px 1fr;
+      column-gap: 14px;
       align-items: baseline;
+      padding: 7px 18px 7px 20px;
+    }
+
+    .value-pitch-list li + li {
+      border-top: 1px solid var(--band-line);
     }
 
     .value-pitch-label {
+      font-size: 11.5px;
       font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: var(--band-ink);
       white-space: nowrap;
     }
 
     .value-pitch-val {
-      text-align: right;
+      font-size: 13.5px;
       font-weight: 500;
+      color: var(--band-tail);
     }
 
     .main-grid {
@@ -400,7 +412,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 8px;
     }
 
     .journey-item {
@@ -441,7 +453,7 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .model-row + .model-row { padding-top: 8px; }
+    .model-row + .model-row { padding-top: 10px; }
 
     .model-row:last-child {
       border-bottom: none;
@@ -471,15 +483,8 @@
       letter-spacing: -0.02em;
     }
 
-    .model-desc {
-      font-size: 13px;
-      color: var(--ink-muted);
-      line-height: 1.45;
-      margin-top: 2px;
-    }
-
     .keep-strip {
-      padding: 10px 16px;
+      padding: 12px 18px;
       background: var(--sheet-card);
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
@@ -530,22 +535,9 @@
       white-space: nowrap;
     }
 
-    .footer-tag {
-      grid-column: 1 / -1;
-      margin-top: 0;
-      padding-top: 7px;
-      border-top: 1px solid var(--rule);
-      font-family: var(--font-display);
-      font-size: 13px;
-      font-weight: 600;
-      font-style: italic;
-      color: var(--ink-faint);
-      text-align: center;
-    }
-
     .footer-section {
       border-top: 1.5px solid var(--rule);
-      padding-top: 12px;
+      padding-top: 14px;
       display: grid;
       grid-template-columns: 1.1fr auto 1fr;
       gap: 12px 22px;
@@ -751,9 +743,9 @@
       </div>
       <div class="value-pitch">
         <ul class="value-pitch-list">
-          <li><span class="value-pitch-label">New revenue</span><span class="value-pitch-val">memberships + online sales</span></li>
-          <li><span class="value-pitch-label">We operate</span><span class="value-pitch-val">App Store, catalog, shipping, AI, support</span></li>
-          <li><span class="value-pitch-label">You control</span><span class="value-pitch-val">brand, customers, floor</span></li>
+          <li><span class="value-pitch-label">New revenue</span><span class="value-pitch-val">memberships + every online sale</span></li>
+          <li><span class="value-pitch-label">We operate</span><span class="value-pitch-val">the app, the catalog, every order</span></li>
+          <li><span class="value-pitch-label">You control</span><span class="value-pitch-val">the brand, the regulars, the floor</span></li>
         </ul>
       </div>
     </section>
@@ -794,21 +786,18 @@
               <span class="model-title">App memberships</span>
               <span class="model-split">15% to you</span>
             </div>
-            <p class="model-desc">Recurring cut on every paid subscriber.</p>
           </div>
           <div class="model-row">
             <div class="model-header">
               <span class="model-title">Orders we fulfill</span>
               <span class="model-split">22% of each sale</span>
             </div>
-            <p class="model-desc">Brand royalty on ship-to-customer orders. We stock, pack, and ship.</p>
           </div>
           <div class="model-row">
             <div class="model-header">
               <span class="model-title">Your merch for pickup</span>
               <span class="model-split">85% to you</span>
             </div>
-            <p class="model-desc">Your plants or shelf goods for pickup at 335 15th.</p>
           </div>
         </div>
       </section>
@@ -831,7 +820,6 @@
         <strong>Your call</strong>
         <span>Pilot first<br><span class="exit-phrase">Exit after month&nbsp;6</span></span>
       </div>
-      <p class="footer-tag">The plant leaves 15th Street. The relationship shouldn’t.</p>
     </section>
 
     <footer class="footer-section">
