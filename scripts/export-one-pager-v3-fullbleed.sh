@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Export full-bleed letter PDFs from the v3 partner one-pagers.
 #
-# The live v3 pages print through a 0.5in @page margin (so browser margin
-# settings and headers/footers can't push them to a second page). For
-# press/digital sharing we want the sheet to reach all four edges, so this
-# script renders BUILD-TIME COPIES with the sheet filling the whole letter
-# page — the live pages are not modified.
+# The live v3 pages are already full-bleed (@page margin 0, sheet fills
+# 8.5x11in). This script makes build-time copies with every image inlined as
+# a data URI — so print never races image loading — waits for fonts and
+# image decode, then prints via headless Chrome and verifies page count and
+# page size.
 #
 # Usage: scripts/export-one-pager-v3-fullbleed.sh [out-dir]
 # Env:   CHROME (default: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome)
@@ -16,38 +16,46 @@ OUT="${1:-/tmp/one-pager-v3-fullbleed}"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 mkdir -p "$OUT"
 
-INJECT='<style>
-    /* Full-bleed export override: sheet fills the letter page. */
-    @media print {
-      html, body {
-        background: var(--sheet-bg) !important;
-        margin: 0 !important;
-        padding: 0 !important;
+READY_GATE='<script>
+    (function () {
+      function ready() {
+        var fontWait = document.fonts ? document.fonts.ready : Promise.resolve();
+        var imgWaits = [].map.call(document.images, function (img) {
+          return img.decode ? img.decode() : Promise.resolve();
+        });
+        Promise.all([fontWait].concat(imgWaits)).then(function () {
+          document.documentElement.setAttribute("data-print-ready", "true");
+        });
       }
-      .sheet {
-        width: 8.5in !important;
-        min-height: 11in !important;
-        height: 11in !important;
-        margin: 0 !important;
-        padding: 0.5in 0.62in !important;
-        gap: 20px !important;
-      }
-    }
-    @page { size: letter portrait; margin: 0; }
-  </style></head>'
+      if (document.readyState === "complete") { ready(); } else { window.addEventListener("load", ready); }
+    })();
+  </script></body>'
 
 for name in memory-plants bggh; do
   src="$REPO/${name}-one-pager-v3.html"
   tmp="$(mktemp "/tmp/${name}-v3-fullbleed-XXXXXX.html")"
-  python3 - "$src" "$tmp" "$INJECT" <<'PY'
-import sys
-src, dst, inject = sys.argv[1], sys.argv[2], sys.argv[3]
+  python3 - "$src" "$tmp" "$READY_GATE" <<'PY'
+import base64, os, re, sys
+src, dst, gate = sys.argv[1], sys.argv[2], sys.argv[3]
+repo = os.path.dirname(os.path.abspath(src))
 s = open(src).read()
-assert "</head>" in s, "no </head> found"
-open(dst, "w").write(s.replace("</head>", inject, 1))
+
+mime = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".svg": "image/svg+xml"}
+def inline(m):
+    path, = m.groups()
+    if path.startswith("data:"):
+        return m.group(0)
+    ext = os.path.splitext(path)[1].lower()
+    data = open(os.path.join(repo, path), "rb").read()
+    return f'src="data:{mime[ext]};base64,{base64.b64encode(data).decode()}"'
+
+s = re.sub(r'src="((?:assets/)[^"]+)"', inline, s)
+assert "data-print-ready" not in s
+assert "</body>" in s
+open(dst, "w").write(s.replace("</body>", gate, 1))
 PY
   "$CHROME" --headless=new --disable-gpu --no-pdf-header-footer \
-    --virtual-time-budget=15000 \
+    --virtual-time-budget=30000 \
     --print-to-pdf="$OUT/${name}-v3-fullbleed.pdf" "file://$tmp" 2>/dev/null
   rm -f "$tmp"
 done
