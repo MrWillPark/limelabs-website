@@ -452,8 +452,8 @@
       border-top: 1.5px solid var(--rule);
       padding-top: 14px;
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 30px;
+      grid-template-columns: 1.15fr auto 1fr;
+      gap: 16px 22px;
       align-items: center;
     }
 
@@ -474,6 +474,51 @@
       font-size: 11.5px;
       color: var(--ink-muted);
       line-height: 1.45;
+    }
+
+    .qr-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .qr-link {
+      display: block;
+      flex-shrink: 0;
+      line-height: 0;
+      background: #fff;
+      padding: 4px;
+      border: 1px solid var(--rule);
+    }
+
+    .qr-img {
+      width: 72px;
+      height: 72px;
+      display: block;
+    }
+
+    .qr-meta {
+      font-size: 10px;
+      color: var(--ink-faint);
+      line-height: 1.4;
+    }
+
+    .qr-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+
+    .qr-meta a {
+      color: var(--gold);
+      text-decoration: none;
+      word-break: break-all;
     }
 
     .contact-block {
@@ -690,6 +735,15 @@
         <p class="pilot-desc">
           Share the companion with your community — Instagram, mossandspade.com, or in-store word of mouth. We’ll track subscribers and 4139 Piedmont Ave pickup orders together over 30 days.
         </p>
+      </div>
+      <div class="qr-block">
+        <a class="qr-link" href="https://limelabs.dev/partners/moss-and-spade/" target="_blank" rel="noopener">
+          <img class="qr-img" src="assets/partners/qr-moss-and-spade.png" width="768" height="768" alt="QR code to Moss and Spade partner lander">
+        </a>
+        <div class="qr-meta">
+          <span class="qr-label">Scan for the live page</span>
+          <a href="https://limelabs.dev/partners/moss-and-spade/" target="_blank" rel="noopener">limelabs.dev/partners/moss-and-spade</a>
+        </div>
       </div>
       <div class="contact-block">
         <strong>Will Park</strong>
