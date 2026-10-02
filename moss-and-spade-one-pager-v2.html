@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Moss and Spade × Rootline — Partnership Brief (v2)</title>
+  <meta name="description" content="Moss and Spade–branded care companion — $0 setup, Lime runs the channel, pickup at 4139 Piedmont Ave, Oakland.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    try {
+      var storedTheme = localStorage.getItem("moss-spade-brief-v2-theme");
+      if (storedTheme === "light" || storedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", storedTheme);
+      }
+    } catch (e) {}
+  </script>
+  <style>
+    :root,
+    [data-theme="dark"] {
+      --page-bg: #0a0c0b;
+      --sheet-bg: #121212;
+      --sheet-card: #1c1b18;
+      --ink: #faf7f2;
+      --ink-muted: #ddd8ce;
+      --ink-faint: #b0aaa0;
+      --gold: #d4a078;
+      --gold-light: #e4b892;
+      --rule: #2e2d2a;
+      --leaf: #5a9a6e;
+      --bar-bg: rgba(18, 18, 18, 0.95);
+      --sheet-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      --on-gold: #121212;
+      --toggle-idle: #faf7f2;
+      --font-display: "Fraunces", "Times New Roman", serif;
+      --font-body: "Karla", "Helvetica Neue", sans-serif;
+    }
+
+    [data-theme="light"] {
+      --page-bg: #d8d2c6;
+      --sheet-bg: #faf7f2;
+      --sheet-card: #f1ebe2;
+      --ink: #161411;
+      --ink-muted: #3f3a34;
+      --ink-faint: #5c574e;
+      --gold: #8f5e36;
+      --gold-light: #7a4e2c;
+      --rule: #d5cfc3;
+      --leaf: #2a5f3b;
+      --bar-bg: rgba(250, 247, 242, 0.94);
+      --sheet-shadow: 0 16px 40px rgba(40, 32, 18, 0.14);
+      --on-gold: #faf7f2;
+      --toggle-idle: #161411;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--page-bg);
+      color: var(--ink);
+      line-height: 1.5;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 40px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .screen-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bar-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--gold);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto 24px;
+    }
+
+    .screen-bar-title {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .screen-actions { display: flex; gap: 12px; }
+
+    .theme-toggle {
+      display: flex;
+      border: 1.5px solid var(--rule);
+    }
+
+    .theme-toggle button {
+      background: transparent;
+      color: var(--toggle-idle);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 11px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .theme-toggle button[aria-pressed="true"] {
+      background: var(--gold);
+      color: var(--on-gold);
+    }
+
+    .theme-toggle button:hover:not([aria-pressed="true"]) {
+      color: var(--gold);
+    }
+
+    .btn-print {
+      background: var(--gold);
+      color: var(--on-gold);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 7px 16px;
+      border: 2px solid var(--gold);
+      cursor: pointer;
+    }
+
+    .btn-print:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .sheet {
+      width: 8.5in;
+      max-width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      background: var(--sheet-bg);
+      border: 1.5px solid var(--rule);
+      padding: 0.58in 0.68in 0.52in;
+      box-shadow: var(--sheet-shadow);
+      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .header-location {
+      font-size: 12px;
+      color: var(--ink-faint);
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .header-location strong { color: var(--ink); }
+
+    .hero {
+      margin: 6px 0 4px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-optical-sizing: auto;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 16ch;
+    }
+
+    .hero-lead {
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      margin-top: 10px;
+      max-width: 36ch;
+    }
+
+    .hero-lead em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .value-pop {
+      margin: 0;
+      padding: 16px 18px;
+      background: var(--gold);
+      color: var(--on-gold);
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 20px 28px;
+      align-items: center;
+    }
+
+    .value-zero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 4px;
+      padding: 4px 8px;
+    }
+
+    .value-zero-num {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--on-gold);
+    }
+
+    .value-zero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(18, 18, 18, 0.78);
+    }
+
+    .value-zero-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(18, 18, 18, 0.9);
+      margin-top: 2px;
+    }
+
+    .value-pitch-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 14px;
+      line-height: 1.35;
+      color: rgba(18, 18, 18, 0.9);
+    }
+
+    .value-pitch-list strong {
+      color: var(--on-gold);
+      font-weight: 700;
+    }
+
+    [data-theme="light"] .value-pop {
+      background: #1a1612;
+      color: #faf7f2;
+    }
+
+    [data-theme="light"] .value-zero-num {
+      color: var(--gold);
+    }
+
+    [data-theme="light"] .value-zero-label,
+    [data-theme="light"] .value-zero-sub,
+    [data-theme="light"] .value-pitch-list {
+      color: #f0ead8;
+    }
+
+    [data-theme="light"] .value-pitch-list strong {
+      color: #faf7f2;
+    }
+
+    .device-pair {
+      display: flex;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .device {
+      margin: 0;
+      width: 118px;
+    }
+
+    .device-frame {
+      background: #0a0a0a;
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 6px 5px 8px;
+    }
+
+    .device-screen {
+      display: block;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 9px;
+      background: #0a0a0a;
+    }
+
+    .device-screen img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .device--garden .device-screen img {
+      margin-top: -6%;
+    }
+
+    .device-caption {
+      margin-top: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-eyebrow::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .journey-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .journey-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+    }
+
+    .journey-num {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      padding-top: 2px;
+    }
+
+    .journey-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 3px;
+    }
+
+    .journey-text {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    .model-ledger {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .model-row {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .model-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .model-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+      gap: 8px;
+    }
+
+    .model-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .model-split {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--gold-light);
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .model-desc {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+    }
+
+    .keep-strip {
+      margin: 4px 0;
+      padding: 12px 16px;
+      background: var(--sheet-card);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, 1fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .keep-rails {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.25;
+      padding-right: 12px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .keep-rails span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--leaf);
+      margin-top: 3px;
+    }
+
+    .keep-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .keep-item span {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.35;
+    }
+
+    .footer-section {
+      border-top: 1.5px solid var(--rule);
+      padding-top: 14px;
+      display: grid;
+      grid-template-columns: 1.15fr auto 1fr;
+      gap: 16px 22px;
+      align-items: center;
+    }
+
+    .pilot-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .pilot-desc {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      margin-top: 4px;
+    }
+
+    .qr-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .qr-link {
+      display: block;
+      flex-shrink: 0;
+      line-height: 0;
+      background: #fff;
+      padding: 4px;
+      border: 1px solid var(--rule);
+    }
+
+    .qr-img {
+      width: 72px;
+      height: 72px;
+      display: block;
+    }
+
+    .qr-meta {
+      font-size: 11px;
+      color: var(--ink-faint);
+      line-height: 1.4;
+    }
+
+    .qr-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 2px;
+    }
+
+    .qr-meta a {
+      color: var(--gold);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-block {
+      text-align: right;
+      font-size: 12px;
+      color: var(--ink-faint);
+      line-height: 1.55;
+    }
+
+    .contact-block strong {
+      color: var(--ink);
+      font-size: 14px;
+      display: block;
+    }
+
+    .contact-block a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .screen-bar { display: none !important; }
+      html, body {
+        background: var(--sheet-bg) !important;
+        color: var(--ink) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        height: 100%;
+      }
+      .sheet {
+        background: var(--sheet-bg) !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 100% !important;
+        margin: 0 !important;
+        padding: 0.58in 0.68in 0.5in !important;
+      }
+      .device-frame { box-shadow: none !important; }
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="screen-bar" aria-label="Page controls">
+    <div class="screen-bar-title">
+      Moss and Spade × Rootline · Partnership Brief · v2
+    </div>
+    <div class="screen-actions">
+      <div class="theme-toggle" role="group" aria-label="Sheet theme">
+        <button type="button" data-theme-set="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-set="light" aria-pressed="false">Paper</button>
+      </div>
+      <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </aside>
+
+  <main class="sheet">
+    <header class="header">
+      <div>
+        <h1 class="brand-title">Moss and Spade</h1>
+        <p class="brand-subtitle">Care companion + retail engine · Piedmont Ave</p>
+      </div>
+      <div class="header-location">
+        <strong>4139 Piedmont Avenue</strong><br>
+        Oakland, California
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2 class="hero-h1">A new revenue channel we run for you.</h2>
+        <p class="hero-lead">
+          Moss and Spade–branded care app. You earn on memberships and supply sales; we cover App Store, AI, and maintenance — <em>no tech burden</em>.
+        </p>
+      </div>
+      <div class="device-pair">
+        <figure class="device">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/bggh-sanctuary-home.png"
+                alt="Moss and Spade companion sanctuary home — Piedmont Avenue, today's care, and coming-up rituals"
+                width="390"
+                height="844"
+              />
+            </div>
+          </div>
+          <figcaption class="device-caption">Sanctuary</figcaption>
+        </figure>
+        <figure class="device device--garden">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/bggh-sanctuary-screen.jpg"
+                alt="Companion garden — household plants with watering, light, and soil at a glance"
+                width="390"
+                height="844"
+              />
+            </div>
+          </div>
+          <figcaption class="device-caption">Garden</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="value-pop" aria-label="Cost to you">
+      <div class="value-zero">
+        <span class="value-zero-num">$0</span>
+        <span class="value-zero-label">Setup · monthly · tech</span>
+        <span class="value-zero-sub">Nothing to pay. Revenue to keep.</span>
+      </div>
+      <div class="value-pitch">
+        <ul class="value-pitch-list">
+          <li><strong>New money</strong> — memberships + supply sales from a channel you don’t have today</li>
+          <li><strong>We operate</strong> — App Store, AI care &amp; rescue, servers, support</li>
+          <li><strong>You keep control</strong> — brand, customers, floor; soft exit after month 6</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <section>
+        <div class="section-eyebrow">How It Works</div>
+        <ol class="journey-list">
+          <li class="journey-item">
+            <span class="journey-num">01</span>
+            <div>
+              <div class="journey-title">Scan to add plants</div>
+              <p class="journey-text">Snap a photo — Oakland-calibrated care schedules kick in.</p>
+            </div>
+          </li>
+          <li class="journey-item">
+            <span class="journey-num">02</span>
+            <div>
+              <div class="journey-title">When a leaf goes wrong</div>
+              <p class="journey-text">One photo diagnoses pests or yellowing — then the exact remedy.</p>
+            </div>
+          </li>
+          <li class="journey-item">
+            <span class="journey-num">03</span>
+            <div>
+              <div class="journey-title">Pickup on Piedmont</div>
+              <p class="journey-text">Neem, soil, pots — 1-tap pickup at 4139 Piedmont Ave.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <div class="section-eyebrow">You earn · we operate</div>
+        <div class="model-ledger">
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">App memberships</span>
+              <span class="model-split">10% to you</span>
+            </div>
+            <p class="model-desc">Recurring cut on every paid subscriber ($4.99/mo). We cover App Store, AI, support.</p>
+          </div>
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">Soil, neem &amp; pot sales</span>
+              <span class="model-split">90% to you</span>
+            </div>
+            <p class="model-desc">When the app sends them back for remedies, you keep the lion’s share.</p>
+          </div>
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">Your brand everywhere</span>
+              <span class="model-split">Moss on every screen</span>
+            </div>
+            <p class="model-desc">Shareable on @mossandspade, mossandspade.com, or the App Store — under your name.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="keep-strip" aria-label="What you keep">
+      <div class="keep-rails">
+        We run the rails
+        <span>You keep the shop</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your brand</strong>
+        <span>Moss and Spade on every screen</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your customers</strong>
+        <span>Care &amp; reorders end at Piedmont</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your call</strong>
+        <span>Pilot first · exit after month 6</span>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <div class="pilot-block">
+        <div class="pilot-title">4-Week Pilot</div>
+        <p class="pilot-desc">
+          Share with your community — Instagram, site, or in-store. We’ll track subscribers and Piedmont pickups over 30 days.
+        </p>
+      </div>
+      <div class="qr-block">
+        <a class="qr-link" href="https://limelabs.dev/partners/moss-and-spade/" target="_blank" rel="noopener">
+          <img class="qr-img" src="assets/partners/qr-moss-and-spade.png" width="768" height="768" alt="QR code — privately try the Moss and Spade app via TestFlight">
+        </a>
+        <div class="qr-meta">
+          <span class="qr-label">Play with your app</span>
+          <a href="https://limelabs.dev/partners/moss-and-spade/" target="_blank" rel="noopener">limelabs.dev/partners/moss-and-spade</a>
+        </div>
+      </div>
+      <div class="contact-block">
+        <strong>Will Park</strong>
+        Founder &amp; Product Lead, Lime Labs<br>
+        <a href="tel:+13108930931">(310) 893-0931</a> · <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a><br>
+        <a href="https://bigsprout.app" target="_blank">bigsprout.app</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll("[data-theme-set]");
+      var stored = null;
+      try {
+        stored = localStorage.getItem("moss-spade-brief-v2-theme");
+      } catch (e) {}
+
+      function applyTheme(theme) {
+        var next = theme === "light" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        buttons.forEach(function (button) {
+          button.setAttribute("aria-pressed", button.getAttribute("data-theme-set") === next ? "true" : "false");
+        });
+        try {
+          localStorage.setItem("moss-spade-brief-v2-theme", next);
+        } catch (e) {}
+      }
+
+      applyTheme(stored);
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyTheme(button.getAttribute("data-theme-set"));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
