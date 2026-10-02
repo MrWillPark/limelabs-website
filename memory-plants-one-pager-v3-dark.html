@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Memory Plants × Lime Labs — Partnership Brief (v3 · Ink)</title>
+  <meta name="description" content="Memory Plants–branded care companion and managed online store — pickup at 335 15th Street, Oakland.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
+    document.documentElement.setAttribute("data-theme", "dark");
+  </script>
+  <style>
+    :root,
+    [data-theme="light"] {
+      --page-bg: #d8dde4;
+      --page-bg-2: #c5ced9;
+      --sheet-bg: #f3f5f7;
+      --sheet-card: #e8ecf0;
+      --ink: #121820;
+      --ink-muted: #3d4654;
+      --ink-faint: #5a6472;
+      --navy: #1a2b48;
+      --navy-light: #2a4068;
+      --accent: #c9a227;
+      --rule: #d5dae0;
+      --leaf: #3d5c45;
+      --bar-bg: rgba(243, 245, 247, 0.94);
+      --sheet-shadow: 0 16px 40px rgba(18, 24, 32, 0.12);
+      --on-navy: #f7f4ea;
+      --toggle-idle: #121820;
+      --device-bezel: #121820;
+      --band-bg: #1a2b48;
+      --band-ink: #f7f4ea;
+      --band-soft: #f0ead8;
+      --band-num: #c9a227;
+      --band-zero-bg: rgba(255, 255, 255, 0.07);
+      --band-line: rgba(247, 244, 234, 0.22);
+      --band-tail: #f0ead8;
+      --split: #1a2b48;
+      --eyebrow: #1a2b48;
+      --pilot: #1a2b48;
+      --link: #c9a227;
+      --caption: #1a2b48;
+      --font-display: "Zilla Slab", "Times New Roman", serif;
+      --font-body: "Karla", "Helvetica Neue", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --page-bg: #0c1016;
+      --page-bg-2: #1a2b48;
+      --sheet-bg: #121820;
+      --sheet-card: #1a2434;
+      --ink: #f7f4ea;
+      --ink-muted: #d4d9e0;
+      --ink-faint: #a8b0bc;
+      --navy: #c9a227;
+      --navy-light: #dfc056;
+      --accent: #c9a227;
+      --rule: #2a3444;
+      --leaf: #7aad8a;
+      --bar-bg: rgba(18, 24, 32, 0.95);
+      --sheet-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --on-navy: #121820;
+      --toggle-idle: #f7f4ea;
+      --device-bezel: #0a0e14;
+      --band-bg: #1a2434;
+      --band-ink: #f7f4ea;
+      --band-soft: #f0ead8;
+      --band-num: #c9a227;
+      --band-zero-bg: rgba(255, 255, 255, 0.05);
+      --band-line: rgba(247, 244, 234, 0.18);
+      --band-tail: #f0ead8;
+      --split: #c9a227;
+      --eyebrow: #c9a227;
+      --pilot: #c9a227;
+      --link: #c9a227;
+      --caption: #c9a227;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, var(--page-bg-2) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 45% at 90% 100%, var(--page-bg-2) 0%, transparent 50%),
+        var(--page-bg);
+      color: var(--ink);
+      line-height: 1.5;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 40px;
+      transition: background 180ms ease, color 180ms ease;
+    }
+
+    .screen-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bar-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--accent);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 780px;
+      margin: 0 auto 24px;
+      gap: 16px;
+    }
+
+    .screen-bar-title {
+      font-size: 11px;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .screen-actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+    .theme-toggle {
+      display: flex;
+      border: 1.5px solid var(--rule);
+    }
+
+    .theme-toggle button {
+      background: transparent;
+      color: var(--toggle-idle);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 11px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .theme-toggle button[aria-pressed="true"] {
+      background: var(--navy);
+      color: var(--on-navy);
+    }
+
+    .theme-toggle button:hover:not([aria-pressed="true"]) {
+      color: var(--accent);
+    }
+
+    .btn-print {
+      background: var(--navy);
+      color: var(--on-navy);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 7px 16px;
+      border: 2px solid var(--navy);
+      cursor: pointer;
+    }
+
+    .btn-print:hover {
+      background: var(--navy-light);
+      border-color: var(--navy-light);
+    }
+
+    /* ---- Sheet: one geometry for screen and print. Content box is budgeted
+       to ~9.9in (letter minus 0.5in top/bottom padding); sections are sized
+       to fill it with air via space-between, never squeezed post hoc. ---- */
+    .sheet {
+      width: 8.5in;
+      max-width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      background: var(--sheet-bg);
+      border: 1.5px solid var(--rule);
+      padding: 0.4in 0.5in;
+      box-shadow: var(--sheet-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      overflow: hidden;
+      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .brand-lock {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark { width: 38px; height: 38px; flex-shrink: 0; }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--eyebrow);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .header-location {
+      font-size: 12px;
+      color: var(--ink-faint);
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .header-location strong { color: var(--ink); font-size: 13px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: 33px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 22ch;
+    }
+
+    .hero-lead {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-top: 8px;
+      max-width: 34ch;
+    }
+
+    .hero-lead em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .device-pair {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .device {
+      margin: 0;
+      width: 112px;
+    }
+
+    .device-frame {
+      background: var(--device-bezel);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 6px 5px 8px;
+    }
+
+    .device-screen {
+      display: block;
+      height: 184px;
+      overflow: hidden;
+      border-radius: 9px;
+      background: var(--sheet-bg);
+    }
+
+    .device-screen img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .device-caption {
+      margin-top: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--caption);
+      text-align: center;
+    }
+
+    .value-pop {
+      background: var(--band-bg);
+      color: var(--band-ink);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: stretch;
+    }
+
+    .value-zero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 7px;
+      padding: 14px 24px;
+      background: var(--band-zero-bg);
+      border-right: 1px solid var(--band-line);
+    }
+
+    .value-zero-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      color: var(--band-num);
+    }
+
+    .value-zero-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--band-ink);
+    }
+
+    .value-pitch-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 3px 0;
+    }
+
+    .value-pitch-list li {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      column-gap: 14px;
+      align-items: baseline;
+      padding: 12px 18px 12px 20px;
+    }
+
+    .value-pitch-list li + li {
+      border-top: 1px solid var(--band-line);
+    }
+
+    .value-pitch-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--band-ink);
+      white-space: nowrap;
+    }
+
+    .value-pitch-val {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--band-tail);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--eyebrow);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-eyebrow::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .journey-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .journey-item {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+    }
+
+    .journey-num {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      padding-top: 3px;
+    }
+
+    .journey-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .journey-text {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.45;
+      margin-top: 1px;
+    }
+
+    .model-ledger {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .model-row {
+      padding: 2px 0 18px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .model-row + .model-row { padding-top: 13px; }
+
+    .model-row:last-child {
+      border-bottom: none;
+      padding-bottom: 2px;
+    }
+
+    .model-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .model-title {
+      font-family: var(--font-display);
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .model-split {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--split);
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .keep-strip {
+      padding: 18px 18px;
+      background: var(--sheet-card);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1.15fr repeat(3, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .keep-rails {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      padding-right: 14px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .keep-rails span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--leaf);
+      margin-top: 4px;
+    }
+
+    .keep-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .footer-section {
+      border-top: 1.5px solid var(--rule);
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .pilot-block {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .qr-cta {
+      flex: 0 0 auto;
+    }
+
+    .contact-block {
+      flex: 0 0 auto;
+    }
+
+    .pilot-title {
+      font-family: var(--font-display);
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--pilot);
+    }
+
+    .pilot-desc {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    .qr-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 7px 12px 7px 7px;
+      border: 1.5px solid var(--accent);
+      background: var(--sheet-card);
+    }
+
+    .qr-link {
+      display: block;
+      flex-shrink: 0;
+      line-height: 0;
+      background: #fff;
+      padding: 4px;
+      border: 1px solid var(--rule);
+    }
+
+    .qr-img {
+      width: 62px;
+      height: 62px;
+      display: block;
+    }
+
+    .qr-meta {
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      line-height: 1.4;
+      max-width: 10em;
+    }
+
+    .qr-label {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .qr-meta a {
+      color: var(--link);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .contact-block {
+      text-align: right;
+      white-space: nowrap;
+      font-size: 12px;
+      color: var(--ink-faint);
+      line-height: 1.55;
+    }
+
+    .contact-block strong {
+      color: var(--ink);
+      font-size: 14px;
+      display: block;
+    }
+
+    .contact-block a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .screen-bar { display: none !important; }
+      html, body {
+        background: var(--sheet-bg) !important;
+        color: var(--ink) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto;
+        height: auto;
+      }
+      .sheet {
+        background: var(--sheet-bg) !important;
+        box-shadow: none !important;
+        border: none !important;
+        width: 8.5in !important;
+        max-width: none !important;
+        min-height: 11in !important;
+        height: 11in !important;
+        margin: 0 !important;
+        padding: 0.4in 0.5in !important;
+        gap: 24px !important;
+      }
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <aside class="screen-bar" aria-label="Page controls">
+    <div class="screen-bar-title">
+      Memory Plants × Lime Labs · Partnership Brief · v3
+    </div>
+    <div class="screen-actions">
+      <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </aside>
+
+  <main class="sheet">
+    <header class="header">
+      <div class="brand-lock">
+        <img class="brand-mark" src="assets/memory-plants-mark.svg" alt="" width="38" height="38" />
+        <div>
+          <h1 class="brand-title">Memory Plants</h1>
+          <p class="brand-subtitle">Care companion + online store · Oakland</p>
+        </div>
+      </div>
+      <div class="header-location">
+        <strong>335 15th Street</strong><br>
+        Oakland, California
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2 class="hero-h1">A new revenue channel<br>we run for you.</h2>
+        <p class="hero-lead">
+          Branded care app + online store. We run App Store, catalog, shipping, and AI care — <em>no Shopify, no tech burden</em>.
+        </p>
+      </div>
+      <div class="device-pair">
+        <figure class="device">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/memory-plants-care.jpg"
+                alt="Memory Plants care home — 335 15th Street, Oakland local tip, and today’s care"
+                width="472"
+                height="1024"
+              />
+            </div>
+          </div>
+          <figcaption class="device-caption">Care</figcaption>
+        </figure>
+        <figure class="device">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/memory-plants-shop.jpg"
+                alt="Memory Plants Shop — soil and supplies with pickup at 335 15th"
+                width="472"
+                height="1024"
+              />
+            </div>
+          </div>
+          <figcaption class="device-caption">Shop</figcaption>
+        </figure>
+        <figure class="device">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/memory-plants-plants.jpg"
+                alt="Memory Plants garden — your plants with watering, light, and soil at a glance"
+                width="472"
+                height="1024"
+              />
+            </div>
+          </div>
+          <figcaption class="device-caption">Plants</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="value-pop" aria-label="Cost to you">
+      <div class="value-zero">
+        <span class="value-zero-num">$0</span>
+        <span class="value-zero-label">Setup · monthly · tech</span>
+      </div>
+      <div class="value-pitch">
+        <ul class="value-pitch-list">
+          <li><span class="value-pitch-label">New revenue</span><span class="value-pitch-val">memberships + every online sale</span></li>
+          <li><span class="value-pitch-label">We operate</span><span class="value-pitch-val">the app, the catalog, every order</span></li>
+          <li><span class="value-pitch-label">You control</span><span class="value-pitch-val">the brand, the regulars, the floor</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="main-grid">
+      <section>
+        <div class="section-eyebrow">How It Works</div>
+        <ol class="journey-list">
+          <li class="journey-item">
+            <span class="journey-num">01</span>
+            <div>
+              <div class="journey-title">Scan to ID and rescue plants</div>
+              <p class="journey-text">Snap a photo — care tips when something looks off.</p>
+            </div>
+          </li>
+          <li class="journey-item">
+            <span class="journey-num">02</span>
+            <div>
+              <div class="journey-title">Online store, already open</div>
+              <p class="journey-text">Branded catalog in-app. No Shopify, no web team.</p>
+            </div>
+          </li>
+          <li class="journey-item">
+            <span class="journey-num">03</span>
+            <div>
+              <div class="journey-title">Pickup on 15th</div>
+              <p class="journey-text">Locals reorder and walk back. Same address, same trust.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <div class="section-eyebrow">You earn · we operate</div>
+        <div class="model-ledger">
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">App memberships</span>
+              <span class="model-split">15% to you</span>
+            </div>
+          </div>
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">Orders we fulfill</span>
+              <span class="model-split">22% of each sale</span>
+            </div>
+          </div>
+          <div class="model-row">
+            <div class="model-header">
+              <span class="model-title">Your merch for pickup</span>
+              <span class="model-split">85% to you</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="keep-strip" aria-label="What you keep">
+      <div class="keep-rails">
+        We run the rails
+        <span>You keep the shop</span>
+      </div>
+      <div class="keep-item">
+        <strong>Your brand</strong>
+      </div>
+      <div class="keep-item">
+        <strong>Your customers</strong>
+      </div>
+      <div class="keep-item">
+        <strong>Your call</strong>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <div class="pilot-block">
+        <div class="pilot-title">3–4 Week Pilot</div>
+        <p class="pilot-desc">
+          TestFlight for you + staff; catalog live for pickup. Check-in at day 10–14.
+        </p>
+      </div>
+      <div class="qr-cta">
+        <a class="qr-link" href="https://limelabs.dev/partners/memory-plants/" target="_blank" rel="noopener">
+          <img class="qr-img" src="assets/partners/qr-memory-plants.png" width="768" height="768" alt="QR code — privately try the Memory Plants app via TestFlight">
+        </a>
+        <div class="qr-meta">
+          <span class="qr-label">Play with your app</span>
+          <a href="https://limelabs.dev/partners/memory-plants/" target="_blank" rel="noopener">limelabs.dev/partners/memory-plants</a>
+        </div>
+      </div>
+      <div class="contact-block">
+        <strong>Will Park</strong>
+        Founder &amp; Product Lead, Lime Labs<br>
+        <a href="tel:+13108930931">(310) 893-0931</a> · <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a><br>
+        <a href="https://bigsprout.app" target="_blank" rel="noopener">bigsprout.app</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    if (location.search.indexOf("measure") !== -1) {
+      var reportFit = function () {
+        var sheet = document.querySelector(".sheet");
+        if (!sheet || document.getElementById("fit-report")) { return; }
+        var cs = getComputedStyle(sheet);
+        var pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+        var rows = [].map.call(sheet.children, function (el) {
+          return el.className.split(" ")[0] + "=" + Math.round(el.getBoundingClientRect().height);
+        }).join(" ");
+        var pre = document.createElement("pre");
+        pre.id = "fit-report";
+        pre.textContent = "FIT sheet=" + Math.round(sheet.getBoundingClientRect().height) +
+          "px content=" + Math.round(sheet.scrollHeight - pad) + "px budget=1056px(pad included) gaps=16 " + rows;
+        document.body.appendChild(pre);
+      };
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(reportFit);
+      } else {
+        window.addEventListener("load", reportFit);
+      }
+    }
+  </script>
+</body>
+</html>

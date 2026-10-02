@@ -31,9 +31,17 @@ READY_GATE='<script>
     })();
   </script></body>'
 
-for name in memory-plants bggh; do
-  src="$REPO/${name}-one-pager-v3.html"
-  tmp="$(mktemp "/tmp/${name}-v3-fullbleed-XXXXXX.html")"
+# sheet basename -> PDF name (the -dark sheet exports with a -dark suffix)
+SHEETS=(
+  "memory-plants-one-pager-v3:memory-plants-v3-fullbleed.pdf"
+  "bggh-one-pager-v3:bggh-v3-fullbleed.pdf"
+  "memory-plants-one-pager-v3-dark:memory-plants-v3-fullbleed-dark.pdf"
+)
+for entry in "${SHEETS[@]}"; do
+  base="${entry%%:*}"
+  pdf="${entry#*:}"
+  src="$REPO/${base}.html"
+  tmp="$(mktemp "/tmp/${base}-XXXXXX.html")"
   python3 - "$src" "$tmp" "$READY_GATE" <<'PY'
 import base64, os, re, sys
 src, dst, gate = sys.argv[1], sys.argv[2], sys.argv[3]
@@ -56,7 +64,7 @@ open(dst, "w").write(s.replace("</body>", gate, 1))
 PY
   "$CHROME" --headless=new --disable-gpu --no-pdf-header-footer \
     --virtual-time-budget=30000 \
-    --print-to-pdf="$OUT/${name}-v3-fullbleed.pdf" "file://$tmp" 2>/dev/null
+    --print-to-pdf="$OUT/$pdf" "file://$tmp" 2>/dev/null
   rm -f "$tmp"
 done
 
@@ -64,8 +72,10 @@ python3 - "$OUT" <<'PY'
 import re, sys, os
 out = sys.argv[1]
 ok = True
-for name in ("memory-plants", "bggh"):
-    f = os.path.join(out, f"{name}-v3-fullbleed.pdf")
+for f in (os.path.join(out, n) for n in (
+        "memory-plants-v3-fullbleed.pdf",
+        "bggh-v3-fullbleed.pdf",
+        "memory-plants-v3-fullbleed-dark.pdf")):
     d = open(f, "rb").read()
     pages = len(re.findall(rb"/Type\s*/Page[^s]", d))
     mb = re.search(rb"/MediaBox\s*\[\s*([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s*\]", d)
