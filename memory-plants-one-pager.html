@@ -158,12 +158,12 @@
       margin: 0 auto;
       background: var(--sheet-bg);
       border: 1.5px solid var(--rule);
-      padding: 0.62in 0.7in 0.58in;
+      padding: 0.55in 0.65in 0.48in;
       box-shadow: var(--sheet-shadow);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 4px;
+      gap: 10px;
       transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
     }
 
@@ -211,7 +211,7 @@
     .header-location strong { color: var(--ink); }
 
     .hero {
-      margin: 14px 0 16px;
+      margin: 10px 0 10px;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 20px;
@@ -341,7 +341,7 @@
 
     .device {
       margin: 0;
-      width: 112px;
+      width: 108px;
     }
 
     .device-frame {
@@ -354,7 +354,7 @@
     /* Clip via overflow — Chrome PDF mishandles object-fit on phone bezels. */
     .device-screen {
       display: block;
-      height: 220px;
+      height: 262px;
       overflow: hidden;
       border-radius: 9px;
       background: #f3f5f7;
@@ -389,7 +389,7 @@
       color: var(--navy);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -406,7 +406,7 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 13px;
+      gap: 18px;
     }
 
     .journey-item {
@@ -428,7 +428,7 @@
       font-weight: 700;
       color: var(--ink);
       line-height: 1.25;
-      margin-bottom: 2px;
+      margin-bottom: 0;
     }
 
     .journey-text {
@@ -440,11 +440,11 @@
     .model-ledger {
       display: flex;
       flex-direction: column;
-      gap: 13px;
+      gap: 16px;
     }
 
     .model-row {
-      padding-bottom: 13px;
+      padding-bottom: 12px;
       border-bottom: 1px solid var(--rule);
     }
 
@@ -489,7 +489,7 @@
 
     .keep-strip {
       margin: 14px 0 12px;
-      padding: 10px 14px;
+      padding: 14px 16px;
       background: var(--sheet-card);
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
@@ -559,7 +559,7 @@
 
     .footer-section {
       border-top: 1.5px solid var(--rule);
-      padding-top: 12px;
+      padding-top: 14px;
       display: grid;
       grid-template-columns: 1.15fr auto 1fr;
       gap: 16px 22px;
@@ -574,10 +574,10 @@
     }
 
     .pilot-desc {
-      font-size: 11.5px;
+      font-size: 12.5px;
       color: var(--ink-muted);
-      line-height: 1.45;
-      margin-top: 3px;
+      line-height: 1.35;
+      margin-top: 2px;
     }
 
     .qr-block {
@@ -597,8 +597,8 @@
     }
 
     .qr-img {
-      width: 72px;
-      height: 72px;
+      width: 64px;
+      height: 64px;
       display: block;
     }
 
@@ -655,7 +655,7 @@
         margin: 0 !important;
         padding: 0 !important;
         width: 100%;
-        height: 100%;
+        height: auto !important;
       }
       .sheet {
         background: var(--sheet-bg) !important;
@@ -663,10 +663,13 @@
         border: none !important;
         width: 100% !important;
         max-width: none !important;
-        min-height: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
         margin: 0 !important;
-        padding: 0.62in 0.7in 0.55in !important;
+        padding: 0.52in 0.62in 0.45in !important;
       }
+      .device-screen { height: 248px !important; }
+      .qr-img { width: 60px°px !important; }
     }
 
     @page {
@@ -777,28 +780,18 @@
             <span class="journey-num">01</span>
             <div>
               <div class="journey-title">Scan to ID and rescue plants</div>
-              <p class="journey-text">Snap a photo — care tips when something looks off.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">02</span>
             <div>
               <div class="journey-title">Online store, already open</div>
-              <p class="journey-text">Branded catalog in-app. No Shopify, no web team.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">03</span>
             <div>
               <div class="journey-title">Pickup on 15th</div>
-              <p class="journey-text">Locals reorder and walk back. Same address, same trust.</p>
-            </div>
-          </li>
-          <li class="journey-item">
-            <span class="journey-num">04</span>
-            <div>
-              <div class="journey-title">When a leaf goes wrong</div>
-              <p class="journey-text">Rescue points to the exact supply — pickup or ship handled for you.</p>
             </div>
           </li>
         </ol>
@@ -812,27 +805,18 @@
               <span class="model-title">App memberships</span>
               <span class="model-split">15% to you</span>
             </div>
-            <p class="model-desc">
-              Recurring cut on every paid subscriber.
-            </p>
           </div>
           <div class="model-row">
             <div class="model-header">
               <span class="model-title">Online orders we fulfill</span>
               <span class="model-split">22% of each sale</span>
             </div>
-            <p class="model-desc">
-              Brand royalty on ship-to-customer orders. We stock, pack, and ship.
-            </p>
           </div>
           <div class="model-row">
             <div class="model-header">
               <span class="model-title">Your merch for pickup</span>
               <span class="model-split">85% to you</span>
             </div>
-            <p class="model-desc">
-              Your plants or shelf goods for pickup at 335 15th.
-            </p>
           </div>
         </div>
       </section>
@@ -861,7 +845,7 @@
       <div class="pilot-block">
         <div class="pilot-title">3–4 Week Pilot</div>
         <p class="pilot-desc">
-          TestFlight for you + staff; catalog live for pickup. Check-in at day 10–14.
+          TestFlight for you + staff; catalog live for pickup.
         </p>
       </div>
       <div class="qr-block">
