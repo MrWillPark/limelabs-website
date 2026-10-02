@@ -259,32 +259,25 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 4px;
-      padding: 4px 8px;
+      gap: 5px;
+      padding: 6px 8px;
     }
 
     .value-zero-num {
       font-family: var(--font-display);
-      font-size: 44px;
+      font-size: 48px;
       font-weight: 700;
       letter-spacing: -0.04em;
-      line-height: 0.95;
+      line-height: 0.92;
       color: var(--accent);
     }
 
     .value-zero-label {
-      font-size: 9.5px;
+      font-size: 10.5px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: rgba(243, 245, 247, 0.72);
-    }
-
-    .value-zero-sub {
-      font-size: 11px;
-      font-weight: 600;
-      color: rgba(243, 245, 247, 0.88);
-      margin-top: 2px;
     }
 
     .value-pitch {
@@ -298,15 +291,29 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 12px;
-      line-height: 1.35;
+      gap: 6px;
+      width: 100%;
+      font-size: 11.5px;
+      line-height: 1.25;
       color: rgba(243, 245, 247, 0.88);
     }
 
-    .value-pitch-list strong {
-      color: var(--on-navy);
+    .value-pitch-list li {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 14px;
+      align-items: baseline;
+    }
+
+    .value-pitch-label {
       font-weight: 700;
+      color: var(--on-navy);
+      white-space: nowrap;
+    }
+
+    .value-pitch-val {
+      text-align: right;
+      font-weight: 500;
     }
 
     [data-theme="dark"] .value-pop {
@@ -318,16 +325,12 @@
       color: var(--ink-muted);
     }
 
-    [data-theme="dark"] .value-pitch-list strong {
+    [data-theme="dark"] .value-pitch-label {
       color: var(--ink);
     }
 
     [data-theme="dark"] .value-zero-label {
       color: var(--ink-faint);
-    }
-
-    [data-theme="dark"] .value-zero-sub {
-      color: var(--ink-muted);
     }
 
     .device-pair {
@@ -756,13 +759,12 @@
       <div class="value-zero">
         <span class="value-zero-num">$0</span>
         <span class="value-zero-label">Setup · monthly · tech</span>
-        <span class="value-zero-sub">Nothing to pay. Revenue to keep.</span>
       </div>
       <div class="value-pitch">
         <ul class="value-pitch-list">
-          <li><strong>New revenue</strong> — memberships + online sales</li>
-          <li><strong>We operate</strong> — App Store, catalog, shipping, AI, support</li>
-          <li><strong>You keep control</strong> — brand, customers, floor</li>
+          <li><span class="value-pitch-label">New revenue</span><span class="value-pitch-val">memberships + online sales</span></li>
+          <li><span class="value-pitch-label">We operate</span><span class="value-pitch-val">App Store, catalog, shipping, AI, support</span></li>
+          <li><span class="value-pitch-label">You control</span><span class="value-pitch-val">brand, customers, floor</span></li>
         </ul>
       </div>
     </section>
