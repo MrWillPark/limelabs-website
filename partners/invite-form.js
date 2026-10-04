@@ -54,6 +54,9 @@
       _subject: subject,
       _template: "table",
       _captcha: "false",
+      // Carbon-copy personal inbox — FormSubmit free tier sometimes drops
+      // delivery to hello@ after bursts; CC keeps signups visible.
+      _cc: "will.park@gmail.com",
       form: "partner-testflight-invite",
       shop: shop,
       name: name || "(not provided)",

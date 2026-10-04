@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     try {
-      var storedTheme = localStorage.getItem("bggh-brief-theme");
+      var storedTheme = localStorage.getItem("bggh-brief-v3-theme");
       if (storedTheme === "light" || storedTheme === "dark") {
         document.documentElement.setAttribute("data-theme", storedTheme);
       }
@@ -22,18 +22,31 @@
     [data-theme="dark"] {
       --page-bg: #0a0c0b;
       --sheet-bg: #121212;
-      --sheet-card: #191917;
+      --sheet-card: #1c1b18;
       --ink: #faf7f2;
-      --ink-muted: #b8b5ad;
-      --ink-faint: #807e78;
-      --gold: #c9936a;
-      --gold-light: #dfb28e;
-      --rule: #2a2a28;
-      --leaf: #48805c;
+      --ink-muted: #ddd8ce;
+      --ink-faint: #b0aaa0;
+      --gold: #d4a078;
+      --gold-light: #e4b892;
+      --rule: #2e2d2a;
+      --leaf: #5a9a6e;
       --bar-bg: rgba(18, 18, 18, 0.95);
       --sheet-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
       --on-gold: #121212;
       --toggle-idle: #faf7f2;
+      --device-bezel: #0a0a0a;
+      --band-bg: #d4a078;
+      --band-ink: #121212;
+      --band-soft: rgba(18, 18, 18, 0.9);
+      --band-num: #121212;
+      --band-zero-bg: rgba(0, 0, 0, 0.08);
+      --band-line: rgba(18, 18, 18, 0.22);
+      --band-tail: rgba(18, 18, 18, 0.82);
+      --split: #e4b892;
+      --eyebrow: #d4a078;
+      --pilot: #d4a078;
+      --link: #d4a078;
+      --caption: #d4a078;
       --font-display: "Fraunces", "Times New Roman", serif;
       --font-body: "Karla", "Helvetica Neue", sans-serif;
     }
@@ -43,8 +56,8 @@
       --sheet-bg: #faf7f2;
       --sheet-card: #f1ebe2;
       --ink: #161411;
-      --ink-muted: #4a4640;
-      --ink-faint: #6a655c;
+      --ink-muted: #3f3a34;
+      --ink-faint: #5c574e;
       --gold: #8f5e36;
       --gold-light: #7a4e2c;
       --rule: #d5cfc3;
@@ -53,20 +66,29 @@
       --sheet-shadow: 0 16px 40px rgba(40, 32, 18, 0.14);
       --on-gold: #faf7f2;
       --toggle-idle: #161411;
+      --device-bezel: #0a0a0a;
+      --band-bg: #1a1612;
+      --band-ink: #faf7f2;
+      --band-soft: #f0ead8;
+      --band-num: #d4a078;
+      --band-zero-bg: rgba(255, 255, 255, 0.06);
+      --band-line: rgba(250, 247, 242, 0.2);
+      --band-tail: #f0ead8;
+      --split: #7a4e2c;
+      --eyebrow: #8f5e36;
+      --pilot: #8f5e36;
+      --link: #8f5e36;
+      --caption: #8f5e36;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: var(--font-body);
       background: var(--page-bg);
       color: var(--ink);
-      line-height: 1.45;
-      font-size: 13px;
+      line-height: 1.5;
+      font-size: 14px;
       -webkit-font-smoothing: antialiased;
       padding-bottom: 40px;
       transition: background 180ms ease, color 180ms ease;
@@ -83,12 +105,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 900px;
+      max-width: 780px;
       margin: 0 auto 24px;
+      gap: 16px;
     }
 
     .screen-bar-title {
-      font-family: var(--font-body);
       font-size: 11px;
       color: var(--gold);
       text-transform: uppercase;
@@ -96,10 +118,7 @@
       font-weight: 600;
     }
 
-    .screen-actions {
-      display: flex;
-      gap: 12px;
-    }
+    .screen-actions { display: flex; gap: 12px; flex-shrink: 0; }
 
     .theme-toggle {
       display: flex;
@@ -137,9 +156,6 @@
       padding: 7px 16px;
       border: 2px solid var(--gold);
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .btn-print:hover {
@@ -147,24 +163,9 @@
       border-color: var(--gold-light);
     }
 
-    .btn-back {
-      background: transparent;
-      color: var(--ink);
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 12px;
-      padding: 7px 14px;
-      border: 1.5px solid var(--rule);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .btn-back:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
+    /* ---- Sheet: one geometry for screen and print. Content box is budgeted
+       to ~9.9in (letter minus 0.5in top/bottom padding); sections are sized
+       to fill it with air via space-between, never squeezed post hoc. ---- */
     .sheet {
       width: 8.5in;
       max-width: 8.5in;
@@ -172,182 +173,82 @@
       margin: 0 auto;
       background: var(--sheet-bg);
       border: 1.5px solid var(--rule);
-      /* Generous inset so type never sits flush against the sheet edge. */
-      padding: 0.62in 0.7in 0.58in;
+      padding: 0.4in 0.5in;
       box-shadow: var(--sheet-shadow);
-      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 4px;
+      gap: 24px;
+      overflow: hidden;
+      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
     }
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      padding-bottom: 14px;
+      padding-bottom: 10px;
       border-bottom: 2px solid var(--gold);
     }
 
     .brand-title {
       font-family: var(--font-display);
       font-optical-sizing: auto;
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--ink);
-      line-height: 1.1;
+      line-height: 1.05;
     }
 
     .brand-subtitle {
-      font-family: var(--font-body);
-      font-size: 10.5px;
-      color: var(--gold);
+      font-size: 11px;
+      color: var(--eyebrow);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-weight: 600;
-      margin-top: 4px;
+      margin-top: 5px;
     }
 
     .header-location {
-      font-family: var(--font-body);
-      font-size: 10.5px;
+      font-size: 12px;
       color: var(--ink-faint);
       text-align: right;
       line-height: 1.5;
     }
 
-    .header-location strong {
-      color: var(--ink);
-    }
+    .header-location strong { color: var(--ink); font-size: 13px; }
 
     .hero {
-      margin: 14px 0 16px;
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
       align-items: center;
     }
 
     .hero-h1 {
       font-family: var(--font-display);
       font-optical-sizing: auto;
-      font-size: 22px;
+      font-size: 33px;
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.1;
       letter-spacing: -0.02em;
       color: var(--ink);
       max-width: 22ch;
     }
 
     .hero-lead {
-      font-size: 12.5px;
+      font-size: 14px;
       color: var(--ink-muted);
       line-height: 1.5;
       margin-top: 8px;
-      max-width: 42ch;
+      max-width: 34ch;
     }
 
     .hero-lead em {
       font-style: normal;
       font-weight: 700;
       color: var(--ink);
-    }
-
-    .value-pop {
-      margin: 0 0 14px;
-      padding: 14px 16px 12px;
-      background: var(--gold);
-      color: var(--on-gold);
-      display: grid;
-      grid-template-columns: 1.1fr 1.4fr;
-      gap: 18px 24px;
-      align-items: center;
-    }
-
-    .value-zero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 5px;
-      padding: 6px 8px;
-    }
-
-    .value-zero-num {
-      font-family: var(--font-display);
-      font-size: 48px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 0.92;
-      color: var(--on-gold);
-    }
-
-    .value-zero-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(18, 18, 18, 0.62);
-    }
-
-    .value-pitch {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      justify-content: center;
-    }
-
-    .value-pitch-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
-      font-size: 11.5px;
-      line-height: 1.25;
-      color: rgba(18, 18, 18, 0.82);
-    }
-
-    .value-pitch-list li {
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      column-gap: 14px;
-      align-items: baseline;
-    }
-
-    .value-pitch-label {
-      font-weight: 700;
-      color: var(--on-gold);
-      white-space: nowrap;
-    }
-
-    .value-pitch-val {
-      text-align: right;
-      font-weight: 500;
-    }
-
-    [data-theme="light"] .value-pop {
-      background: #1a1612;
-      color: #faf7f2;
-    }
-
-    [data-theme="light"] .value-zero-num {
-      color: var(--gold);
-    }
-
-    [data-theme="light"] .value-zero-label {
-      color: rgba(250, 247, 242, 0.62);
-    }
-
-    [data-theme="light"] .value-pitch-list {
-      color: rgba(250, 247, 242, 0.88);
-    }
-
-    [data-theme="light"] .value-pitch-label {
-      color: #faf7f2;
     }
 
     .device-pair {
@@ -358,22 +259,19 @@
 
     .device {
       margin: 0;
-      width: 126px;
+      width: 112px;
     }
 
     .device-frame {
-      background: #0a0a0a;
+      background: var(--device-bezel);
       border: 2px solid var(--gold);
       border-radius: 16px;
       padding: 6px 5px 8px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
     }
 
-    /* Clip via overflow instead of object-fit — Chrome PDF mishandles object-fit
-       and leaves the image background showing as an offset bezel gap. */
     .device-screen {
       display: block;
-      height: 236px;
+      height: 190px;
       overflow: hidden;
       border-radius: 9px;
       background: #0a0a0a;
@@ -386,36 +284,105 @@
     }
 
     .device--garden .device-screen img {
-      /* Approximate former object-position: center 16% by nudging the taller asset up. */
       margin-top: -6%;
     }
 
     .device-caption {
       margin-top: 6px;
-      font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--caption);
       text-align: center;
+    }
+
+    .value-pop {
+      background: var(--band-bg);
+      color: var(--band-ink);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: stretch;
+    }
+
+    .value-zero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 7px;
+      padding: 14px 24px;
+      background: var(--band-zero-bg);
+      border-right: 1px solid var(--band-line);
+    }
+
+    .value-zero-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      color: var(--band-num);
+    }
+
+    .value-zero-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--band-ink);
+    }
+
+    .value-pitch-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 3px 0;
+    }
+
+    .value-pitch-list li {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      column-gap: 14px;
+      align-items: baseline;
+      padding: 12px 18px 12px 20px;
+    }
+
+    .value-pitch-list li + li {
+      border-top: 1px solid var(--band-line);
+    }
+
+    .value-pitch-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--band-ink);
+      white-space: nowrap;
+    }
+
+    .value-pitch-val {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--band-tail);
     }
 
     .main-grid {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 32px;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 24px;
       align-items: start;
     }
 
     .section-eyebrow {
-      font-family: var(--font-body);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
-      color: var(--gold);
+      color: var(--eyebrow);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      margin-bottom: 12px;
+      margin-bottom: 9px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -432,174 +399,167 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 13px;
+      gap: 14px;
     }
 
     .journey-item {
       display: grid;
-      grid-template-columns: 28px 1fr;
+      grid-template-columns: 30px 1fr;
       gap: 12px;
     }
 
     .journey-num {
-      font-family: var(--font-body);
-      font-size: 11px;
+      font-size: 12.5px;
       font-weight: 600;
       color: var(--gold);
-      padding-top: 2px;
+      padding-top: 3px;
     }
 
     .journey-title {
       font-family: var(--font-display);
-      font-size: 13.5px;
+      font-optical-sizing: auto;
+      font-size: 17.5px;
       font-weight: 700;
       color: var(--ink);
       line-height: 1.25;
-      margin-bottom: 2px;
     }
 
     .journey-text {
-      font-size: 11.5px;
+      font-size: 13.5px;
       color: var(--ink-muted);
       line-height: 1.45;
+      margin-top: 1px;
     }
 
     .model-ledger {
       display: flex;
       flex-direction: column;
-      gap: 13px;
     }
 
     .model-row {
-      padding-bottom: 13px;
+      padding: 2px 0 18px;
       border-bottom: 1px solid var(--rule);
     }
 
+    .model-row + .model-row { padding-top: 13px; }
+
     .model-row:last-child {
       border-bottom: none;
-      padding-bottom: 0;
+      padding-bottom: 2px;
     }
 
     .model-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 3px;
-      gap: 8px;
+      gap: 10px;
     }
 
     .model-title {
       font-family: var(--font-display);
-      font-size: 13.5px;
+      font-optical-sizing: auto;
+      font-size: 15.5px;
       font-weight: 700;
       color: var(--ink);
     }
 
     .model-split {
       font-family: var(--font-display);
-      font-size: 15px;
+      font-optical-sizing: auto;
+      font-size: 17px;
       font-weight: 800;
-      color: var(--gold-light);
+      color: var(--split);
       white-space: nowrap;
       letter-spacing: -0.02em;
     }
 
-    .model-desc {
-      font-size: 11.5px;
-      color: var(--ink-muted);
-      line-height: 1.45;
-    }
-
     .keep-strip {
-      margin: 14px 0 12px;
-      padding: 10px 14px;
+      padding: 18px 18px;
       background: var(--sheet-card);
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
       display: grid;
       grid-template-columns: 1.15fr repeat(3, 1fr);
-      gap: 14px;
+      gap: 18px;
       align-items: center;
     }
 
     .keep-rails {
       font-family: var(--font-display);
-      font-size: 13.5px;
+      font-optical-sizing: auto;
+      font-size: 16px;
       font-weight: 800;
       color: var(--ink);
       line-height: 1.25;
-      padding-right: 10px;
+      padding-right: 14px;
       border-right: 1px solid var(--rule);
     }
 
     .keep-rails span {
       display: block;
       font-family: var(--font-body);
-      font-size: 9.5px;
+      font-size: 10.5px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--leaf);
-      margin-top: 3px;
-    }
-
-    .keep-item {
-      text-align: left;
+      margin-top: 4px;
     }
 
     .keep-item strong {
       display: block;
       font-family: var(--font-display);
-      font-size: 12.5px;
+      font-optical-sizing: auto;
+      font-size: 15px;
       font-weight: 700;
       color: var(--ink);
       line-height: 1.2;
-      margin-bottom: 2px;
-    }
-
-    .keep-item span {
-      font-size: 10.5px;
-      color: var(--ink-muted);
-      line-height: 1.35;
-    }
-
-    .exit-phrase {
-      white-space: nowrap;
     }
 
     .footer-section {
       border-top: 1.5px solid var(--rule);
-      padding-top: 12px;
-      display: grid;
-      grid-template-columns: 1.15fr auto 1fr;
-      gap: 16px 22px;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      gap: 18px;
     }
 
     .pilot-block {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .qr-cta {
+      flex: 0 0 auto;
+    }
+
+    .contact-block {
+      flex: 0 0 auto;
     }
 
     .pilot-title {
       font-family: var(--font-display);
-      font-size: 13.5px;
+      font-optical-sizing: auto;
+      font-size: 16.5px;
       font-weight: 800;
-      color: var(--gold);
+      color: var(--pilot);
     }
 
     .pilot-desc {
-      font-size: 11.5px;
+      font-size: 12.5px;
       color: var(--ink-muted);
-      line-height: 1.45;
+      line-height: 1.4;
+      margin-top: 2px;
     }
 
-    .qr-block {
+    .qr-cta {
       display: flex;
       align-items: center;
-      gap: 10px;
-      min-width: 0;
+      gap: 12px;
+      padding: 7px 12px 7px 7px;
+      border: 1.5px solid var(--gold);
+      background: var(--sheet-card);
     }
 
     .qr-link {
@@ -612,90 +572,78 @@
     }
 
     .qr-img {
-      width: 72px;
-      height: 72px;
+      width: 62px;
+      height: 62px;
       display: block;
     }
 
     .qr-meta {
-      font-size: 10px;
+      font-size: 11.5px;
       color: var(--ink-faint);
       line-height: 1.4;
+      max-width: 10em;
     }
 
     .qr-label {
       display: block;
-      font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 10.5px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 2px;
+      color: var(--ink);
+      margin-bottom: 3px;
     }
 
     .qr-meta a {
-      color: var(--gold);
+      color: var(--link);
       text-decoration: none;
       word-break: break-all;
     }
 
     .contact-block {
       text-align: right;
-      font-family: var(--font-body);
-      font-size: 10.5px;
+      white-space: nowrap;
+      font-size: 12px;
       color: var(--ink-faint);
       line-height: 1.55;
     }
 
     .contact-block strong {
       color: var(--ink);
-      font-size: 13px;
+      font-size: 14px;
       display: block;
     }
 
     .contact-block a {
-      color: var(--gold);
+      color: var(--link);
       text-decoration: none;
     }
 
-    /* Print inherits the live Dark / Paper theme.
-       @page margin is 0 so the sheet background fills the PDF edge-to-edge;
-       breathing room comes from .sheet padding, not a white paper frame. */
     @media print {
       * {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
-
-      .screen-bar {
-        display: none !important;
-      }
-
-      html,
-      body {
+      .screen-bar { display: none !important; }
+      html, body {
         background: var(--sheet-bg) !important;
         color: var(--ink) !important;
         margin: 0 !important;
         padding: 0 !important;
-        width: 100%;
-        height: 100%;
+        width: auto;
+        height: auto;
       }
-
       .sheet {
         background: var(--sheet-bg) !important;
         box-shadow: none !important;
         border: none !important;
-        width: 100% !important;
+        width: 8.5in !important;
         max-width: none !important;
-        min-height: 100% !important;
+        min-height: 11in !important;
+        height: 11in !important;
         margin: 0 !important;
-        padding: 0.62in 0.7in 0.55in !important;
-      }
-
-      /* Chrome rasterizes box-shadow as an opaque gray slab in PDFs. */
-      .device-frame {
-        box-shadow: none !important;
+        padding: 0.4in 0.5in !important;
+        gap: 24px !important;
       }
     }
 
@@ -709,7 +657,7 @@
 
   <aside class="screen-bar" aria-label="Page controls">
     <div class="screen-bar-title">
-      Blk Girls Green House × Rootline · Partnership Brief
+      Blk Girls Green House × Rootline · Partnership Brief · v3
     </div>
     <div class="screen-actions">
       <div class="theme-toggle" role="group" aria-label="Sheet theme">
@@ -776,9 +724,9 @@
       </div>
       <div class="value-pitch">
         <ul class="value-pitch-list">
-          <li><span class="value-pitch-label">New revenue</span><span class="value-pitch-val">memberships + in-app sales</span></li>
-          <li><span class="value-pitch-label">We operate</span><span class="value-pitch-val">App Store, catalog, shipping, AI, support</span></li>
-          <li><span class="value-pitch-label">You control</span><span class="value-pitch-val">brand, customers, floor</span></li>
+          <li><span class="value-pitch-label">New revenue</span><span class="value-pitch-val">memberships + every in-app sale</span></li>
+          <li><span class="value-pitch-label">We operate</span><span class="value-pitch-val">the app, the catalog, every order</span></li>
+          <li><span class="value-pitch-label">You control</span><span class="value-pitch-val">the brand, the regulars, the floor</span></li>
         </ul>
       </div>
     </section>
@@ -797,19 +745,12 @@
           <li class="journey-item">
             <span class="journey-num">02</span>
             <div>
-              <div class="journey-title">Care that brings them back</div>
-              <p class="journey-text">Gentle reminders for water, mist, and feed — tuned for East Bay light.</p>
-            </div>
-          </li>
-          <li class="journey-item">
-            <span class="journey-num">03</span>
-            <div>
               <div class="journey-title">When a leaf goes wrong</div>
               <p class="journey-text">One photo diagnoses pests or yellowing — then the remedy on your shelf.</p>
             </div>
           </li>
           <li class="journey-item">
-            <span class="journey-num">04</span>
+            <span class="journey-num">03</span>
             <div>
               <div class="journey-title">Pickup on Center Street</div>
               <p class="journey-text">Neem, soil, pots — 1-tap pickup at 1700 Center St.</p>
@@ -826,27 +767,12 @@
               <span class="model-title">App memberships</span>
               <span class="model-split">10% to BGGH</span>
             </div>
-            <p class="model-desc">
-              Recurring cut on every paid subscriber ($4.99/mo).
-            </p>
           </div>
           <div class="model-row">
             <div class="model-header">
               <span class="model-title">Soil, neem &amp; pot sales</span>
               <span class="model-split">90% to BGGH</span>
             </div>
-            <p class="model-desc">
-              When the app sends them back for remedies, you keep the lion’s share.
-            </p>
-          </div>
-          <div class="model-row">
-            <div class="model-header">
-              <span class="model-title">Your brand everywhere</span>
-              <span class="model-split">BGGH on every screen</span>
-            </div>
-            <p class="model-desc">
-              Your name on Instagram, bggh.shop, or the App Store.
-            </p>
           </div>
         </div>
       </section>
@@ -859,15 +785,12 @@
       </div>
       <div class="keep-item">
         <strong>Your brand</strong>
-        <span>BGGH on every screen</span>
       </div>
       <div class="keep-item">
         <strong>Your customers</strong>
-        <span>Care &amp; reorders<br>loop back to Center St</span>
       </div>
       <div class="keep-item">
         <strong>Your call</strong>
-        <span>Pilot first<br><span class="exit-phrase">Exit after month&nbsp;6</span></span>
       </div>
     </section>
 
@@ -878,7 +801,7 @@
           TestFlight for you + staff; catalog live for pickup. Check-in at day 10–14.
         </p>
       </div>
-      <div class="qr-block">
+      <div class="qr-cta">
         <a class="qr-link" href="https://limelabs.dev/partners/bggh/" target="_blank" rel="noopener">
           <img class="qr-img" src="assets/partners/qr-bggh.png" width="768" height="768" alt="QR code — privately try the BGGH app via TestFlight">
         </a>
@@ -902,7 +825,7 @@
       var buttons = document.querySelectorAll("[data-theme-set]");
       var stored = null;
       try {
-        stored = localStorage.getItem("bggh-brief-theme");
+        stored = localStorage.getItem("bggh-brief-v3-theme");
       } catch (e) {}
 
       function applyTheme(theme) {
@@ -912,7 +835,7 @@
           button.setAttribute("aria-pressed", button.getAttribute("data-theme-set") === next ? "true" : "false");
         });
         try {
-          localStorage.setItem("bggh-brief-theme", next);
+          localStorage.setItem("bggh-brief-v3-theme", next);
         } catch (e) {}
       }
 
@@ -923,6 +846,28 @@
         });
       });
     })();
+
+    if (location.search.indexOf("measure") !== -1) {
+      var reportFit = function () {
+        var sheet = document.querySelector(".sheet");
+        if (!sheet || document.getElementById("fit-report")) { return; }
+        var cs = getComputedStyle(sheet);
+        var pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+        var rows = [].map.call(sheet.children, function (el) {
+          return el.className.split(" ")[0] + "=" + Math.round(el.getBoundingClientRect().height);
+        }).join(" ");
+        var pre = document.createElement("pre");
+        pre.id = "fit-report";
+        pre.textContent = "FIT sheet=" + Math.round(sheet.getBoundingClientRect().height) +
+          "px content=" + Math.round(sheet.scrollHeight - pad) + "px budget=1056px(pad included) gaps=16 " + rows;
+        document.body.appendChild(pre);
+      };
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(reportFit);
+      } else {
+        window.addEventListener("load", reportFit);
+      }
+    }
   </script>
 </body>
 </html>
