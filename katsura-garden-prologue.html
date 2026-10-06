@@ -217,90 +217,19 @@
       max-width: 54ch;
     }
 
-    .compare {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .compare-card {
-      border: 1.5px solid var(--rule);
-      background: var(--sheet-card);
-      padding: 16px 16px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-height: 100%;
-    }
-
-    .compare-card--ok { border-color: var(--pine); background: var(--ok-bg); }
-    .compare-card--warn { border-color: var(--lacquer); background: var(--warn-bg); }
-
-    .compare-eyebrow {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .compare-card--ok .compare-eyebrow { color: var(--pine); }
-    .compare-card--warn .compare-eyebrow { color: var(--lacquer); }
-
-    .compare-title {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .compare-url {
-      font-size: 12px;
-      font-weight: 700;
-      word-break: break-all;
-      color: var(--ink);
-    }
-
-    .compare-list {
-      list-style: none;
-      display: grid;
-      gap: 7px;
-      margin-top: 2px;
-    }
-
-    .compare-list li {
-      position: relative;
-      padding-left: 14px;
-      font-size: 12.5px;
-      color: var(--ink-muted);
-      line-height: 1.4;
-    }
-
-    .compare-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 6px;
-      height: 6px;
-      background: var(--brass);
-    }
-
-    .compare-card--warn .compare-list li::before { background: var(--lacquer); }
-    .compare-card--ok .compare-list li::before { background: var(--pine); }
-
     .impact {
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 18px;
-      align-items: start;
-      padding: 16px 18px;
+      align-items: center;
+      padding: 20px 22px;
       background: var(--pine);
       color: var(--on-pine);
     }
 
     .impact-num {
       font-family: var(--font-display);
-      font-size: 42px;
+      font-size: 52px;
       font-weight: 700;
       line-height: 0.9;
       color: var(--brass);
@@ -318,7 +247,7 @@
     }
 
     .impact-copy {
-      font-size: 14px;
+      font-size: 15.5px;
       line-height: 1.45;
       color: var(--on-pine);
     }
@@ -330,8 +259,9 @@
 
     .offer-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 22px;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
     }
 
     .section-eyebrow {
@@ -389,26 +319,27 @@
     .promise {
       border: 1.5px solid var(--brass);
       background: var(--sheet-card);
-      padding: 16px;
+      padding: 18px;
       display: grid;
-      gap: 10px;
+      gap: 12px;
+      align-content: start;
     }
 
     .promise-title {
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     .promise-list {
       list-style: none;
       display: grid;
-      gap: 8px;
+      gap: 10px;
     }
 
     .promise-list li {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--ink-muted);
       line-height: 1.4;
       padding-left: 14px;
@@ -426,6 +357,43 @@
     }
 
     .promise strong { color: var(--ink); }
+
+    .evidence {
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .evidence-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .evidence-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    .evidence-row strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .evidence-row a {
+      color: var(--brass);
+      text-decoration: none;
+      font-weight: 700;
+    }
 
     .close-strip {
       border-top: 1.5px solid var(--rule);
@@ -544,9 +512,9 @@
         min-height: 0;
       }
       .screen-bar { max-width: calc(100% - 24px); }
-      .compare,
       .offer-grid,
-      .close-strip {
+      .close-strip,
+      .evidence-row {
         grid-template-columns: 1fr;
       }
       .impact { grid-template-columns: 1fr; }
@@ -573,51 +541,16 @@
         <img class="brand-mark" src="assets/katsura-garden-mark.svg" alt="" width="38" height="38">
         <div>
           <div class="brand-title">Before the pitch</div>
-          <div class="brand-subtitle">The impostor problem · Shopify storefront misuse</div>
+          <div class="brand-subtitle">How I show up for Japantown shops · katsuragarden.com</div>
         </div>
       </div>
       <div class="header-meta">
         <strong>Prepared for Katsura Garden</strong><br>
-        1581 Webster · SF Japantown Legacy · Est. 1974
+        Will Park · Lime Labs · Free, no contract
       </div>
     </header>
 
-    <section>
-      <h1 class="hero-h1">Someone is already selling under your name online.</h1>
-      <p class="hero-lead">
-        Not a competitor with their own brand — an unauthorized Shopify storefront using
-        <em style="font-style:normal;font-weight:700;color:var(--ink)">Katsura Garden</em>,
-        a Japantown address, and your real phone number. Damaged shipments and angry buyers
-        land on your front desk. That is the prologue.
-      </p>
-    </section>
-
-    <section class="compare" aria-label="Official vs impostor">
-      <article class="compare-card compare-card--ok">
-        <p class="compare-eyebrow">The real shop</p>
-        <h2 class="compare-title">Katsura Garden</h2>
-        <p class="compare-url">katsuragardensf.com</p>
-        <ul class="compare-list">
-          <li>Walk-in boutique · Japan Center Mall</li>
-          <li>Explicit notice: does <strong>not</strong> sell plants online</li>
-          <li>Specimen bonsai, craft tools, authentic soils</li>
-          <li>50+ years · SF Legacy Business</li>
-        </ul>
-      </article>
-      <article class="compare-card compare-card--warn">
-        <p class="compare-eyebrow">The impostor</p>
-        <h2 class="compare-title">Unauthorized storefront</h2>
-        <p class="compare-url">katsuragarden.com · Shopify</p>
-        <ul class="compare-list">
-          <li>Uses your name + phone + a Japantown address</li>
-          <li>Ships mass-market plants nationwide</li>
-          <li>No affiliation · no authorization</li>
-          <li>Complaints route to your counter</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="impact" aria-label="Why it sticks">
+    <section class="impact" aria-label="First move">
       <div>
         <div class="impact-num">1°</div>
         <div class="impact-label">First move</div>
@@ -630,6 +563,15 @@
     </section>
 
     <section class="offer-grid">
+      <aside class="promise" aria-label="Partnership posture">
+        <p class="promise-title">The kind of partner I want to be</p>
+        <ul class="promise-list">
+          <li><strong>$0</strong> for the takedown work — trust first.</li>
+          <li><strong>No live-plant shipping</strong> in anything we build together.</li>
+          <li><strong>Pickup-only supplies</strong> if we later pilot a companion app.</li>
+          <li><strong>Your brand stays yours</strong> — verified channel, not another open-web storefront.</li>
+        </ul>
+      </aside>
       <div>
         <p class="section-eyebrow">What I will do</p>
         <ol class="steps">
@@ -644,7 +586,7 @@
             <span class="step-num">02</span>
             <div>
               <p class="step-title">File the Shopify takedown</p>
-              <p class="step-text">Draft and submit the AUP / intellectual-property complaint with you. You stay the rights holder; I do the paperwork grind.</p>
+              <p class="step-text">Draft and submit the AUP / IP complaint with you. You stay the rights holder; I do the paperwork grind.</p>
             </div>
           </li>
           <li class="step">
@@ -656,15 +598,6 @@
           </li>
         </ol>
       </div>
-      <aside class="promise" aria-label="Partnership posture">
-        <p class="promise-title">The kind of partner I want to be</p>
-        <ul class="promise-list">
-          <li><strong>$0</strong> for the takedown work — trust first.</li>
-          <li><strong>No live-plant shipping</strong> in anything we build together.</li>
-          <li><strong>Pickup-only supplies</strong> if we later pilot a companion app.</li>
-          <li><strong>Your brand stays yours</strong> — verified channel, not another open-web storefront.</li>
-        </ul>
-      </aside>
     </section>
 
     <section class="close-strip">
@@ -676,6 +609,22 @@
         <a href="mailto:hello@limelabs.dev?subject=Katsura%20Garden%20%E2%80%94%20impostor%20takedown">Email Will to start the filing →</a>
         <a href="https://limelabs.dev/partners/katsura-garden">See the private companion invite →</a>
         <a href="katsura-garden-one-pager.html">Open the partnership brief →</a>
+      </div>
+    </section>
+
+    <section class="evidence" aria-label="For the filing file">
+      <p class="evidence-label">Evidence you already live with · for the filing</p>
+      <div class="evidence-row">
+        <p>
+          <strong>Official · walk-in only</strong>
+          <a href="https://www.katsuragardensf.com/" target="_blank" rel="noopener noreferrer">katsuragardensf.com</a>
+          — Japan Center · does not sell plants online
+        </p>
+        <p>
+          <strong>Impostor · Shopify shipper</strong>
+          <a href="https://katsuragarden.com/" target="_blank" rel="noopener noreferrer">katsuragarden.com</a>
+          — your name, phone, Japantown address · nationwide parcels
+        </p>
       </div>
     </section>
 
