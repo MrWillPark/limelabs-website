@@ -288,16 +288,22 @@
 
     .device-screen {
       display: block;
-      height: 184px;
+      height: 196px;
       overflow: hidden;
       border-radius: 9px;
-      background: var(--sheet-bg);
+      background: #1c3a27;
     }
 
     .device-screen img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .device--shop .device-screen img {
+      object-position: center 8%;
     }
 
     .device-caption {
@@ -483,6 +489,13 @@
       letter-spacing: -0.02em;
     }
 
+    .model-desc {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+
     .keep-strip {
       padding: 18px 18px;
       background: var(--sheet-card);
@@ -522,6 +535,14 @@
       font-weight: 700;
       color: var(--ink);
       line-height: 1.2;
+    }
+
+    .keep-item span {
+      display: block;
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      line-height: 1.35;
+      margin-top: 4px;
     }
 
     .footer-section {
@@ -692,19 +713,38 @@
 
     <section class="hero">
       <div>
-        <h1 class="hero-h1">A private digital companion for your in-store community.</h1>
+        <h1 class="hero-h1">A private companion for the people who already trust your floor.</h1>
         <p class="hero-lead">
-          Branded bonsai care app + verified in-store pickup. We run the technology, App Store deployment, AI plant diagnostics, and catalog maintenance—with <em>zero shipping burden</em> and <em>zero exposure to open-web imitators</em>.
+          Branded bonsai care + verified in-store pickup. We run App Store, AI diagnostics, and catalog—
+          with <em>zero shipping burden</em> and <em>zero exposure to open-web imitators</em>.
         </p>
       </div>
-      <div class="device-pair" aria-hidden="true">
+      <div class="device-pair">
         <figure class="device">
-          <div class="device-frame"><div class="device-screen" style="display:flex;align-items:center;justify-content:center;background:#1c3a27;color:#f7f5f0;font:600 11px Karla,sans-serif;padding:12px;text-align:center">Bonsai Companion</div></div>
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/katsura-garden-care.jpg"
+                alt="Katsura Garden care home — Japanese Maple rituals"
+                width="435"
+                height="944"
+              />
+            </div>
+          </div>
           <figcaption class="device-caption">Care</figcaption>
         </figure>
-        <figure class="device">
-          <div class="device-frame"><div class="device-screen" style="display:flex;align-items:center;justify-content:center;background:#f7f5f0;color:#1c3a27;font:600 11px Karla,sans-serif;padding:12px;text-align:center">Pickup only · Japan Center</div></div>
-          <figcaption class="device-caption">Supplies</figcaption>
+        <figure class="device device--shop">
+          <div class="device-frame">
+            <div class="device-screen">
+              <img
+                src="assets/katsura-garden-shop.jpg"
+                alt="Katsura Garden authentic supplies — in-store pickup only"
+                width="435"
+                height="944"
+              />
+            </div>
+          </div>
+          <figcaption class="device-caption">Pickup</figcaption>
         </figure>
       </div>
     </section>
@@ -737,22 +777,22 @@
           <li class="journey-item">
             <span class="journey-num">01</span>
             <div>
-              <p class="journey-title">Scan to Diagnose &amp; Protect Bonsai</p>
-              <p class="journey-text">Customers snap a photo to identify issues—receiving custom care instructions for Japanese maples, junipers, pines, and tropical bonsai.</p>
+              <p class="journey-title">Scan to protect bonsai</p>
+              <p class="journey-text">One photo flags pests, dry tips, or root stress — with care scripts for maples, junipers, pines, and tropicals.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">02</span>
             <div>
-              <p class="journey-title">Reserved Local Pickup (No Shipping Burden)</p>
-              <p class="journey-text">Customers reorder authentic Japanese soils, shears, pots, and fertilizers directly in-app, picking up at 1581 Webster. Zero packing boxes, zero live plant shipping.</p>
+              <p class="journey-title">Reserve · pick up at Webster</p>
+              <p class="journey-text">Akadama, shears, pots, fertilizer — reserved in-app, collected at Japan Center. Zero packing. Zero live-plant shipping.</p>
             </div>
           </li>
           <li class="journey-item">
             <span class="journey-num">03</span>
             <div>
-              <p class="journey-title">Your Direct, Verified Channel</p>
-              <p class="journey-text">Bypasses search engine scammers and unauthorized websites. Customers scan an in-store QR code and stay connected directly to you on their home screen.</p>
+              <p class="journey-title">Bypass search &amp; scammers</p>
+              <p class="journey-text">In-store QR puts the official companion on the home screen. Regulars never need Google — neutralizing copycat sites.</p>
             </div>
           </li>
         </ol>
@@ -762,21 +802,24 @@
         <div class="model-ledger">
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">App Care Memberships</span>
+              <span class="model-title">App care memberships</span>
               <span class="model-split">15%</span>
             </div>
+            <p class="model-desc">Recurring cut on every paid care subscriber.</p>
           </div>
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">In-Store Merch &amp; Supplies Pickup</span>
+              <span class="model-title">In-store supplies pickup</span>
               <span class="model-split">85%</span>
             </div>
+            <p class="model-desc">When the app sends them back for soil or tools, you keep the lion’s share.</p>
           </div>
           <div class="model-row">
             <div class="model-header">
-              <span class="model-title">Workshops / 1-on-1 Consults</span>
+              <span class="model-title">Workshops / 1-on-1 consults</span>
               <span class="model-split">90%</span>
             </div>
+            <p class="model-desc">Master sessions booked through the companion stay yours.</p>
           </div>
         </div>
       </div>
@@ -787,9 +830,18 @@
         We run the rails. You keep the craft.
         <span>Your brand. Your regulars. Your call.</span>
       </div>
-      <div class="keep-item"><strong>No live-plant shipping</strong></div>
-      <div class="keep-item"><strong>BOPIS supplies only</strong></div>
-      <div class="keep-item"><strong>Verified channel</strong></div>
+      <div class="keep-item">
+        <strong>No live-plant shipping</strong>
+        <span>Walk-in specimen sales stay in the shop</span>
+      </div>
+      <div class="keep-item">
+        <strong>BOPIS supplies only</strong>
+        <span>Soils, shears, pots — pickup at 1581 Webster</span>
+      </div>
+      <div class="keep-item">
+        <strong>Verified channel</strong>
+        <span>Home-screen QR · not an open-web storefront</span>
+      </div>
     </section>
 
     <footer class="footer-section">
@@ -799,7 +851,7 @@
       </div>
       <div class="qr-cta">
         <a class="qr-link" href="https://limelabs.dev/partners/katsura-garden" aria-label="Open partner prototype">
-          <img class="qr-img" src="assets/partners/qr-memory-plants.png" alt="" width="62" height="62">
+          <img class="qr-img" src="assets/partners/qr-katsura-garden.png" alt="QR code — Katsura Garden private TestFlight invite" width="62" height="62">
         </a>
         <p class="qr-meta">
           <span class="qr-label">Play with the prototype</span>

@@ -13,47 +13,139 @@
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <style>
     :root {
-      --page-bg: #e8e4d8;
+      --page-bg: #efece4;
       --sheet-bg: #f7f5f0;
-      --sheet-card: #efece4;
+      --sheet-card: #ffffff;
       --ink: #1a1d1a;
-      --ink-muted: #5a625a;
-      --ink-faint: #5a625a;
+      --ink-muted: #4a524a;
+      --ink-faint: #6a726a;
       --accent: #1c3a27;
       --accent-hot: #2a5238;
       --on-accent: #f7f5f0;
-      --rule: #e3dfc9;
+      --rule: #d9d4c4;
       --bar-bg: rgba(247, 245, 240, 0.94);
-      --hero-glow: rgba(197, 160, 89, 0.28);
-      --hero-glow-2: rgba(28, 58, 39, 0.18);
-      --device-bezel: #1a1d1a;
+      --hero-glow: rgba(197, 160, 89, 0.22);
+      --hero-glow-2: rgba(28, 58, 39, 0.14);
+      --device-bezel: #121820;
       --font-display: "Playfair Display", "Times New Roman", serif;
       --font-body: "Karla", "Helvetica Neue", sans-serif;
+      --brass: #c5a059;
+      --lacquer: #7a2e1e;
     }
 
-    .topbar { border-bottom-color: #c5a059; }
-    .hero-kicker { color: #7a2e1e; }
-    .device-frame { border-color: #c5a059; }
-    .device-caption { color: #1c3a27; }
-    .walkthrough { border-left-color: #c5a059; }
-    .gold-rule {
-      height: 2px;
-      width: 64px;
-      background: #c5a059;
+    .topbar { border-bottom-color: var(--brass); }
+
+    .topbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .topbar-brand img {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+    }
+
+    .hero-kicker { color: var(--lacquer); }
+
+    .hero-brand {
+      max-width: 11ch;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
       margin: 0 0 18px;
+      color: var(--ink-muted);
+      font-size: 0.92rem;
     }
-    .legacy-chip {
-      display: inline-block;
-      border: 1px solid #c5a059;
-      color: #7a2e1e;
-      font-size: 0.72rem;
+
+    .hero-meta strong {
+      color: var(--ink);
       font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      margin: 0 0 14px;
-      background: rgba(197, 160, 89, 0.12);
     }
+
+    .legacy-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brass);
+      flex-shrink: 0;
+    }
+
+    .device-frame { border-color: var(--brass); }
+    .device-caption { color: var(--accent); }
+
+    .device-screen {
+      background: #1c3a27;
+      aspect-ratio: 435 / 944;
+      min-height: 0;
+    }
+
+    .device-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .pledge {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border: 1.5px solid var(--brass);
+      background:
+        linear-gradient(135deg, rgba(197, 160, 89, 0.12), transparent 55%),
+        var(--sheet-card);
+      display: grid;
+      gap: 6px;
+      max-width: 38rem;
+    }
+
+    .pledge-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lacquer);
+    }
+
+    .pledge p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .benefit-list li {
+      border-top-color: var(--brass);
+    }
+
+    .benefit-title::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 10px;
+      background: var(--brass);
+      vertical-align: 2px;
+    }
+
+    .side-contact .btn-ghost {
+      border-color: var(--brass);
+    }
+
+    .brief-link {
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--brass);
+    }
+
+    .brief-link:hover { color: var(--lacquer); }
   </style>
 </head>
 <body>
@@ -61,7 +153,7 @@
 
   <header class="topbar">
     <a class="topbar-brand" href="#top">
-      <img src="../../assets/katsura-garden-mark.svg" alt="" width="22" height="22" style="display:inline-block;vertical-align:-4px;margin-right:8px">
+      <img src="../../assets/katsura-garden-mark.svg" alt="" width="26" height="26">
       Katsura Garden
     </a>
     <p class="topbar-meta">1581 Webster · SF Japantown</p>
@@ -71,42 +163,56 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <p class="hero-kicker">Verified channel · no open-web imitators</p>
+          <p class="hero-kicker">Verified channel · Japantown Legacy</p>
           <h1 class="hero-brand">Katsura Garden</h1>
-          <div class="gold-rule" aria-hidden="true"></div>
-          <p class="legacy-chip">Official SF Japantown Legacy Partner · Est. 1974</p>
+          <p class="hero-meta">
+            <span class="legacy-dot" aria-hidden="true"></span>
+            <strong>Official SF Japantown Legacy Partner</strong>
+            <span>Est. 1974 · walk-in only</span>
+          </p>
           <p class="hero-lead">
-            A private bonsai care companion for the people who already trust the Japan Center floor — watering, seasonal work, and health scans, with authentic supplies reserved for in-store pickup only.
+            A private bonsai care companion for the people who already trust the Japan Center floor —
+            watering, seasonal work, and health scans, with authentic supplies reserved for in-store pickup only.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#invite">Request private TestFlight</a>
             <a class="btn btn-ghost" href="#chat">Book a short chat</a>
           </div>
+          <aside class="pledge" aria-label="Anti-impersonation pledge">
+            <span class="pledge-label">Closed-loop moat</span>
+            <p>
+              In-store QR puts the official companion on the home screen. Customers never need Google
+              for care — neutralizing open-web imitators. Supplies are pickup-only at 1581 Webster.
+              No live-plant shipping. Ever.
+            </p>
+          </aside>
         </div>
-        <div class="device-stage" aria-label="App modules">
+        <div class="device-stage" aria-label="App screens">
           <figure class="device">
             <div class="device-frame">
-              <div class="device-screen" style="min-height:220px;display:flex;align-items:center;justify-content:center;background:#1c3a27;color:#f7f5f0;padding:20px;text-align:center;font:600 0.95rem var(--font-display)">
-                Bonsai Companion
+              <div class="device-screen">
+                <img
+                  src="../../assets/katsura-garden-care.jpg"
+                  alt="Katsura Garden care home — Japanese Maple rituals and seasonal reminders"
+                  width="435"
+                  height="944"
+                />
               </div>
             </div>
             <figcaption class="device-caption">Care</figcaption>
           </figure>
           <figure class="device">
             <div class="device-frame">
-              <div class="device-screen" style="min-height:220px;display:flex;align-items:center;justify-content:center;background:#f7f5f0;color:#1c3a27;padding:20px;text-align:center;font:600 0.95rem var(--font-display)">
-                Health Scan
+              <div class="device-screen">
+                <img
+                  src="../../assets/katsura-garden-shop.jpg"
+                  alt="Katsura Garden authentic supplies — Akadama, shears, and pots for in-store pickup"
+                  width="435"
+                  height="944"
+                />
               </div>
             </div>
-            <figcaption class="device-caption">Diagnose</figcaption>
-          </figure>
-          <figure class="device">
-            <div class="device-frame">
-              <div class="device-screen" style="min-height:220px;display:flex;align-items:center;justify-content:center;background:#efece4;color:#7a2e1e;padding:20px;text-align:center;font:600 0.95rem var(--font-display)">
-                Pickup only · Japan Center
-              </div>
-            </div>
-            <figcaption class="device-caption">Supplies</figcaption>
+            <figcaption class="device-caption">Pickup</figcaption>
           </figure>
         </div>
       </div>
@@ -116,7 +222,8 @@
       <div class="wrap">
         <h2 class="section-title">What the companion does</h2>
         <p class="section-lead">
-          After the sale, bonsai still need care — and soils, shears, and pots should point back to Katsura Garden, not a copycat website.
+          After the sale, bonsai still need care — and soils, shears, and pots should point back to
+          Katsura Garden, not a copycat website.
         </p>
         <ul class="benefit-list">
           <li>
@@ -125,11 +232,11 @@
           </li>
           <li>
             <h3 class="benefit-title">Authentic supplies · pickup only</h3>
-            <p class="benefit-copy">Akadama, shears, Tokoname pots, fertilizer, and wire — reserved in-app, picked up at 1581 Webster. No live-plant shipping. No parcel burden.</p>
+            <p class="benefit-copy">Akadama, shears, Tokoname pots, fertilizer, and wire — reserved in-app, picked up at 1581 Webster. No shipping burden.</p>
           </li>
           <li>
             <h3 class="benefit-title">Bypass search &amp; scammers</h3>
-            <p class="benefit-copy">In-store QR puts the official companion on the home screen. Customers never need Google to find care — neutralizing open-web imitators.</p>
+            <p class="benefit-copy">The official channel lives on the home screen via in-store QR — so regulars never land on an unauthorized storefront.</p>
           </li>
         </ul>
       </div>
@@ -140,7 +247,8 @@
         <div>
           <h2 class="section-title">Private TestFlight invite</h2>
           <p class="section-lead">
-            Builds are shared only with people you approve. Apple TestFlight is private and secure — no public App Store listing until you say go.
+            Builds are shared only with people you approve. Apple TestFlight is private and secure —
+            no public App Store listing until you say go.
           </p>
           <form
             class="invite-form"
@@ -198,7 +306,10 @@
           <p>Prefer voice? Will can walk the anti-impersonation wedge, BOPIS pilot, and in-store QR flow in 20 minutes.</p>
           <a class="btn btn-ghost" href="mailto:hello@limelabs.dev?subject=Katsura%20Garden%20%E2%80%94%20book%20a%20chat">Email hello@limelabs.dev</a>
           <a class="btn btn-ghost" href="tel:+13108930931">Call (310) 893-0931</a>
-          <p class="form-note">Partnership brief (print): <a href="../../katsura-garden-one-pager.html">katsura-garden-one-pager.html</a></p>
+          <p class="form-note">
+            Partnership brief (print):
+            <a class="brief-link" href="../../katsura-garden-one-pager.html">Open one-pager</a>
+          </p>
         </aside>
       </div>
     </section>

@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" ry="10" fill="#1C3A27"/>
-  <circle cx="32" cy="30" r="14" fill="#F7F5F0"/>
-  <circle cx="32" cy="30" r="16" fill="none" stroke="#C5A059" stroke-width="3"/>
-  <!-- stylized pine canopy -->
-  <path d="M32 18 L40 32 L24 32 Z" fill="#1C3A27"/>
-  <path d="M32 24 L38 34 L26 34 Z" fill="#1C3A27"/>
-  <rect x="30" y="34" width="4" height="8" fill="#1C3A27"/>
-  <!-- lacquer baseline -->
-  <rect x="18" y="50" width="28" height="3.5" rx="1" fill="#7A2E1E"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" aria-hidden="true">
+  <rect width="64" height="64" rx="14" fill="#1C3A27"/>
+  <!-- brass seal ring -->
+  <circle cx="32" cy="30" r="18" stroke="#C5A059" stroke-width="1.75" opacity="0.9"/>
+  <circle cx="32" cy="30" r="15.5" fill="#F7F5F0"/>
+  <!-- bonsai canopy -->
+  <path d="M22 31c0-7.5 4.2-13 10-13s10 5.5 10 13c-2.8-2.2-6.1-3.4-10-3.4S24.8 28.8 22 31Z" fill="#1C3A27"/>
+  <path d="M24.5 33.5c1.8-3.2 4.4-5 7.5-5s5.7 1.8 7.5 5c-2.1-1.2-4.7-1.9-7.5-1.9s-5.4.7-7.5 1.9Z" fill="#2A5238"/>
+  <!-- trunk -->
+  <path d="M31 33.5c.4 3.2-.2 6.4-1.6 9.2" stroke="#1C3A27" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M31.2 36.5c2.4 2.1 3.8 4.6 4.4 7.4" stroke="#1C3A27" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- lacquer pot -->
+  <path d="M24.5 44.5h15l-1.8 5.2c-.3.8-1.1 1.3-1.9 1.3H28.2c-.9 0-1.6-.5-1.9-1.3L24.5 44.5Z" fill="#7A2E1E"/>
+  <rect x="25.5" y="43.2" width="13" height="1.8" rx="0.6" fill="#9A4A35"/>
 </svg>
