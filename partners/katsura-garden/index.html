@@ -49,6 +49,15 @@
 
     .hero-kicker { color: var(--lacquer); }
 
+    .hero {
+      padding-bottom: 28px;
+    }
+
+    .hero-grid {
+      align-items: start;
+      min-height: 0;
+    }
+
     .hero-brand {
       max-width: 11ch;
       letter-spacing: -0.03em;
@@ -77,13 +86,32 @@
       flex-shrink: 0;
     }
 
+    .hero-actions .btn-ghost {
+      background: var(--sheet-card);
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .hero-actions .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--sheet-card);
+    }
+
     .device-frame { border-color: var(--brass); }
     .device-caption { color: var(--accent); }
 
+    .device {
+      width: min(168px, 32vw);
+    }
+
+    .device:nth-child(2) {
+      transform: translateY(-10px);
+    }
+
     .device-screen {
       background: #1c3a27;
-      aspect-ratio: 435 / 944;
-      min-height: 0;
+      height: clamp(280px, 48vw, 360px);
     }
 
     .device-screen img {
@@ -95,14 +123,21 @@
 
     .pledge {
       margin-top: 28px;
-      padding: 18px 20px;
+      padding: 20px 22px;
       border: 1.5px solid var(--brass);
       background:
         linear-gradient(135deg, rgba(197, 160, 89, 0.12), transparent 55%),
         var(--sheet-card);
       display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px 24px;
+      align-items: center;
+    }
+
+    .pledge-copy {
+      display: grid;
       gap: 6px;
-      max-width: 38rem;
+      min-width: 0;
     }
 
     .pledge-label {
@@ -118,6 +153,30 @@
       color: var(--ink-muted);
       font-size: 0.95rem;
       line-height: 1.45;
+      max-width: 62ch;
+    }
+
+    .pledge-link {
+      justify-self: end;
+      white-space: nowrap;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--brass);
+      padding-bottom: 2px;
+    }
+
+    .pledge-link:hover { color: var(--lacquer); }
+
+    @media (max-width: 720px) {
+      .pledge {
+        grid-template-columns: 1fr;
+      }
+
+      .pledge-link {
+        justify-self: start;
+      }
     }
 
     .benefit-list li {
@@ -178,14 +237,6 @@
             <a class="btn btn-primary" href="#invite">Request private TestFlight</a>
             <a class="btn btn-ghost" href="#chat">Book a short chat</a>
           </div>
-          <aside class="pledge" aria-label="Anti-impersonation pledge">
-            <span class="pledge-label">Closed-loop moat</span>
-            <p>
-              In-store QR puts the official companion on the home screen. Customers never need Google
-              for care — neutralizing open-web imitators. Supplies are pickup-only at 1581 Webster.
-              No live-plant shipping. Ever.
-            </p>
-          </aside>
         </div>
         <div class="device-stage" aria-label="App screens">
           <figure class="device">
@@ -216,6 +267,17 @@
           </figure>
         </div>
       </div>
+      <aside class="wrap pledge" aria-label="Anti-impersonation pledge">
+        <div class="pledge-copy">
+          <span class="pledge-label">Closed-loop moat</span>
+          <p>
+            In-store QR puts the official companion on the home screen. Customers never need Google
+            for care — neutralizing open-web imitators. Supplies are pickup-only at 1581 Webster.
+            No live-plant shipping. Ever.
+          </p>
+        </div>
+        <a class="pledge-link" href="../../katsura-garden-prologue.html">Read the impostor prologue →</a>
+      </aside>
     </section>
 
     <section class="section" id="story">
@@ -307,8 +369,10 @@
           <a class="btn btn-ghost" href="mailto:hello@limelabs.dev?subject=Katsura%20Garden%20%E2%80%94%20book%20a%20chat">Email hello@limelabs.dev</a>
           <a class="btn btn-ghost" href="tel:+13108930931">Call (310) 893-0931</a>
           <p class="form-note">
-            Partnership brief (print):
-            <a class="brief-link" href="../../katsura-garden-one-pager.html">Open one-pager</a>
+            Leave-behinds (print):
+            <a class="brief-link" href="../../katsura-garden-prologue.html">Impostor prologue</a>
+            ·
+            <a class="brief-link" href="../../katsura-garden-one-pager.html">Partnership brief</a>
           </p>
         </aside>
       </div>

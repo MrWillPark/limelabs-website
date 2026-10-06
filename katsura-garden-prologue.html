@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Katsura Garden — Before the Pitch · The Impostor Problem</title>
+  <meta name="description" content="An unauthorized Shopify storefront is using the Katsura Garden name. Here’s the problem — and how Lime Labs helps take it down, free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
+    try {
+      var storedTheme = localStorage.getItem("katsura-garden-prologue-theme");
+      if (storedTheme === "light" || storedTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", storedTheme);
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  </script>
+  <style>
+    :root,
+    [data-theme="light"] {
+      --page-bg: #e8e4d8;
+      --page-bg-2: #d4cfc0;
+      --sheet-bg: #f7f5f0;
+      --sheet-card: #efece4;
+      --ink: #1a1d1a;
+      --ink-muted: #5a625a;
+      --ink-faint: #6a726a;
+      --pine: #1c3a27;
+      --pine-light: #2a5238;
+      --brass: #c5a059;
+      --lacquer: #7a2e1e;
+      --rule: #e3dfc9;
+      --bar-bg: rgba(247, 245, 240, 0.94);
+      --sheet-shadow: 0 16px 40px rgba(18, 24, 32, 0.12);
+      --on-pine: #f7f5f0;
+      --warn-bg: #f4ebe4;
+      --ok-bg: #e8efe8;
+      --font-display: "Playfair Display", "Times New Roman", serif;
+      --font-body: "Karla", "Helvetica Neue", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --page-bg: #0e1410;
+      --page-bg-2: #1c3a27;
+      --sheet-bg: #121820;
+      --sheet-card: #1a2434;
+      --ink: #f7f4ea;
+      --ink-muted: #d4d9e0;
+      --ink-faint: #a8b0bc;
+      --pine: #c5a059;
+      --pine-light: #dfc056;
+      --brass: #c5a059;
+      --lacquer: #e8a090;
+      --rule: #2a3444;
+      --bar-bg: rgba(18, 24, 32, 0.95);
+      --sheet-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --on-pine: #121820;
+      --warn-bg: #2a1c18;
+      --ok-bg: #16241c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, var(--page-bg-2) 0%, transparent 55%),
+        var(--page-bg);
+      color: var(--ink);
+      line-height: 1.5;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 40px;
+    }
+
+    .screen-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bar-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--brass);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 780px;
+      margin: 0 auto 24px;
+      gap: 16px;
+    }
+
+    .screen-bar-title {
+      font-size: 11px;
+      color: var(--pine);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .screen-actions { display: flex; gap: 12px; flex-shrink: 0; }
+
+    .theme-toggle {
+      display: flex;
+      border: 1.5px solid var(--rule);
+    }
+
+    .theme-toggle button {
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 7px 11px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .theme-toggle button[aria-pressed="true"] {
+      background: var(--pine);
+      color: var(--on-pine);
+    }
+
+    .btn-print {
+      background: var(--pine);
+      color: var(--on-pine);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 7px 16px;
+      border: 2px solid var(--pine);
+      cursor: pointer;
+    }
+
+    .btn-print:hover {
+      background: var(--pine-light);
+      border-color: var(--pine-light);
+    }
+
+    .sheet {
+      width: 8.5in;
+      max-width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      background: var(--sheet-bg);
+      border: 1.5px solid var(--rule);
+      padding: 0.42in 0.52in;
+      box-shadow: var(--sheet-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--brass);
+    }
+
+    .brand-lock {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark { width: 38px; height: 38px; flex-shrink: 0; }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--lacquer);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .header-meta {
+      font-size: 12px;
+      color: var(--ink-faint);
+      text-align: right;
+      line-height: 1.45;
+    }
+
+    .header-meta strong { color: var(--ink); font-size: 13px; }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      max-width: 22ch;
+    }
+
+    .hero-lead {
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      margin-top: 8px;
+      max-width: 54ch;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .compare-card {
+      border: 1.5px solid var(--rule);
+      background: var(--sheet-card);
+      padding: 16px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 100%;
+    }
+
+    .compare-card--ok { border-color: var(--pine); background: var(--ok-bg); }
+    .compare-card--warn { border-color: var(--lacquer); background: var(--warn-bg); }
+
+    .compare-eyebrow {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .compare-card--ok .compare-eyebrow { color: var(--pine); }
+    .compare-card--warn .compare-eyebrow { color: var(--lacquer); }
+
+    .compare-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .compare-url {
+      font-size: 12px;
+      font-weight: 700;
+      word-break: break-all;
+      color: var(--ink);
+    }
+
+    .compare-list {
+      list-style: none;
+      display: grid;
+      gap: 7px;
+      margin-top: 2px;
+    }
+
+    .compare-list li {
+      position: relative;
+      padding-left: 14px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    .compare-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      background: var(--brass);
+    }
+
+    .compare-card--warn .compare-list li::before { background: var(--lacquer); }
+    .compare-card--ok .compare-list li::before { background: var(--pine); }
+
+    .impact {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 16px 18px;
+      background: var(--pine);
+      color: var(--on-pine);
+    }
+
+    .impact-num {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 0.9;
+      color: var(--brass);
+      letter-spacing: -0.03em;
+    }
+
+    .impact-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 6px;
+      color: var(--on-pine);
+      opacity: 0.85;
+    }
+
+    .impact-copy {
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--on-pine);
+    }
+
+    .impact-copy strong {
+      color: var(--brass);
+      font-weight: 700;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--lacquer);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-eyebrow::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .steps {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+    }
+
+    .step-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brass);
+      padding-top: 3px;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .step-text {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    .promise {
+      border: 1.5px solid var(--brass);
+      background: var(--sheet-card);
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .promise-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .promise-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .promise-list li {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .promise-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      background: var(--pine);
+    }
+
+    .promise strong { color: var(--ink); }
+
+    .close-strip {
+      border-top: 1.5px solid var(--rule);
+      border-bottom: 1.5px solid var(--rule);
+      padding: 16px 0;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .close-quote {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .close-quote span {
+      display: block;
+      margin-top: 6px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--lacquer);
+    }
+
+    .close-actions {
+      display: grid;
+      gap: 8px;
+      justify-items: start;
+    }
+
+    .close-actions a {
+      color: var(--pine);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--brass);
+      font-size: 13px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-top: auto;
+    }
+
+    .contact strong {
+      display: block;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .contact {
+      font-size: 12px;
+      color: var(--ink-faint);
+      line-height: 1.5;
+    }
+
+    .contact a {
+      color: var(--brass);
+      text-decoration: none;
+    }
+
+    .pilot {
+      text-align: right;
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+      max-width: 28ch;
+    }
+
+    .pilot strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 15px;
+      color: var(--pine);
+      margin-bottom: 2px;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .screen-bar { display: none !important; }
+      html, body {
+        background: var(--sheet-bg) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .sheet {
+        box-shadow: none !important;
+        border: none !important;
+        width: 8.5in !important;
+        min-height: 11in !important;
+        height: 11in !important;
+        margin: 0 !important;
+        padding: 0.42in 0.52in !important;
+      }
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .sheet {
+        width: calc(100% - 24px);
+        max-width: 8.5in;
+        min-height: 0;
+      }
+      .screen-bar { max-width: calc(100% - 24px); }
+      .compare,
+      .offer-grid,
+      .close-strip {
+        grid-template-columns: 1fr;
+      }
+      .impact { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; }
+      .pilot { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="screen-bar" aria-label="Page controls">
+    <div class="screen-bar-title">Katsura Garden · Before the pitch</div>
+    <div class="screen-actions">
+      <div class="theme-toggle" role="group" aria-label="Sheet theme">
+        <button type="button" data-theme-set="light" aria-pressed="true">Daylight</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">Ink</button>
+      </div>
+      <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </aside>
+
+  <main class="sheet">
+    <header class="header">
+      <div class="brand-lock">
+        <img class="brand-mark" src="assets/katsura-garden-mark.svg" alt="" width="38" height="38">
+        <div>
+          <div class="brand-title">Before the pitch</div>
+          <div class="brand-subtitle">The impostor problem · Shopify storefront misuse</div>
+        </div>
+      </div>
+      <div class="header-meta">
+        <strong>Prepared for Katsura Garden</strong><br>
+        1581 Webster · SF Japantown Legacy · Est. 1974
+      </div>
+    </header>
+
+    <section>
+      <h1 class="hero-h1">Someone is already selling under your name online.</h1>
+      <p class="hero-lead">
+        Not a competitor with their own brand — an unauthorized Shopify storefront using
+        <em style="font-style:normal;font-weight:700;color:var(--ink)">Katsura Garden</em>,
+        a Japantown address, and your real phone number. Damaged shipments and angry buyers
+        land on your front desk. That is the prologue.
+      </p>
+    </section>
+
+    <section class="compare" aria-label="Official vs impostor">
+      <article class="compare-card compare-card--ok">
+        <p class="compare-eyebrow">The real shop</p>
+        <h2 class="compare-title">Katsura Garden</h2>
+        <p class="compare-url">katsuragardensf.com</p>
+        <ul class="compare-list">
+          <li>Walk-in boutique · Japan Center Mall</li>
+          <li>Explicit notice: does <strong>not</strong> sell plants online</li>
+          <li>Specimen bonsai, craft tools, authentic soils</li>
+          <li>50+ years · SF Legacy Business</li>
+        </ul>
+      </article>
+      <article class="compare-card compare-card--warn">
+        <p class="compare-eyebrow">The impostor</p>
+        <h2 class="compare-title">Unauthorized storefront</h2>
+        <p class="compare-url">katsuragarden.com · Shopify</p>
+        <ul class="compare-list">
+          <li>Uses your name + phone + a Japantown address</li>
+          <li>Ships mass-market plants nationwide</li>
+          <li>No affiliation · no authorization</li>
+          <li>Complaints route to your counter</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="impact" aria-label="Why it sticks">
+      <div>
+        <div class="impact-num">1°</div>
+        <div class="impact-label">First move</div>
+      </div>
+      <p class="impact-copy">
+        Before we talk care apps or TestFlight, I want to <strong>help you take the impostor down</strong> —
+        Shopify Acceptable Use / fraud report, and a Google Business Profile dispute if needed.
+        Free. No contract. Just a neighbor who builds software for shops like yours.
+      </p>
+    </section>
+
+    <section class="offer-grid">
+      <div>
+        <p class="section-eyebrow">What I will do</p>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num">01</span>
+            <div>
+              <p class="step-title">Document the misuse</p>
+              <p class="step-text">Screens, domain records, phone/address hijack, and your official “we don’t sell online” notices — packaged for the report.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">02</span>
+            <div>
+              <p class="step-title">File the Shopify takedown</p>
+              <p class="step-text">Draft and submit the AUP / intellectual-property complaint with you. You stay the rights holder; I do the paperwork grind.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num">03</span>
+            <div>
+              <p class="step-title">Close the search door</p>
+              <p class="step-text">Optional Google Business / Maps dispute so angry parcel buyers stop calling the Japan Center floor.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <aside class="promise" aria-label="Partnership posture">
+        <p class="promise-title">The kind of partner I want to be</p>
+        <ul class="promise-list">
+          <li><strong>$0</strong> for the takedown work — trust first.</li>
+          <li><strong>No live-plant shipping</strong> in anything we build together.</li>
+          <li><strong>Pickup-only supplies</strong> if we later pilot a companion app.</li>
+          <li><strong>Your brand stays yours</strong> — verified channel, not another open-web storefront.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="close-strip">
+      <p class="close-quote">
+        Protect the name. Then deepen the relationship with the people who already walk in.
+        <span>Takedown first · companion second</span>
+      </p>
+      <div class="close-actions">
+        <a href="mailto:hello@limelabs.dev?subject=Katsura%20Garden%20%E2%80%94%20impostor%20takedown">Email Will to start the filing →</a>
+        <a href="https://limelabs.dev/partners/katsura-garden">See the private companion invite →</a>
+        <a href="katsura-garden-one-pager.html">Open the partnership brief →</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="contact">
+        <strong>Will Park · Lime Labs</strong>
+        Founder &amp; Product Lead<br>
+        <a href="tel:+13108930931">(310) 893-0931</a>
+        ·
+        <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a>
+      </div>
+      <p class="pilot">
+        <strong>Print this. Keep it.</strong>
+        When the impostor resurfaces — or when you’re ready for the care companion — you already know who showed up with the paperwork.
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll("[data-theme-set]");
+      var stored;
+      try {
+        stored = localStorage.getItem("katsura-garden-prologue-theme");
+      } catch (e) {}
+      function applyTheme(theme) {
+        var next = theme === "dark" ? "dark" : "light";
+        root.setAttribute("data-theme", next);
+        buttons.forEach(function (button) {
+          button.setAttribute("aria-pressed", button.getAttribute("data-theme-set") === next ? "true" : "false");
+        });
+        try {
+          localStorage.setItem("katsura-garden-prologue-theme", next);
+        } catch (e) {}
+      }
+      if (stored === "light" || stored === "dark") applyTheme(stored);
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyTheme(button.getAttribute("data-theme-set"));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
