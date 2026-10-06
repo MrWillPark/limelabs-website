@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" ry="10" fill="#1C3A27"/>
+  <circle cx="32" cy="30" r="14" fill="#F7F5F0"/>
+  <circle cx="32" cy="30" r="16" fill="none" stroke="#C5A059" stroke-width="3"/>
+  <!-- stylized pine canopy -->
+  <path d="M32 18 L40 32 L24 32 Z" fill="#1C3A27"/>
+  <path d="M32 24 L38 34 L26 34 Z" fill="#1C3A27"/>
+  <rect x="30" y="34" width="4" height="8" fill="#1C3A27"/>
+  <!-- lacquer baseline -->
+  <rect x="18" y="50" width="28" height="3.5" rx="1" fill="#7A2E1E"/>
+</svg>
