@@ -148,14 +148,17 @@
       width: 8.5in;
       max-width: 8.5in;
       min-height: 11in;
+      height: 11in;
       margin: 0 auto;
       background: var(--sheet-bg);
       border: 1.5px solid var(--rule);
-      padding: 0.3in 0.42in;
+      padding: 0.34in 0.46in;
       box-shadow: var(--sheet-shadow);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      justify-content: space-between;
+      gap: 0;
+      overflow: hidden;
     }
 
     .header {
@@ -389,9 +392,8 @@
       margin-bottom: 2px;
     }
 
-    .evidence-row a {
+    .evidence-row .domain {
       color: var(--brass);
-      text-decoration: none;
       font-weight: 700;
     }
 
@@ -425,16 +427,16 @@
 
     .close-actions {
       display: grid;
-      gap: 8px;
+      gap: 6px;
       justify-items: start;
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.4;
     }
 
-    .close-actions a {
+    .close-actions strong {
       color: var(--pine);
       font-weight: 700;
-      text-decoration: none;
-      border-bottom: 1.5px solid var(--brass);
-      font-size: 13px;
     }
 
     .footer {
@@ -459,9 +461,9 @@
       line-height: 1.5;
     }
 
-    .contact a {
+    .contact .contact-line {
       color: var(--brass);
-      text-decoration: none;
+      font-weight: 600;
     }
 
     .pilot {
@@ -491,34 +493,28 @@
         margin: 0 !important;
         padding: 0 !important;
         width: 8.5in;
-        height: auto;
+        height: 11in;
       }
       .sheet {
         box-shadow: none !important;
         border: none !important;
         width: 8.5in !important;
         max-width: none !important;
-        min-height: 0 !important;
-        height: auto !important;
+        min-height: 11in !important;
+        height: 11in !important;
         margin: 0 !important;
-        padding: 0.28in 0.4in !important;
-        gap: 10px !important;
-        overflow: visible !important;
+        padding: 0.34in 0.46in !important;
+        gap: 0 !important;
+        justify-content: space-between !important;
+        overflow: hidden !important;
         page-break-after: avoid;
         break-inside: avoid;
       }
-      .footer {
-        margin-top: 0 !important;
-        padding-top: 6px !important;
-      }
-      .impact { padding: 12px 16px !important; }
-      .promise { padding: 12px 14px !important; }
-      .close-strip { padding: 10px 0 !important; }
     }
 
     @page {
       size: letter portrait;
-      margin: 0.15in;
+      margin: 0;
     }
 
     @media (max-width: 900px) {
@@ -622,9 +618,9 @@
         <span>Ready when you are</span>
       </p>
       <div class="close-actions">
-        <a href="mailto:hello@limelabs.dev?subject=Katsura%20Garden%20%E2%80%94%20impostor%20takedown">Email Will to start the filing →</a>
-        <a href="https://limelabs.dev/partners/katsura-garden">Partnership invite →</a>
-        <a href="katsura-garden-one-pager.html">One-pager →</a>
+        <p><strong>Call or text Will</strong> · (310) 893-0931</p>
+        <p><strong>Email</strong> · hello@limelabs.dev</p>
+        <p>To start the filing — free, no contract.</p>
       </div>
     </section>
 
@@ -633,12 +629,12 @@
       <div class="evidence-row">
         <p>
           <strong>Official · walk-in only</strong>
-          <a href="https://www.katsuragardensf.com/" target="_blank" rel="noopener noreferrer">katsuragardensf.com</a>
+          <span class="domain">katsuragardensf.com</span>
           — Japan Center · does not sell plants online
         </p>
         <p>
           <strong>Impostor · Shopify shipper</strong>
-          <a href="https://katsuragarden.com/" target="_blank" rel="noopener noreferrer">katsuragarden.com</a>
+          <span class="domain">katsuragarden.com</span>
           — your name, phone, Japantown address · nationwide parcels
         </p>
       </div>
@@ -648,9 +644,7 @@
       <div class="contact">
         <strong>Will Park · Lime Labs</strong>
         Founder &amp; Product Lead<br>
-        <a href="tel:+13108930931">(310) 893-0931</a>
-        ·
-        <a href="mailto:hello@limelabs.dev">hello@limelabs.dev</a>
+        <span class="contact-line">(310) 893-0931 · hello@limelabs.dev</span>
       </div>
       <p class="pilot">
         <strong>Print this. Keep it.</strong>
