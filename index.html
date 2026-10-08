@@ -67,20 +67,13 @@
         <!-- Dayplay -->
         <article class="product-card product-card--dayplay">
           <a
-            class="product-media"
+            class="product-media product-media--dayplay-live"
             href="https://www.dayplay.io"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Dayplay — dark engine console with orange star mark and live MCP pipeline"
+            aria-label="Dayplay — live engine console with MCP stage pipeline. Opens dayplay.io"
           >
-            <img
-              src="assets/dayplay-cover.svg"
-              alt=""
-              width="1280"
-              height="800"
-              loading="lazy"
-              decoding="async"
-            />
+            <div class="dp-cover" data-dp-console></div>
             <span class="product-media-badge product-media-badge--beta">Beta</span>
           </a>
           <div class="product-body">
@@ -368,6 +361,7 @@
   </footer>
 
   <script type="module" src="motion.js"></script>
+  <script src="assets/dayplay-console.js" defer></script>
   <script src="assets/sparkwatch-pipeline.js" defer></script>
 </body>
 </html>
