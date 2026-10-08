@@ -835,7 +835,7 @@ a:focus-visible,
 }
 
 .product-card:hover .product-media--live .sw-cover__scale {
-  transform: scale(0.6);
+  transform: translate(-50%, -50%) scale(0.62);
 }
 
 .product-media--live .sw-cover__scale {
@@ -851,63 +851,54 @@ a:focus-visible,
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  display: grid;
-  place-items: center;
   background:
     radial-gradient(ellipse 70% 60% at 85% 80%, rgba(229, 160, 15, 0.12), transparent 60%),
     radial-gradient(ellipse 50% 45% at 10% 90%, rgba(255, 80, 40, 0.1), transparent 55%),
     #10141c;
 }
 
+/* Absolute center: scale() alone leaves the 720px layout box off-center in the crop */
 .product-media--live .sw-cover__scale {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 720px;
-  transform: scale(0.58);
+  transform: translate(-50%, -50%) scale(0.58);
   transform-origin: center center;
 }
 
-/* Stacked product cards: pin pipeline to top-left so chrome isn't clipped */
+/* Stacked cards: keep horizontal center, pin under the badge so chrome stays readable */
 @media (max-width: 860px) {
-  .product-media--live .sw-cover {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    place-items: unset;
-    /* Clear the status badge; keep the engine chrome readable */
-    padding: 52px 0 0 12px;
-  }
-
   .product-media--live .sw-cover__scale {
-    flex: 0 0 auto;
-    transform: scale(0.9);
-    transform-origin: top left;
+    top: 52px;
+    transform: translate(-50%, 0) scale(0.88);
+    transform-origin: top center;
   }
 
   .product-card:hover .product-media--live .sw-cover__scale {
-    transform: scale(0.92);
+    transform: translate(-50%, 0) scale(0.9);
   }
 }
 
 @media (max-width: 560px) {
   .product-media--live .sw-cover__scale {
-    transform: scale(0.48);
+    top: 48px;
+    transform: translate(-50%, 0) scale(0.46);
   }
 
   .product-card:hover .product-media--live .sw-cover__scale {
-    transform: scale(0.5);
+    transform: translate(-50%, 0) scale(0.48);
   }
 }
 
 @media (max-width: 420px) {
-  .product-media--live .sw-cover {
-    padding: 50px 0 0 10px;
-  }
-
   .product-media--live .sw-cover__scale {
-    transform: scale(0.44);
+    top: 46px;
+    transform: translate(-50%, 0) scale(0.44);
   }
 
   .product-card:hover .product-media--live .sw-cover__scale {
-    transform: scale(0.46);
+    transform: translate(-50%, 0) scale(0.46);
   }
 }
 
