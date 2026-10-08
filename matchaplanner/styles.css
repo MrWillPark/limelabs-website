@@ -392,6 +392,15 @@ select:focus-visible {
   margin: 0 0 var(--space-md);
 }
 
+.section-subhead {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: var(--space-lg) 0 var(--space-xs);
+  color: var(--color-matcha-deep);
+}
+
 .prose p {
   max-width: var(--measure);
   margin: 0 0 var(--space-sm);
