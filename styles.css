@@ -481,7 +481,8 @@ a:focus-visible,
   position: relative;
   display: block;
   aspect-ratio: 16 / 10;
-  min-height: 240px;
+  align-self: start;
+  width: 100%;
   overflow: hidden;
   text-decoration: none;
   background: var(--color-paper-3);
@@ -494,6 +495,16 @@ a:focus-visible,
   object-position: center;
   display: block;
   transition: transform var(--dur-med) var(--ease-out);
+}
+
+/* SVG covers: lock canvas + never stretch with the tall product body */
+.product-media img[src$=".svg"] {
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-card--dayplay .product-media {
+  background: #0c0a09;
 }
 
 .product-card:hover .product-media img {
@@ -1555,8 +1566,6 @@ a:focus-visible,
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .product-media,
-  .product-media img,
   .product-media--static {
     min-height: 180px;
   }
