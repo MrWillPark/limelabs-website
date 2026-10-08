@@ -32,6 +32,11 @@
   --color-spark-amber: oklch(0.76 0.16 80);
   --color-spark-panel: oklch(0.22 0.02 255);
 
+  --color-day-paper: #0c0a09;
+  --color-day-panel: #151210;
+  --color-day-orange: #ff5722;
+  --color-day-live: #22c55e;
+
   --font-display: "Syne", "Arial Narrow", sans-serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -451,6 +456,14 @@ a:focus-visible,
   );
 }
 
+.product-card--dayplay.has-spotlight::before {
+  background: radial-gradient(
+    520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    color-mix(in srgb, var(--color-day-orange) 18%, transparent),
+    transparent 65%
+  );
+}
+
 .product-body,
 .product-media,
 .studio-methods-inner,
@@ -511,6 +524,12 @@ a:focus-visible,
 .product-media-badge--cook {
   background: var(--color-spark-amber);
   color: var(--color-accent-ink);
+  border-color: oklch(0.08 0.02 145);
+}
+
+.product-media-badge--beta {
+  background: var(--color-day-orange);
+  color: #0c0a09;
   border-color: oklch(0.08 0.02 145);
 }
 
@@ -674,6 +693,25 @@ a:focus-visible,
   background: var(--color-spark-amber);
   border-color: var(--color-spark-amber);
   color: var(--color-accent-ink);
+}
+
+/* Dayplay skin */
+.product-card--dayplay {
+  background: linear-gradient(160deg, var(--color-day-paper) 0%, var(--color-day-panel) 100%);
+}
+
+.product-card--dayplay .product-feats li::before {
+  background: var(--color-day-orange);
+}
+
+.product-card--dayplay:hover {
+  border-color: var(--color-day-orange);
+}
+
+.product-card--dayplay .btn-primary {
+  background: var(--color-day-orange);
+  border-color: var(--color-day-orange);
+  color: #0c0a09;
 }
 
 /* Incubating */
