@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive business plan for a premium artisanal matcha soft serve café in Downtown Oakland and the East Bay — unit economics, permitting, financing, and grounded foot-traffic models with cited sources.">
+  <meta name="theme-color" content="#3d6b4f">
+  <title>Matcha Planner — Lime Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/matchaplanner/styles.css">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="app-shell">
+    <aside class="rail" id="rail" data-menu-open="false" aria-label="Plan navigation">
+      <div class="rail-top">
+        <a class="rail-brand" href="/">
+          <span class="rail-brand-kicker">limelabs.dev / matchaplanner</span>
+          <span class="rail-brand-name"><span class="swirl" aria-hidden="true"></span>Matcha Planner</span>
+        </a>
+        <button type="button" class="rail-toggle" id="rail-toggle" aria-controls="rail-panel" aria-expanded="false">Sections</button>
+      </div>
+
+      <div class="rail-panel" id="rail-panel">
+        <nav class="rail-nav" id="rail-nav" aria-label="Sections">
+          <a href="#overview" aria-current="true">Overview</a>
+          <a href="#menu">Menu &amp; COGS</a>
+          <a href="#oakland">Why Oakland “rushes”</a>
+          <a href="#funding">Grants &amp; capital</a>
+          <a href="#permits">Permits &amp; gear</a>
+          <a href="#paths">Path A / Path B</a>
+          <a href="#traffic">Foot traffic lab</a>
+          <a href="#proforma">Year-1 proforma</a>
+          <a href="#capital">Capital stacks</a>
+          <a href="#risks">Risks &amp; next steps</a>
+          <a href="#sources">Sources</a>
+        </nav>
+
+        <div class="rail-tools">
+          <button type="button" id="expand-all">Expand all backup</button>
+          <button type="button" id="collapse-all">Collapse backup</button>
+          <a href="#sources">Jump to citations</a>
+          <a href="/">← Lime Labs</a>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main" class="main">
+      <header class="hero" id="overview">
+        <h1>Premium matcha soft serve — Oakland go-to-market brief</h1>
+        <p class="hero-lead">
+          An interactive reading of the definitive plan for a design-forward Japanese matcha &amp; dessert concept across Downtown Oakland, Uptown, and the East Bay — with unit economics, landlord vacancy dynamics, CDFA/health permitting, and scenario models you can stress-test.
+        </p>
+        <div class="hero-meta">
+          <span>Geography: East Bay, CA</span>
+          <span>Concept: high-throughput specialty soft serve</span>
+          <span>Tracks: mobile validation + concession B&amp;M</span>
+        </div>
+      </header>
+
+      <!-- OVERVIEW -->
+      <section class="section prose" aria-labelledby="overview-h">
+        <h2 id="overview-h">What this venture is</h2>
+        <p class="lede">
+          Single-origin soft serve and ceremonial beverages built on Uji / Yame tencha, Straus organic dairy, and house oat bases — authentic umami green, not dyed culinary filler.
+        </p>
+        <p>
+          Soft serve is the operational wedge: commercial dispensers pull in <strong>10–15 seconds</strong> versus 3–5 minutes of barista touch-time at specialty coffee or boba. A two-person station can push roughly <strong>120–180 transactions per hour</strong> in a rush — decisive for festival nights and dense foot-traffic bursts.
+        </p>
+
+        <div class="metric-grid">
+          <div class="metric">
+            <span class="metric-label">Weighted gross margin</span>
+            <span class="metric-value">84.5%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Path A capital</span>
+            <span class="metric-value">$25–35k</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Path B capital</span>
+            <span class="metric-value">$120–225k</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Peak pull time</span>
+            <span class="metric-value">10–15s</span>
+          </div>
+        </div>
+
+        <details class="expander">
+          <summary>Strategic advantages — product, throughput, dual-track launch</summary>
+          <div class="expander-body">
+            <ol>
+              <li><strong>Product integrity:</strong> custom-batched ceremonial / barista-grade first-harvest tencha; no commercial premixes or culinary-filler powders.</li>
+              <li><strong>Throughput:</strong> overrun calibrated ~40–45% for dense artisanal texture while expanding yield per gallon of base.</li>
+              <li><strong>Two tracks:</strong> Path A mobile testing ($25–35k) across farmers markets, First Fridays, catering; Path B concession / pop-up storefront exploiting Measure W, FTIP, and CA AB 1679.</li>
+            </ol>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.oaklandca.gov/Business/For-Landlords/Vacant-Property-Tax-VPT" target="_blank" rel="noopener noreferrer">Oakland Vacant Property Tax</a>
+              <a class="source-chip" href="https://leginfo.legislature.ca.gov/" target="_blank" rel="noopener noreferrer">CA Legislature (AB 1679)</a>
+              <a class="source-chip" href="#src-ftip">FTIP grant</a>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- MENU -->
+      <section class="section" id="menu" aria-labelledby="menu-h">
+        <h2 id="menu-h">Menu architecture &amp; COGS</h2>
+        <p class="lede">Soft serve sits among the highest gross-margin F&amp;B formats when overrun, portioning, and packaging are controlled. Expand any row for ingredient logic.</p>
+
+        <div class="table-wrap" role="region" aria-label="COGS table" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th class="num">Retail</th>
+                <th class="num">Total COGS</th>
+                <th class="num">Gross $</th>
+                <th class="num">Margin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Matcha soft serve (cup)</td>
+                <td class="num">$7.75</td>
+                <td class="num">$1.00</td>
+                <td class="num">$6.75</td>
+                <td class="num margin-hi">87.1%</td>
+              </tr>
+              <tr>
+                <td>Matcha soft serve (charcoal cone)</td>
+                <td class="num">$8.50</td>
+                <td class="num">$1.31</td>
+                <td class="num">$7.19</td>
+                <td class="num margin-hi">84.6%</td>
+              </tr>
+              <tr>
+                <td>Hojicha / duo swirl cone</td>
+                <td class="num">$8.75</td>
+                <td class="num">$1.25</td>
+                <td class="num">$7.50</td>
+                <td class="num margin-hi">85.7%</td>
+              </tr>
+              <tr>
+                <td>Deluxe Kyoto parfait</td>
+                <td class="num">$12.50</td>
+                <td class="num">$2.35</td>
+                <td class="num">$10.15</td>
+                <td class="num margin-hi">81.2%</td>
+              </tr>
+              <tr>
+                <td>Cold-whisked iced matcha latte</td>
+                <td class="num">$7.25</td>
+                <td class="num">$1.13</td>
+                <td class="num">$6.12</td>
+                <td class="num margin-hi">84.4%</td>
+              </tr>
+              <tr>
+                <td>Sparkling yuzu matcha tonic</td>
+                <td class="num">$7.50</td>
+                <td class="num">$1.20</td>
+                <td class="num">$6.30</td>
+                <td class="num margin-hi">84.0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="prose"><span class="badge">Weighted avg GM 84.5%</span> across the modeled sales mix.</p>
+
+        <details class="expander">
+          <summary>Signature swirls &amp; vessels</summary>
+          <div class="expander-body">
+            <ul>
+              <li><em>Ceremonial Uji matcha</em> — vibrant umami, gentle bitterness</li>
+              <li><em>Roasted hojicha</em> — nutty, toasty, low caffeine</li>
+              <li><em>Matcha–hojicha duo</em> — yin-yang visual signature</li>
+              <li>Vessels: activated-charcoal black sesame waffle cones, matcha-infused cones, or compostable cups</li>
+            </ul>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.strausfamilycreamery.com/" target="_blank" rel="noopener noreferrer">Straus Family Creamery</a>
+              <a class="source-chip" href="https://www.minorfigures.com/" target="_blank" rel="noopener noreferrer">Minor Figures oat</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>Kyoto Tower parfait build</summary>
+          <div class="expander-body">
+            <p>Layered soft serve, house kuromitsu (Okinawan black sugar), toasted kinako, hand-rolled shiratama dango, organic Hokkaido azuki, matcha kanten jelly, puffed genmai.</p>
+            <p>Modeled toppings COGS ≈ <strong>$1.05</strong> + soft-serve portion <strong>$0.85</strong> + dome cup/spoon <strong>$0.45</strong> = <strong>$2.35</strong> total COGS on a $12.50 ticket.</p>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>Line-item COGS backup (cup example)</summary>
+          <div class="expander-body">
+            <ul>
+              <li>Packaging: $0.22 compostable cup + wood spoon</li>
+              <li>Base: $0.78 Straus organic dairy + 4g Uji matcha</li>
+              <li>Toppings: $0.00 on plain cup</li>
+              <li>Total COGS $1.00 → $6.75 gross profit (87.1%)</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <!-- OAKLAND -->
+      <section class="section" id="oakland" aria-labelledby="oakland-h">
+        <h2 id="oakland-h">Why Downtown storefronts look “rushed”</h2>
+        <p class="lede">Vinyl windows and irregular hours along Broadway, 14th, Telegraph, and 17th are often rational responses to tax, zoning, grant clocks, and pop-up law — not random mismanagement.</p>
+
+        <details class="expander" open>
+          <summary>1. Measure W vacant property tax — the 50-day rule</summary>
+          <div class="expander-body">
+            <p>Under Oakland Municipal Code Chapter 4.56, commercial ground-floor vacancy can trigger roughly <strong>$3,000–$6,000+ per parcel annually</strong>. An exemption path exists when the space is in <strong>active commercial use ≥ 50 days</strong> in a calendar year (or with an active building permit in plan review).</p>
+            <p>Landlords therefore chase short-term pop-ups — sometimes at <strong>$0 base rent</strong> or light percentage rent — to clear the 50-day bar.</p>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.oaklandca.gov/Business/For-Landlords/Vacant-Property-Tax-VPT" target="_blank" rel="noopener noreferrer">City of Oakland — Vacant Property Tax</a>
+              <a class="cite" href="#src-vpt">[1]</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>2. DOSP ground-floor activation mandates</summary>
+          <div class="expander-body">
+            <p>The Downtown Oakland Specific Plan (adopted July 2024) and D-DT zoning push active commercial frontages on designated corridors. High-density residential projects face pressure under CUPs / certificates of occupancy to keep street-level bays lit and occupied.</p>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Downtown-Oakland-Specific-Plan-DOSP" target="_blank" rel="noopener noreferrer">Downtown Oakland Specific Plan</a>
+              <a class="cite" href="#src-dosp">[2]</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>3. Grant drawdown clocks (FTIP &amp; Activate Oakland)</summary>
+          <div class="expander-body">
+            <p>Façade and Tenant Improvement Program grants (up to <strong>$25,000</strong>) and Activate Oakland sponsorships require executed leases, permits, signage, and openings inside narrow fiscal windows — so operators often install exterior identity before interiors are finished.</p>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.oaklandca.gov/Business/For-Landlords/Facade-and-Tenant-Improvement-Grant" target="_blank" rel="noopener noreferrer">FTIP grant page</a>
+              <a class="source-chip" href="https://www.oaklandca.gov/Government/Departments/Economic-Workforce-Development" target="_blank" rel="noopener noreferrer">Economic &amp; Workforce Development</a>
+              <a class="cite" href="#src-ftip">[3]</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>4. California AB 1679 — 120-day pop-up framework</summary>
+          <div class="expander-body">
+            <p>AB 1679 directs cities toward a streamlined <strong>120-day vacant storefront pop-up permit</strong>, reducing full change-of-occupancy friction for temporary pilots and accelerating certain TI plan-check paths for permanent small-business improvements.</p>
+            <div class="source-row">
+              <a class="source-chip" href="https://leginfo.legislature.ca.gov/" target="_blank" rel="noopener noreferrer">California Legislative Information</a>
+              <a class="cite" href="#src-ab1679">[4]</a>
+            </div>
+          </div>
+        </details>
+
+        <div class="callout">
+          <p><strong>Operator takeaway:</strong> negotiate Measure W–motivated landlords with AB 1679 pop-up terms, FTIP matching, and a written option to convert to a multi-year lease after sales proof — not a handshake 50-day band-aid.</p>
+        </div>
+      </section>
+
+      <!-- FUNDING -->
+      <section class="section" id="funding" aria-labelledby="funding-h">
+        <h2 id="funding-h">Grants, CDFIs &amp; capital map</h2>
+        <p class="lede">Oakland’s stack is decentralized versus San Francisco’s Vacant to Vibrant — but FTIP dollars and landlord concessions can be stronger on paper if you assemble them yourself.</p>
+
+        <div class="table-wrap" role="region" aria-label="SF vs Oakland programs" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>SF Vacant to Vibrant</th>
+                <th>Oakland ecosystem</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Structure</td>
+                <td>Municipal–nonprofit (SF New Deal + OEWD)</td>
+                <td>FTIP, BIDs, Activate Oakland, AB 1679</td>
+              </tr>
+              <tr>
+                <td>Direct grants</td>
+                <td>$10–15k activation</td>
+                <td>Up to $25k FTIP; $5–20k Activate</td>
+              </tr>
+              <tr>
+                <td>Rent</td>
+                <td>Often free base 3–6 mo via program</td>
+                <td>Landlord deals via Measure W ($0 / % rent)</td>
+              </tr>
+              <tr>
+                <td>Corridors</td>
+                <td>FiDi, Union Square, Mid-Market</td>
+                <td>Broadway / 14th / 19th, Uptown, Old Oakland, Chinatown, JLS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <details class="expander">
+          <summary>City &amp; county grants</summary>
+          <div class="expander-body">
+            <ul>
+              <li><strong>FTIP</strong> — up to $25k matching for façade, signage, lighting, MEP, ADA</li>
+              <li><strong>Activate Oakland</strong> — Visit Oakland / City sponsorships, $5–20k event / corridor activations</li>
+              <li><strong>Alameda County</strong> — periodic micro-business TA and recovery grants via Social Services / CDA</li>
+            </ul>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.oaklandca.gov/Business/For-Landlords/Facade-and-Tenant-Improvement-Grant" target="_blank" rel="noopener noreferrer">FTIP</a>
+              <a class="source-chip" href="https://sfnewdeal.org/vacant-to-vibrant" target="_blank" rel="noopener noreferrer">SF Vacant to Vibrant</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>CDFIs, mission lenders &amp; equity</summary>
+          <div class="expander-body">
+            <ul>
+              <li><a href="https://mainstreetlaunch.org/oakland-launch/" target="_blank" rel="noopener noreferrer">Main Street Launch</a> — Oakland RLF $10–100k, SBA 7(a) micro, CalCAP; HQ on Broadway</li>
+              <li><a href="https://www.sanleandrochamber.com/programs-copy/" target="_blank" rel="noopener noreferrer">Working Solutions CDFI</a> — $5–100k microloans, 5-year fixed, 0% / low-interest options</li>
+              <li><a href="https://www.ica.fund/" target="_blank" rel="noopener noreferrer">ICA Fund</a> — Oakland mission VC / revenue-share, ~$50–250k+</li>
+              <li><strong>Kiva Oakland</strong> — crowdfunded 0% up to $15k, no collateral — strong fit for tabletop freezer + generator</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>Incubators &amp; commissaries (required for mobile)</summary>
+          <div class="expander-body">
+            <ul>
+              <li><a href="https://oaklandbloom.org/" target="_blank" rel="noopener noreferrer">Oakland Bloom / Open Test Kitchen</a> — 528 8th St, Old Oakland</li>
+              <li>Mandela Partners &amp; Kitchener Oakland — shared kitchens + commissary verification letters for TFF permits</li>
+            </ul>
+            <div class="source-row">
+              <a class="source-chip" href="https://oaklandbloom.org/" target="_blank" rel="noopener noreferrer">oaklandbloom.org</a>
+              <a class="source-chip" href="https://health.alamedacountyca.gov/unit/community-events-and-temporary-food-facilities/" target="_blank" rel="noopener noreferrer">Alameda County TFF</a>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <!-- PERMITS -->
+      <section class="section" id="permits" aria-labelledby="permits-h">
+        <h2 id="permits-h">Permits, dairy licensure &amp; equipment</h2>
+        <p class="lede">Soft serve is dairy manufacturing under California law — plan CDFA and county health in parallel, not after the machine arrives.</p>
+
+        <details class="expander" open>
+          <summary>CDFA Semi-Frozen (Soft-Serve) Milk Products Plant License</summary>
+          <div class="expander-body">
+            <p>Enforced by the California Department of Food and Agriculture Milk &amp; Dairy Food Safety Branch. Required for gravity or pressurized freezers using dairy mixes.</p>
+            <ul>
+              <li>Quarterly bacterial plate counts (coliform &lt; 10 CFU/ml; SPC &lt; 50,000 CFU/ml)</li>
+              <li>CIP wash–rinse–sanitize logs every 24–72 hours by machine class</li>
+            </ul>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.cdfa.ca.gov/ahfss/Milk_and_Dairy_Food_Safety/Milk_Product_Licenses.html" target="_blank" rel="noopener noreferrer">CDFA milk product licenses</a>
+              <a class="cite" href="#src-cdfa">[5]</a>
+            </div>
+          </div>
+        </details>
+
+        <details class="expander">
+          <summary>Alameda County Environmental Health</summary>
+          <div class="expander-body">
+            <p><strong>Path A (markets / mobile):</strong> Temporary Food Facility permit (Class 2 or 3) + active <em>Commissary Verification Agreement</em>.</p>
+            <p><strong>Path B (storefront):</strong> formal plan review (layout, MEP, cut sheets), 3-compartment sink with dual drainboards, handwash, mop sink, backflow prevention. Soft-serve-only concepts often avoid heavy grease interceptor burden — confirm with city plumbing.</p>
+            <div class="source-row">
+              <a class="source-chip" href="https://health.alamedacountyca.gov/unit/community-events-and-temporary-food-facilities/" target="_blank" rel="noopener noreferrer">TFF / community events</a>
+              <a class="cite" href="#src-tff">[6]</a>
+            </div>
+          </div>
+        </details>
+
+        <div class="table-wrap" role="region" aria-label="Equipment specs" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Equipment</th>
+                <th>Recommendation</th>
+                <th class="num">Est. cost</th>
+                <th>Power</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>B&amp;M soft serve</td>
+                <td>Taylor C707 / C708 or Carpigiani 191</td>
+                <td class="num">$7.5–22k</td>
+                <td>208–230V, 30A dedicated</td>
+              </tr>
+              <tr>
+                <td>Mobile tabletop</td>
+                <td>Spaceman 6228 or Taylor 152</td>
+                <td class="num">$3.5–9.5k</td>
+                <td>208–230V (or 115V for 152)</td>
+              </tr>
+              <tr>
+                <td>Inverter generator</td>
+                <td>Honda EU7000is</td>
+                <td class="num">$4.2–4.8k</td>
+                <td>7kW peak / 5.5kW cont., &lt;58 dBA</td>
+              </tr>
+              <tr>
+                <td>Under-counter fridge</td>
+                <td>True TUC-48 / Turbo Air</td>
+                <td class="num">$2.2–3.5k</td>
+                <td>115V / 15A</td>
+              </tr>
+              <tr>
+                <td>Induction + boiler</td>
+                <td>Vollrath / Zojirushi commercial</td>
+                <td class="num">$0.8–1.4k</td>
+                <td>115V / 208V</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PATHS -->
+      <section class="section" id="paths" aria-labelledby="paths-h">
+        <h2 id="paths-h">Path A vs Path B timelines</h2>
+        <p class="lede">Toggle tracks. Path A is the low-capex truth serum; Path B is the concession-driven storefront sprint.</p>
+
+        <div class="path-switch" role="group" aria-label="Launch path">
+          <button type="button" class="path-card" data-path-btn="a" aria-pressed="true">
+            <strong>Path A — Mobile</strong>
+            <span>60–90 days · $25–35k · markets, festivals, catering</span>
+          </button>
+          <button type="button" class="path-card" data-path-btn="b" aria-pressed="false">
+            <strong>Path B — Storefront</strong>
+            <span>120–180 days · $120–225k · pop-up → lease conversion</span>
+          </button>
+        </div>
+
+        <div class="path-detail panel" data-path-panel="a">
+          <p class="panel-title">Path A roadmap</p>
+          <ol class="timeline">
+            <li>
+              <strong>Month 1 — Legal &amp; licensing</strong>
+              LLC, EIN, seller’s permit, Oakland business tax; commissary at Bloom / Kitchener; Alameda TFF (~$500–700); tabletop freezer + portable handwash.
+            </li>
+            <li>
+              <strong>Month 2 — Supply &amp; market apps</strong>
+              Uji/Yame brokers; Straus wholesale; apply Grand Lake (Sat), Temescal (Sun), Old Oakland (Fri); validate Honda EU7000is + cold-chain.
+            </li>
+            <li>
+              <strong>Month 3 — Launch &amp; scale</strong>
+              Two weekend markets; First Fridays vendor permit; Instagram/TikTok swirl content; measure real capture rates.
+            </li>
+          </ol>
+          <div class="source-row">
+            <a class="source-chip" href="https://www.agriculturalinstitute.org/farmers-markets" target="_blank" rel="noopener noreferrer">AIM / Grand Lake</a>
+            <a class="source-chip" href="https://oaklandbloom.org/" target="_blank" rel="noopener noreferrer">Oakland Bloom</a>
+          </div>
+        </div>
+
+        <div class="path-detail panel" data-path-panel="b" hidden>
+          <p class="panel-title">Path B roadmap</p>
+          <ol class="timeline">
+            <li>
+              <strong>Months 1–2 — Site &amp; lease</strong>
+              Hunt 2nd-gen cafe spaces; target Measure W–exposed landlords; 4–6 months free base / TI $15–30/sf / convert option; apply FTIP $25k.
+            </li>
+            <li>
+              <strong>Months 3–4 — Build &amp; CDFA</strong>
+              Health + building plan review; CDFA semi-frozen license; 208–230V drops; minimalist Japanese counter brand.
+            </li>
+            <li>
+              <strong>Months 5–6 — Open</strong>
+              Final inspections; CIP + swirl training; Visit Oakland / Activate soft launch; grand opening.
+            </li>
+          </ol>
+          <div class="source-row">
+            <a class="source-chip" href="https://www.oaklandca.gov/Business/For-Landlords/Facade-and-Tenant-Improvement-Grant" target="_blank" rel="noopener noreferrer">FTIP</a>
+            <a class="source-chip" href="https://www.cdfa.ca.gov/ahfss/Milk_and_Dairy_Food_Safety/Milk_Product_Licenses.html" target="_blank" rel="noopener noreferrer">CDFA licenses</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRAFFIC -->
+      <section class="section" id="traffic" aria-labelledby="traffic-h">
+        <h2 id="traffic-h">Foot traffic lab</h2>
+        <p class="lede">Cold dessert does not convert like produce. Markets open cold; the real window is roughly <strong>11:30–1:30</strong>. Use the calculator to stay honest.</p>
+
+        <details class="expander">
+          <summary>East Bay market visitor ranges (plan baselines)</summary>
+          <div class="expander-body">
+            <ul>
+              <li><a href="https://www.agriculturalinstitute.org/farmers-markets" target="_blank" rel="noopener noreferrer">Grand Lake</a> (Sat) — ~5,000–7,500 warm days; ~2,500–4,000 overcast/winter</li>
+              <li><a href="https://health.alamedacountyca.gov/program/certified-farmers-market-cfm-program/" target="_blank" rel="noopener noreferrer">Temescal</a> (Sun) — ~1,500–2,500</li>
+              <li>Old Oakland (Fri) — ~1,200–2,000, lunch-weighted</li>
+              <li>Berkeley markets — ~1,500–3,000</li>
+            </ul>
+            <p>Category capture benchmarks in the plan: staples 10–18%; hot lunch 3–5%; niche impulse dessert <strong>1.2–2.2%</strong>.</p>
+          </div>
+        </details>
+
+        <div class="panel">
+          <p class="panel-title">Transaction &amp; revenue estimator</p>
+          <div class="calc">
+            <div class="field">
+              <label for="calc-visitors">Market visitors</label>
+              <input id="calc-visitors" type="number" min="0" step="100" value="2000">
+            </div>
+            <div class="field">
+              <label for="calc-conversion">Capture rate (%)</label>
+              <input id="calc-conversion" type="number" min="0" max="20" step="0.1" value="1.5">
+            </div>
+            <div class="field">
+              <label for="calc-aov">Average order value ($)</label>
+              <input id="calc-aov" type="number" min="0" step="0.25" value="10.50">
+            </div>
+            <div class="calc-result">
+              <p style="margin:0 0 0.35rem">Estimated transactions: <strong id="calc-tx">30</strong></p>
+              <p style="margin:0 0 0.5rem">Estimated gross: <strong id="calc-rev">$315</strong></p>
+              <p id="calc-note" style="margin:0;font-size:0.9rem;color:var(--color-ink-2)"></p>
+              <div class="source-row" style="margin-top:0.75rem">
+                <button type="button" class="tab" data-calc-preset="2000,1.5,10.5">Temescal baseline</button>
+                <button type="button" class="tab" data-calc-preset="5500,1.2,10.5">Grand Lake baseline</button>
+                <button type="button" class="tab" data-calc-preset="5500,2.0,10.5">Grand Lake strong</button>
+                <button type="button" class="tab" data-calc-preset="15000,4.0,10.5">Evening festival</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <details class="expander">
+          <summary>Why pure farmers markets top out ~$50–75k/year</summary>
+          <div class="expander-body">
+            <p>Two markets/week, ~96 operating days after weather cancels, 50–75 orders/day at ~$10.25 AOV → roughly <strong>$49–74k</strong> gross and <strong>~$18–26k</strong> EBITDA. Useful as a test engine — not a $200k story by itself.</p>
+            <p>Diversified mobile (Scenario 1B) adds evening festivals (First Fridays, night markets), corporate catering minimums, and a winter hot-beverage pivot to reach ~<strong>$150–185k+</strong>.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- PROFORMA -->
+      <section class="section" id="proforma" aria-labelledby="proforma-h">
+        <h2 id="proforma-h">Year-1 proforma scenarios</h2>
+        <p class="lede">Four modeled operating formats. Switch tabs — accounting identity: Revenue − COGS = Gross Profit; Gross Profit − OPEX = EBITDA.</p>
+
+        <div data-tabs>
+          <div class="tabs" role="tablist" aria-label="Proforma scenario">
+            <button type="button" class="tab" role="tab" aria-selected="true" aria-controls="sc-1a" id="tab-1a">1A Market stall</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="sc-1b" id="tab-1b">1B Diversified mobile</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="sc-2" id="tab-2">2 Concession B&amp;M</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="sc-3" id="tab-3">3 Flagship</button>
+          </div>
+
+          <div class="tab-panel panel" role="tabpanel" id="sc-1a" aria-labelledby="tab-1a">
+            <p class="panel-title">Scenario 1A — Pure farmers market stall</p>
+            <div class="metric-grid">
+              <div class="metric"><span class="metric-label">Format</span><span class="metric-value" style="font-size:1.05rem">2 mkts/wk · 96 days</span></div>
+              <div class="metric"><span class="metric-label">Gross revenue</span><span class="metric-value">$59,040</span></div>
+              <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">$17,529</span></div>
+              <div class="metric"><span class="metric-label">EBITDA margin</span><span class="metric-value">29.7%</span></div>
+            </div>
+            <details class="expander">
+              <summary>Full P&amp;L lines</summary>
+              <div class="expander-body">
+                <ul>
+                  <li>COGS 15.5%: ($9,151) → GP $49,889 (84.5%)</li>
+                  <li>Labor: ($14,760) · Stall/commissary: ($9,600)</li>
+                  <li>Utilities/fuel: ($2,400) · Marketing: ($1,800) · Permits/insurance: ($3,800)</li>
+                  <li>Total OPEX: ($32,360) · Prime cost 40.5%</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="tab-panel panel" role="tabpanel" id="sc-1b" aria-labelledby="tab-1b" hidden>
+            <p class="panel-title">Scenario 1B — Diversified mobile &amp; catering</p>
+            <div class="metric-grid">
+              <div class="metric"><span class="metric-label">Format</span><span class="metric-value" style="font-size:1.05rem">Mkts + 12 festivals + 18 gigs</span></div>
+              <div class="metric"><span class="metric-label">Gross revenue</span><span class="metric-value">$165,550</span></div>
+              <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">$61,002</span></div>
+              <div class="metric"><span class="metric-label">EBITDA margin</span><span class="metric-value">36.8%</span></div>
+            </div>
+            <details class="expander">
+              <summary>Revenue engine mix</summary>
+              <div class="expander-body">
+                <ul>
+                  <li>Weekend markets baseline ~$60–70k</li>
+                  <li>10–12 evening festivals: 250–400 tx @ $2.6–4.2k → +$30–45k</li>
+                  <li>15–20 catering minimums ($1.5–2.5k) → +$30–45k</li>
+                  <li>Winter hot matcha / hojicha / dango pivot Nov–Feb</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="tab-panel panel" role="tabpanel" id="sc-2" aria-labelledby="tab-2" hidden>
+            <p class="panel-title">Scenario 2 — Concession storefront (~750 sf)</p>
+            <div class="metric-grid">
+              <div class="metric"><span class="metric-label">Volume</span><span class="metric-value" style="font-size:1.05rem">240 orders/day · 6 days</span></div>
+              <div class="metric"><span class="metric-label">Gross revenue</span><span class="metric-value">$778,752</span></div>
+              <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">$368,557</span></div>
+              <div class="metric"><span class="metric-label">EBITDA margin</span><span class="metric-value">47.3%</span></div>
+            </div>
+            <details class="expander">
+              <summary>Occupancy &amp; labor assumptions</summary>
+              <div class="expander-body">
+                <ul>
+                  <li>Rent/occupancy: ($45,600) ≈ $3,800/mo net after concessions</li>
+                  <li>Labor 25% of revenue: ($194,688)</li>
+                  <li>Prime cost 40.5% — still in specialty dessert band if throughput holds</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="tab-panel panel" role="tabpanel" id="sc-3" aria-labelledby="tab-3" hidden>
+            <p class="panel-title">Scenario 3 — Flagship Uptown (7 days)</p>
+            <div class="metric-grid">
+              <div class="metric"><span class="metric-label">Volume</span><span class="metric-value" style="font-size:1.05rem">410 orders/day</span></div>
+              <div class="metric"><span class="metric-label">Gross revenue</span><span class="metric-value">$1.72M</span></div>
+              <div class="metric"><span class="metric-label">EBITDA</span><span class="metric-value">$903,900</span></div>
+              <div class="metric"><span class="metric-label">EBITDA margin</span><span class="metric-value">52.5%</span></div>
+            </div>
+            <div class="callout">
+              <p>Flagship figures assume sustained high-density Uptown demand and viral destination status — treat as upside case after Path A/B proof, not a day-one budget.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAPITAL -->
+      <section class="section" id="capital" aria-labelledby="capital-h">
+        <h2 id="capital-h">Capitalization stacks</h2>
+        <p class="lede">Three non-exclusive funding architectures. Bars show source mix for each stack.</p>
+
+        <div data-tabs>
+          <div class="tabs" role="tablist" aria-label="Capital scenario">
+            <button type="button" class="tab" role="tab" aria-selected="true" aria-controls="cap-1" id="tab-cap-1">$35k bootstrap</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="cap-2" id="tab-cap-2">$150k hybrid</button>
+            <button type="button" class="tab" role="tab" aria-selected="false" aria-controls="cap-3" id="tab-cap-3">$275k equity+</button>
+          </div>
+
+          <div class="tab-panel panel" role="tabpanel" id="cap-1" aria-labelledby="tab-cap-1">
+            <p class="panel-title">Lean bootstrapped mobile — $35,000</p>
+            <div class="fund-bars">
+              <div class="fund-row"><span>Founder equity</span><div class="fund-bar"><i style="width:57%"></i></div><span class="fund-amt">$20k</span></div>
+              <div class="fund-row"><span>Kiva 0%</span><div class="fund-bar"><i style="width:43%"></i></div><span class="fund-amt">$15k</span></div>
+            </div>
+            <details class="expander">
+              <summary>Uses of funds</summary>
+              <div class="expander-body">
+                <ul>
+                  <li>Refurbished tabletop freezer — $8,500</li>
+                  <li>Honda EU7000is + cords/fuel — $4,500</li>
+                  <li>Canopy, coolers, sinks, POS — $3,200</li>
+                  <li>Matcha &amp; packaging (3 mo) — $5,800</li>
+                  <li>Commissary + permits — $3,000</li>
+                  <li>Working capital reserve — $10,000</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="tab-panel panel" role="tabpanel" id="cap-2" aria-labelledby="tab-cap-2" hidden>
+            <p class="panel-title">Hybrid debt + municipal grant — $150,000</p>
+            <div class="fund-bars">
+              <div class="fund-row"><span>Founder</span><div class="fund-bar"><i style="width:23%"></i></div><span class="fund-amt">$35k</span></div>
+              <div class="fund-row"><span>Main St RLF</span><div class="fund-bar"><i style="width:50%"></i></div><span class="fund-amt">$75k</span></div>
+              <div class="fund-row"><span>FTIP grant</span><div class="fund-bar"><i style="width:17%"></i></div><span class="fund-amt">$25k</span></div>
+              <div class="fund-row"><span>Working Sol.</span><div class="fund-bar"><i style="width:10%"></i></div><span class="fund-amt">$15k</span></div>
+            </div>
+            <div class="source-row">
+              <a class="source-chip" href="https://mainstreetlaunch.org/oakland-launch/" target="_blank" rel="noopener noreferrer">Main Street Launch</a>
+              <a class="source-chip" href="https://www.oaklandca.gov/Business/For-Landlords/Facade-and-Tenant-Improvement-Grant" target="_blank" rel="noopener noreferrer">FTIP</a>
+            </div>
+          </div>
+
+          <div class="tab-panel panel" role="tabpanel" id="cap-3" aria-labelledby="tab-cap-3" hidden>
+            <p class="panel-title">Angel / mission equity partnership — $275,000</p>
+            <div class="fund-bars">
+              <div class="fund-row"><span>Founder</span><div class="fund-bar"><i style="width:18%"></i></div><span class="fund-amt">$50k</span></div>
+              <div class="fund-row"><span>ICA / angels</span><div class="fund-bar"><i style="width:55%"></i></div><span class="fund-amt">$150k</span></div>
+              <div class="fund-row"><span>SBA 7(a)</span><div class="fund-bar"><i style="width:27%"></i></div><span class="fund-amt">$75k</span></div>
+            </div>
+            <div class="source-row">
+              <a class="source-chip" href="https://www.ica.fund/" target="_blank" rel="noopener noreferrer">ICA Fund</a>
+              <a class="source-chip" href="https://mainstreetlaunch.org/oakland-launch/" target="_blank" rel="noopener noreferrer">Main Street Launch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RISKS -->
+      <section class="section" id="risks" aria-labelledby="risks-h">
+        <h2 id="risks-h">Risk matrix &amp; founder action plan</h2>
+        <p class="lede">Adversarial risks with mandatory mitigations — then a checkable 18-week sequence. Progress saves in this browser.</p>
+
+        <div class="table-wrap" role="region" aria-label="Risk matrix" tabindex="0">
+          <table>
+            <thead>
+              <tr>
+                <th>Risk</th>
+                <th>Level</th>
+                <th>Mitigation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Morning chill / low market dessert demand</td>
+                <td><span class="risk-hi">High</span></td>
+                <td>Hot ceremonial lattes, hojicha steamers, warm dango before 11:30</td>
+              </tr>
+              <tr>
+                <td>Compressor overload / soupy mix</td>
+                <td><span class="risk-hi">High</span></td>
+                <td>208–230V high-capacity cylinder; pre-chill mix &lt;38°F</td>
+              </tr>
+              <tr>
+                <td>Winter revenue collapse</td>
+                <td><span class="risk-med">Medium</span></td>
+                <td>Gift boxes, indoor night markets, corporate pop-ups</td>
+              </tr>
+              <tr>
+                <td>Measure W landlord bait-and-switch</td>
+                <td><span class="risk-med">Medium</span></td>
+                <td>Written renewal caps or 120-day exit under AB 1679</td>
+              </tr>
+              <tr>
+                <td>CDFA inspection delay / shutdown</td>
+                <td><span class="risk-lo">Low–Med</span></td>
+                <td>File CDFA with TFF; keep daily CIP logs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <p class="panel-title">Immediate action checklist <span class="badge" id="check-progress">0 of 0 complete</span></p>
+          <ul class="checklist">
+            <li>
+              <input type="checkbox" id="c1" data-check="c1">
+              <label for="c1">Execute commissary agreement at <a href="https://oaklandbloom.org/" target="_blank" rel="noopener noreferrer">Oakland Bloom</a> or Kitchener Oakland</label>
+            </li>
+            <li>
+              <input type="checkbox" id="c2" data-check="c2">
+              <label for="c2">File Alameda County annual TFF + CDFA Semi-Frozen Milk Products Plant License</label>
+            </li>
+            <li>
+              <input type="checkbox" id="c3" data-check="c3">
+              <label for="c3">Procure 208–230V tabletop (Spaceman 6228) + Honda EU7000is</label>
+            </li>
+            <li>
+              <input type="checkbox" id="c4" data-check="c4">
+              <label for="c4">Apply Grand Lake (Sat) + Temescal (Sun); backup Old Oakland / Berkeley</label>
+            </li>
+            <li>
+              <input type="checkbox" id="c5" data-check="c5">
+              <label for="c5">Open Straus wholesale + Uji/Yame direct-trade broker accounts</label>
+            </li>
+            <li>
+              <input type="checkbox" id="c6" data-check="c6">
+              <label for="c6">Submit Oakland First Fridays vendor application (evening dessert volume)</label>
+            </li>
+            <li>
+              <input type="checkbox" id="c7" data-check="c7">
+              <label for="c7">Outreach: multifamily towers (e.g. Atlas Oakland) + tech offices for catered pop-ups</label>
+            </li>
+            <li>
+              <input type="checkbox" id="c8" data-check="c8">
+              <label for="c8">Retain East Bay retail broker; pitch Measure W landlords for AB 1679 pop-up + % rent convert option</label>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SOURCES -->
+      <section class="section" id="sources" aria-labelledby="sources-h">
+        <h2 id="sources-h">Sources &amp; further reading</h2>
+        <p class="lede">Primary public references backing the regulatory, grant, and market claims in this planner. Numbers in the financial model are plan assumptions — verify current fees and program availability before filing.</p>
+
+        <ol class="sources-list">
+          <li id="src-vpt">
+            <span class="src-id">[1]</span>
+            <a href="https://www.oaklandca.gov/Business/For-Landlords/Vacant-Property-Tax-VPT" target="_blank" rel="noopener noreferrer">City of Oakland — Vacant Property Tax (Measure W / OMC Ch. 4.56)</a>
+            <div>Commercial vacancy tax framework and active-use exemptions.</div>
+          </li>
+          <li id="src-dosp">
+            <span class="src-id">[2]</span>
+            <a href="https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Downtown-Oakland-Specific-Plan-DOSP" target="_blank" rel="noopener noreferrer">Downtown Oakland Specific Plan (DOSP)</a>
+            <div>Ground-floor activation and D-DT corridor policy context.</div>
+          </li>
+          <li id="src-ftip">
+            <span class="src-id">[3]</span>
+            <a href="https://www.oaklandca.gov/Business/For-Landlords/Facade-and-Tenant-Improvement-Grant" target="_blank" rel="noopener noreferrer">Façade and Tenant Improvement Grant (FTIP)</a>
+            ·
+            <a href="https://www.oaklandca.gov/Government/Departments/Economic-Workforce-Development" target="_blank" rel="noopener noreferrer">Economic &amp; Workforce Development</a>
+          </li>
+          <li id="src-ab1679">
+            <span class="src-id">[4]</span>
+            <a href="https://leginfo.legislature.ca.gov/" target="_blank" rel="noopener noreferrer">California Legislative Information</a>
+            <div>Search AB 1679 for the vacant storefront pop-up permitting framework and related plan-check streamlining.</div>
+          </li>
+          <li id="src-cdfa">
+            <span class="src-id">[5]</span>
+            <a href="https://www.cdfa.ca.gov/ahfss/Milk_and_Dairy_Food_Safety/Milk_Product_Licenses.html" target="_blank" rel="noopener noreferrer">CDFA — Milk Product Licenses</a>
+            <div>Semi-frozen / soft-serve plant licensure and dairy food safety branch.</div>
+          </li>
+          <li id="src-tff">
+            <span class="src-id">[6]</span>
+            <a href="https://health.alamedacountyca.gov/unit/community-events-and-temporary-food-facilities/" target="_blank" rel="noopener noreferrer">Alameda County — Temporary Food Facilities</a>
+            ·
+            <a href="https://health.alamedacountyca.gov/program/certified-farmers-market-cfm-program/" target="_blank" rel="noopener noreferrer">Certified Farmers Market program</a>
+          </li>
+          <li id="src-sfv2v">
+            <span class="src-id">[7]</span>
+            <a href="https://sfnewdeal.org/vacant-to-vibrant" target="_blank" rel="noopener noreferrer">SF New Deal — Vacant to Vibrant</a>
+            <div>Comparative municipal pop-up activation model cited in the plan.</div>
+          </li>
+          <li id="src-msl">
+            <span class="src-id">[8]</span>
+            <a href="https://mainstreetlaunch.org/oakland-launch/" target="_blank" rel="noopener noreferrer">Main Street Launch — Oakland</a>
+            ·
+            <a href="https://www.ica.fund/" target="_blank" rel="noopener noreferrer">ICA Fund</a>
+            ·
+            <a href="https://oaklandbloom.org/" target="_blank" rel="noopener noreferrer">Oakland Bloom</a>
+          </li>
+          <li id="src-markets">
+            <span class="src-id">[9]</span>
+            <a href="https://www.agriculturalinstitute.org/farmers-markets" target="_blank" rel="noopener noreferrer">Agricultural Institute of Marin — Farmers Markets</a>
+            <div>Grand Lake / AIM market network context for East Bay weekend traffic.</div>
+          </li>
+          <li id="src-dairy">
+            <span class="src-id">[10]</span>
+            <a href="https://www.strausfamilycreamery.com/" target="_blank" rel="noopener noreferrer">Straus Family Creamery</a>
+            ·
+            <a href="https://www.minorfigures.com/" target="_blank" rel="noopener noreferrer">Minor Figures</a>
+            <div>Modeled dairy / oat supply partners in the menu architecture.</div>
+          </li>
+        </ol>
+      </section>
+
+      <footer class="footer">
+        <nav class="footer-index" aria-label="Footer index">
+          <a href="#overview">Overview</a>
+          <a href="#menu">COGS</a>
+          <a href="#oakland">Oakland</a>
+          <a href="#funding">Funding</a>
+          <a href="#permits">Permits</a>
+          <a href="#paths">Paths</a>
+          <a href="#traffic">Traffic lab</a>
+          <a href="#proforma">Proforma</a>
+          <a href="#capital">Capital</a>
+          <a href="#risks">Actions</a>
+          <a href="#sources">Sources</a>
+        </nav>
+        <p>
+          Interactive planner by <a href="/">Lime Labs</a> from the Premium Artisanal Matcha Soft Serve business plan.
+          Not legal, tax, or lending advice — confirm program terms, fees, and codes with the linked agencies before acting.
+        </p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/matchaplanner/app.js" defer></script>
+</body>
+</html>
