@@ -104,14 +104,16 @@
 
         <!-- Sparkwatch -->
         <article class="product-card product-card--sparkwatch">
-          <a class="product-media" href="https://sparkwatch.app" target="_blank" rel="noopener noreferrer">
-            <img
-              src="assets/sparkwatch-cover.svg"
-              alt="Sparkwatch — amber velocity curve rising above a median on a dark navy field"
-              width="1280"
-              height="720"
-              loading="lazy"
-            />
+          <a
+            class="product-media product-media--live"
+            href="https://sparkwatch.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Sparkwatch — live runtime pipeline preview. Opens sparkwatch.app"
+          >
+            <div class="sw-cover">
+              <div class="sw-cover__scale" data-sw-pipeline></div>
+            </div>
             <span class="product-media-badge product-media-badge--cook">Still Cooking</span>
           </a>
           <div class="product-body">
@@ -359,5 +361,6 @@
   </footer>
 
   <script type="module" src="motion.js"></script>
+  <script src="assets/sparkwatch-pipeline.js" defer></script>
 </body>
 </html>

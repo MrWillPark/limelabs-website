@@ -18,38 +18,34 @@
   <circle cx="920" cy="300" r="340" fill="url(#dp-glow)"/>
   <circle cx="160" cy="580" r="180" fill="rgba(34,197,94,0.05)"/>
 
-  <!-- Engine console frame -->
   <rect x="520" y="140" width="640" height="440" rx="28" fill="url(#dp-console)" stroke="rgba(255,87,34,0.35)" stroke-width="2"/>
   <rect x="520" y="140" width="640" height="56" rx="28" fill="#151210"/>
   <rect x="520" y="180" width="640" height="16" fill="#151210"/>
   <text x="552" y="176" fill="#A8A29E" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="16" font-weight="500" letter-spacing="0.12em">ENGINE CONSOLE</text>
   <text x="1080" y="176" fill="#FF5722" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="14" text-anchor="end">api.dayplay.io/mcp</text>
 
-  <!-- Pipeline stages -->
   <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" fill="#D6D3D1">
     <rect x="556" y="230" width="132" height="36" rx="8" fill="#1F1A17" stroke="rgba(255,87,34,0.25)"/>
     <text x="572" y="253"><tspan fill="#FF5722">01</tspan> Intent</text>
-    <text x="698" y="253" fill="#57534E">’</text>
+    <text x="698" y="253" fill="#57534E">&gt;</text>
     <rect x="720" y="230" width="148" height="36" rx="8" fill="#1F1A17" stroke="rgba(255,87,34,0.25)"/>
     <text x="736" y="253"><tspan fill="#FF5722">02</tspan> Centroid</text>
-    <text x="878" y="253" fill="#57534E">’</text>
+    <text x="878" y="253" fill="#57534E">&gt;</text>
     <rect x="900" y="230" width="132" height="36" rx="8" fill="#1F1A17" stroke="rgba(255,87,34,0.45)"/>
     <text x="916" y="253"><tspan fill="#FF5722">03</tspan> MCP</text>
   </g>
 
-  <!-- Live result card -->
   <rect x="556" y="300" width="476" height="220" rx="16" fill="#0C0A09" stroke="rgba(255,255,255,0.08)"/>
   <circle cx="580" cy="328" r="5" fill="#22C55E"/>
-  <text x="596" y="333" fill="#A8A29E" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13">LIVE · SF · OAK · BER</text>
+  <text x="596" y="333" fill="#A8A29E" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13">LIVE - SF - OAK - BER</text>
   <text x="580" y="380" fill="#FAFAF9" font-family="Syne, Arial Narrow, sans-serif" font-size="28" font-weight="700">Verified spatial graph</text>
-  <text x="580" y="418" fill="#A8A29E" font-family="IBM Plex Sans, Helvetica Neue, sans-serif" font-size="16">40 tools · zero hallucinations · dual handoff</text>
-  <rect x="580" y="448" width="120" height="32" rx="8" fill="rgba(255,87,34,0.15)" stroke="#FF5722"/>
-  <text x="640" y="469" fill="#FF5722" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" text-anchor="middle">get_happening_today</text>
-  <rect x="716" y="448" width="88" height="32" rx="8" fill="#1F1A17" stroke="rgba(255,255,255,0.1)"/>
-  <text x="760" y="469" fill="#D6D3D1" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" text-anchor="middle">35 nodes</text>
+  <text x="580" y="418" fill="#A8A29E" font-family="IBM Plex Sans, Helvetica Neue, sans-serif" font-size="16">40 tools - zero hallucinations - dual handoff</text>
+  <rect x="580" y="448" width="168" height="32" rx="8" fill="rgba(255,87,34,0.15)" stroke="#FF5722"/>
+  <text x="664" y="469" fill="#FF5722" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" text-anchor="middle">get_happening_today</text>
+  <rect x="764" y="448" width="88" height="32" rx="8" fill="#1F1A17" stroke="rgba(255,255,255,0.1)"/>
+  <text x="808" y="469" fill="#D6D3D1" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" text-anchor="middle">35 nodes</text>
 
-  <!-- Brand star -->
   <path d="M220 250l38.4 115.2L480 380l-117.6 4.8L220 500l-38.4-115.2L64 380l117.6-4.8L220 250z" fill="#FF5722" opacity="0.95"/>
   <text x="96" y="580" fill="#FAFAF9" font-family="Syne, Arial Narrow, sans-serif" font-size="42" font-weight="700">Dayplay</text>
-  <text x="96" y="620" fill="#A8A29E" font-family="IBM Plex Sans, Helvetica Neue, sans-serif" font-size="18">Local intelligence engine · agent MCP</text>
+  <text x="96" y="620" fill="#A8A29E" font-family="IBM Plex Sans, Helvetica Neue, sans-serif" font-size="18">Local intelligence engine - agent MCP</text>
 </svg>
