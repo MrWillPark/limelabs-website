@@ -46,17 +46,17 @@
       label: "🎲 Game Night",
       prompt: "game night in san francisco this month",
       result: {
-        title: "16th Avenue Tiled Steps",
-        desc: "Community-driven mosaic of sea-to-stars imagery across 163 steps.",
-        hood: "Inner Sunset",
-        tags: ["Landmark", "Outdoor"],
+        title: "Gamescape — North Beach",
+        desc: "Board-game cafe with open tables, verified hours, and walkable dinner next door.",
+        hood: "North Beach",
+        tags: ["Games", "Indoor"],
       },
     },
   ];
 
   var STAGE_MS = 700;
-  var HOLD_MS = 2600;
-  var IDLE_MS = 900;
+  var HOLD_MS = 2800;
+  var IDLE_MS = 700;
 
   function mount(root) {
     if (!root || root.dataset.mounted) return;
