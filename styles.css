@@ -1598,7 +1598,12 @@ a:focus-visible,
 }
 
 .product-card--specialistfactory .product-media {
-  background: var(--color-sf-paper);
+  background: #f4f5f7;
+}
+
+.product-card--specialistfactory .product-media img {
+  object-fit: cover;
+  object-position: center center;
 }
 
 /* Incubating */
