@@ -37,11 +37,11 @@
   --color-day-orange: #ff5722;
   --color-day-live: #22c55e;
 
-  --color-sf-paper: #e8ebf0;
-  --color-sf-panel: #f7f8fa;
+  --color-sf-paper: #f4f5f7;
+  --color-sf-panel: #fafbfc;
   --color-sf-ink: #121820;
-  --color-sf-accent: #1a4fc4;
-  --color-sf-accent-soft: #dce7fa;
+  --color-sf-accent: #0055ff;
+  --color-sf-accent-soft: #d0e0ff;
 
   --font-display: "Syne", "Arial Narrow", sans-serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", sans-serif;
