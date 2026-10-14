@@ -37,6 +37,12 @@
   --color-day-orange: #ff5722;
   --color-day-live: #22c55e;
 
+  --color-sf-paper: #e8ebf0;
+  --color-sf-panel: #f7f8fa;
+  --color-sf-ink: #121820;
+  --color-sf-accent: #1a4fc4;
+  --color-sf-accent-soft: #dce7fa;
+
   --font-display: "Syne", "Arial Narrow", sans-serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -460,6 +466,14 @@ a:focus-visible,
   background: radial-gradient(
     520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
     color-mix(in srgb, var(--color-day-orange) 18%, transparent),
+    transparent 65%
+  );
+}
+
+.product-card--specialistfactory.has-spotlight::before {
+  background: radial-gradient(
+    520px circle at var(--spot-x, -999px) var(--spot-y, -999px),
+    color-mix(in srgb, var(--color-sf-accent) 16%, transparent),
     transparent 65%
   );
 }
@@ -1558,6 +1572,33 @@ a:focus-visible,
   background: var(--color-day-orange);
   border-color: var(--color-day-orange);
   color: #0c0a09;
+}
+
+/* Specialist Factory skin */
+.product-card--specialistfactory {
+  background: linear-gradient(160deg, #1a2230 0%, #121820 100%);
+}
+
+.product-card--specialistfactory .product-eyebrow {
+  color: #9aa6b8;
+}
+
+.product-card--specialistfactory .product-feats li::before {
+  background: var(--color-sf-accent);
+}
+
+.product-card--specialistfactory:hover {
+  border-color: var(--color-sf-accent);
+}
+
+.product-card--specialistfactory .btn-primary {
+  background: var(--color-sf-accent);
+  border-color: var(--color-sf-accent);
+  color: #ffffff;
+}
+
+.product-card--specialistfactory .product-media {
+  background: var(--color-sf-paper);
 }
 
 /* Incubating */

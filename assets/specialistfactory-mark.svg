@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <rect width="64" height="64" rx="8" fill="#121820"/>
+  <text
+    x="32"
+    y="40"
+    text-anchor="middle"
+    fill="#FFFFFF"
+    font-family="Syne, Arial Narrow, sans-serif"
+    font-size="22"
+    font-weight="800"
+    letter-spacing="-0.04em"
+  >SF</text>
+</svg>
