@@ -1,0 +1,40 @@
+Specialist Factory
+Title: Specialist Factory — Task Models Under Your Agent Stack
+Task models under your agent — outperform general LLMs, basically free.
+
+Your agent's loops can't fix a general LLM.
+Put a task model under it.
+For basically free.
+
+Product: task model — small open-weight model trained on your labeled outcomes for one scoped job, called by your agent.
+Not: a specialist agent, an agent platform, a RAG product, or another frontier API.
+
+Stack:
+Your agent / harness
+ │ calls
+ ▼
+Task model (open weights + your labeled outcomes)
+ │ runs on
+ ▼
+Shared cloud · Your cloud (BYOC) · Confidential GPU
+
+Beachhead: Teams that already have an agent or workflow on one labeled, high-volume job — stuck because a general or frontier LLM is still flaky, expensive, or unsafe with proprietary data even with loops and tools around it.
+
+Trust ladder: Shared (Pilot) → BYOC (Build) → Confidential GPU (Scale). On-prem deferred.
+
+Pricing: Pilot $0 / $50 credits · Build $499/mo · Scale $2500/mo · Enterprise custom.
+
+Brand assets:
+https://specialistfactory.com/brand/mark.svg
+https://specialistfactory.com/brand/mark.png
+https://specialistfactory.com/brand/og-cover-1200x630.jpg
+
+Citation pages:
+https://specialistfactory.com/what-is-a-task-model
+https://specialistfactory.com/compare
+https://specialistfactory.com/eval
+https://specialistfactory.com/how-it-works
+https://specialistfactory.com/pricing
+https://specialistfactory.com/trust
+https://specialistfactory.com/tools/cost-calculator
+https://specialistfactory.com/llms.txt
