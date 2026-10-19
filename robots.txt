@@ -1,0 +1,18 @@
+# Lime Labs — daughter pages are unlisted. No public sitemap.
+
+User-agent: *
+Disallow: /matchaplanner
+Disallow: /matchaplanner/
+Disallow: /partners/
+Disallow: /partners
+Disallow: /*one-pager
+Disallow: /katsura-garden
+Disallow: /moss-and-spade
+Disallow: /memory-plants
+Disallow: /bggh
+Disallow: /.tmp-print/
+Disallow: /sitemap.xml
+Disallow: /sitemap
+Disallow: /sitemap_index.xml
+
+# Intentionally no "Sitemap:" line — do not advertise a crawl map.
